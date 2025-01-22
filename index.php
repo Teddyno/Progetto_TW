@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage - UniSA Gym</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
 </head>
 <body>
     <?php include 'header.html'; ?>

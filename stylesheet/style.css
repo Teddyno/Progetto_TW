@@ -7,14 +7,7 @@ body {
     box-sizing: border-box;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #f4ede4;
-    font-weight: bold;
-}
+
 
 .header ul {
     list-style: none;
@@ -24,9 +17,4 @@ body {
     gap: 20px;
 }
 
-button{
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #6d2828;
-}
+

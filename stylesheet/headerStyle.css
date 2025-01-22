@@ -1,10 +1,25 @@
 
-.header {
+.topnav a{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+.topnav a:hover {
+    background-color: #447bf2;
+    border-radius: 12px;
+  }
+
+.header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #f4ede4;
+    background-color: #2868f3;
     font-weight: bold;
+    height: 40px;
 }
-
