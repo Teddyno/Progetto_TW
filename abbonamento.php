@@ -6,6 +6,7 @@
     <title>Abbonamento</title>
 </head>
 <body>
-    
+    <?php include 'header.html'; ?>
+    <?php include 'footer.html'; ?>
 </body>
 </html>
