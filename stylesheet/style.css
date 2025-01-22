@@ -1,17 +1,10 @@
 @import "headerStyle.css";
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-button{
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #fe6232;
 }
 
 .header {
@@ -31,4 +24,9 @@ button{
     gap: 20px;
 }
 
-
+button{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #6d2828;
+}
