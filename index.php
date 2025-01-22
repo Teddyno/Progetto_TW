@@ -6,20 +6,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
 </head>
 <body>
-    <header>
-        <div class="header">
-            <div>UniSA Gym</div>
-            <nav>
-                <ul>
-                    <li>I Nostri Corsi</li>
-                    <li>Personal Trainer</li>
-                    <li>?altre Info?</li>
-                    <li><button>Registrati</button></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+    <?php include 'header.html'; ?>
     <main>
         <section>
             <div>
@@ -34,5 +21,6 @@
             <p> descrizione piccolina</p>
         </section>
     </main>
+    <?php include 'footer.html'; ?>
 </body>
 </html>
