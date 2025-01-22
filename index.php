@@ -8,19 +8,14 @@
 <body>
     <?php include 'header.html'; ?>
     <main>
-        <section>
-            <div>
-                <h1>Frase Motivazionale 1</h1>
-                <button>Scopri di più</button>
-            </div>
-        </section>
-
-        <section>
-            <h2>About</h2>
-            <h1>UNISA GYM</h1>
-            <p> descrizione piccolina</p>
-        </section>
+        <h1>I Nostri Vantaggi</h1>
+        <div class="container">
+            <div class="card">Aperti 24h su 24</div>
+            <div class="card">Personale qualificato</div>
+            <div class="card">Teddy Nudo</div>
+        </div>
+        
     </main>
-    <?php include 'footer.html'; ?>
+    <?php // include 'footer.html'; ?>
 </body>
 </html>
