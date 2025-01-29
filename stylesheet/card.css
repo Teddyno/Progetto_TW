@@ -1,0 +1,49 @@
+.card {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    background: #5770DE;
+    position: relative;
+    padding: 29px;
+    border: 2px solid #3851CA;
+    transition: 0.5s ease-out;
+    overflow: visible;
+}
+
+.dettagli-card{
+    color: black;
+    height: 100%;
+    gap: 8px;
+    display: grid;
+    place-content: center;
+}
+
+.titolo-card{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bottone-card{
+    transform: translate(-50%, 125%);
+    width: 60%;
+    border-radius: 16px;
+    border: none;
+    background-color: #008bf8;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 16px;
+    position: absolute;
+    left: 50%;
+    opacity: 0;
+    transition: 0.3s ease-out;
+}
+
+.card:hover {
+    border-color: #D2CFCD;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card:hover .bottone-card{
+    transform: translate(-50%, 50%);
+    opacity: 1;
+}
