@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage - UniSA Gym</title>
-    <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
 </head>
-<body style="background-color: #2a2a32;">
+<body style="background-color:rgb(188, 200, 253);">
     <?php include 'header.html'; ?>
     <main>
         <br>
         <h1>I Nostri Vantaggi</h1>
         <br><br><br>
         <div class="container">
-            <div class="card">
-                <div class="dettagli-card">
-                    <p class="titolo-card">Aperti 24h su 24</p>
-                    <p class="descrizione-card">Lorem ipsum dolor sit amet</p>
+            <div class="card-info">
+                <div class="dettagli-info">
+                    <p class="titolo-info">Aperti 24h su 24</p>
+                    <p class="descrizione-info">Lorem ipsum dolor sit amet</p>
                 </div>
-                <button class="bottone-card">Scopri di più</button>
+                <button class="bottone-info">Scopri di più</button>
             </div>
-            <div class="card">
-                <div class="dettagli-card">
-                    <p class="titolo-card">Personale Qualificato</p>
-                    <p class="descrizione-card">Lorem ipsum dolor sit amet</p>
+            <div class="card-info">
+                <div class="dettagli-info">
+                    <p class="titolo-info">Personale Qualificato</p>
+                    <p class="descrizione-info">Lorem ipsum dolor sit amet</p>
                 </div>
-                <button class="bottone-card">Scopri di più</button>
+                <button class="bottone-info">Scopri di più</button>
             </div>
-            <div class="card">
-                <div class="dettagli-card">
-                    <p class="titolo-card">Teddy Nudo</p>
-                    <p class="descrizione-card">Lorem ipsum dolor sit amet</p>
+            <div class="card-info">
+                <div class="dettagli-info">
+                    <p class="titolo-info">Energia Rinnovabile</p>
+                    <p class="descrizione-info">Lorem ipsum dolor sit amet</p>
                 </div>
-                <button class="bottone-card">Scopri di più</button>
+                <button class="bottone-info">Scopri di più</button>
             </div>
         </div>
 
@@ -40,10 +40,6 @@
         <br>
         <h1>Il tuo Abbonamento</h1>
         <br><br><br>
-        <!-- <div class="container">
-            <div class="card">Abbonamento Base</div>
-            <div class="card">Abbonamento Premium</div>
-            <div class="card">Abbonamento Gold</div> -->
 
         <div class="container-barra">
             <div class="barra-progressiva" id="barra-progressiva"></div>
@@ -53,15 +49,42 @@
         <br><br>
         <hr>
         <br>
+
         <h1>Le Nostre Offerte</h1>
         <br><br><br>
-        <div class="container">
-            <div class="card">Aperti 24h su 24</div>
-            <div class="card">Personale qualificato</div>
-            <div class="card">Teddy Nudo</div>
+        <div class="container-offerte">
+            <div class="card-offerta">
+                <div class="immagine-offerta">I</div>
+                <div class="dettagli-offerta">
+                    <p class="titolo-offerta">Piano Base</p>
+                    <p class="prezzo-offerta">€19,90</p>
+                    <p class="prezzo-vecchio-offerta">&nbsp;$6</p>
+                </div>
+                <button class="bottone-offerta">ACQUISTA ORA</button>
+            </div>
+
+            <div class="card-offerta">
+                <div class="immagine-offerta">II</div>
+                <div class="dettagli-offerta">
+                    <p class="titolo-offerta">Piano Medio</p><br>
+                    <p class="prezzo-offerta">€29,90</p>
+                    <p class="prezzo-vecchio-offerta"> $6</p>
+                </div>
+                <button class="bottone-offerta">ACQUISTA ORA</button>
+            </div>
+
+            <div class="card-offerta">
+                <div class="immagine-offerta">III</div>
+                <div class="dettagli-offerta">
+                    <p class="titolo-offerta">Piano Pro</p>
+                    <p class="prezzo-offerta">€49,90</p>
+                    <p class="prezzo-vecchio-offerta">&nbsp;$6</p>
+                </div>
+                <button class="bottone-offerta">ACQUISTA ORA</button>
+            </div>
+
         </div>
-        
     </main>
-    <?php // include 'footer.html'; ?>
+    <?php include 'footer.html'; ?>
 </body>
 </html>
