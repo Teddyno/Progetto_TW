@@ -1,0 +1,20 @@
+.container-barra{
+    width: 300px;
+    background-color: rgb(182, 182, 182);
+    height: 25px;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.barra-progressiva{
+    height: 100%;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+#testo-barra{
+    text-align: center;
+    font-size: 16px;
+    margin-top: 5px;
+}
