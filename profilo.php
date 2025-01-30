@@ -16,32 +16,32 @@
         <a href="#section4">Log out</a>
     </header>
 
-    <section id="section1">
+    <section class="section-profilo" id="section1">
         <div class="dettagli-info">
             <p class="titolo-info">Dati Personali</p>
             <p>Contenuto della sezione 1.</p>
         </div>
     </section>
-    <section id="section2">
+    <section class="section-profilo" id="section2">
         <div class="dettagli-info">
             <p class="titolo-info">abbonamento</p>
             <p>Contenuto della sezione 2.</p>
         </div>
     </section>
-    <section id="section3">
+    <section class="section-profilo" id="section3">
         <div class="dettagli-info">
             <p class="titolo-info">Sicurezza</p>
             <p>Contenuto della sezione 3.</p>
         </div>
     </section>
-    <section id="section4">
+    <section class="section-profilo" id="section4">
         <div class="dettagli-info">
             <p class="titolo-info">Log out</p>
             <p><button>Log out</button></p>
         </div>
     </section>
     <script src="js/indiceDinamico.js"></script>
-
+    
     <?php include 'footer.html'; ?>
 </body>
 </html>

@@ -13,9 +13,14 @@
     margin: 10px 0;
     color: #000000;
     text-decoration: none;
+    border-radius: 5px;
+}
+.indice a.active{
+    background-color: #447bf2;
+    color: #ffffff;
 }
 
-section{
+.section-profilo{
     margin-left:140px;
     padding-left: 20px;
     min-height: 1000px; /* solo per le prove */
