@@ -9,7 +9,7 @@ function attivaSezioni(linkNavigazione, current) {
 
 function controllaVisibilita(sezioni, current, scroll) {
     sezioni.forEach((section) => {
-        const sectionTop = section.offsetTop;
+        const sectionTop = section.offsetTop; /* la distanza tra la section e il parent in pixel, in questo caso la distanza con il confine superiore della pagina*/
 
         if (scroll >= sectionTop - 100 ) {
             current = section.getAttribute("id");
@@ -22,6 +22,7 @@ const sezioni = document.querySelectorAll(".section-profilo");
 const linkNavigazione = document.querySelectorAll(".indice a");
 
 let current = "section1";
+attivaSezioni(linkNavigazione, current);
 
 window.addEventListener("scroll", () => {
     let scroll = window.scrollY;
