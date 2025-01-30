@@ -1,0 +1,22 @@
+.indice {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.indice a{
+    display: block;
+    margin: 10px 0;
+    color: #000000;
+    text-decoration: none;
+}
+
+section{
+    margin-left:140px;
+    padding-left: 20px;
+    min-height: 1000px; /* solo per le prove */
+}
