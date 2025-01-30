@@ -56,9 +56,9 @@
             <div class="card-offerta">
                 <div class="immagine-offerta">I</div>
                 <div class="dettagli-offerta">
-                    <p class="titolo-offerta">Piano Base</p>
+                    <p class="titolo-offerta">Piano Base</p><br>
                     <p class="prezzo-offerta">€19,90</p>
-                    <p class="prezzo-vecchio-offerta">&nbsp;$6</p>
+                    <p class="prezzo-vecchio-offerta"> $20,00</p>
                 </div>
                 <button class="bottone-offerta">ACQUISTA ORA</button>
             </div>
@@ -68,7 +68,7 @@
                 <div class="dettagli-offerta">
                     <p class="titolo-offerta">Piano Medio</p><br>
                     <p class="prezzo-offerta">€29,90</p>
-                    <p class="prezzo-vecchio-offerta"> $6</p>
+                    <p class="prezzo-vecchio-offerta"> $32,00</p>
                 </div>
                 <button class="bottone-offerta">ACQUISTA ORA</button>
             </div>
@@ -76,9 +76,9 @@
             <div class="card-offerta">
                 <div class="immagine-offerta">III</div>
                 <div class="dettagli-offerta">
-                    <p class="titolo-offerta">Piano Pro</p>
+                    <p class="titolo-offerta">Piano Pro</p><br>
                     <p class="prezzo-offerta">€49,90</p>
-                    <p class="prezzo-vecchio-offerta">&nbsp;$6</p>
+                    <p class="prezzo-vecchio-offerta"> $60,00</p>
                 </div>
                 <button class="bottone-offerta">ACQUISTA ORA</button>
             </div>

@@ -19,25 +19,28 @@
     <section class="section-profilo" id="section1">
         <div class="dettagli-info">
             <p class="titolo-info">Dati Personali</p>
-            <p>Contenuto della sezione 1.</p>
+            <p>Nome : Giorgo </p>
+            <p>Cognome : Cappello</p>
+            <p>Data di nascita : 12/03/2004</p>
         </div>
     </section>
     <section class="section-profilo" id="section2">
         <div class="dettagli-info">
-            <p class="titolo-info">abbonamento</p>
-            <p>Contenuto della sezione 2.</p>
+            <p class="titolo-info">Sicurezza</p>
+            <p>Email : Giorgo.cappello@gmail.com </p>
+            <p>Password : ******** </p>
         </div>
     </section>
     <section class="section-profilo" id="section3">
         <div class="dettagli-info">
-            <p class="titolo-info">Sicurezza</p>
+            <p class="titolo-info">abbonamento</p>
             <p>Contenuto della sezione 3.</p>
         </div>
     </section>
     <section class="section-profilo" id="section4">
         <div class="dettagli-info">
             <p class="titolo-info">Log out</p>
-            <p><button>Log out</button></p>
+            <p><button class="bottone-logOut">Log out</button></p>
         </div>
     </section>
     <script src="js/indiceDinamico.js"></script>

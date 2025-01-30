@@ -1,8 +1,9 @@
 function attivaSezioni(linkNavigazione, current) {
     linkNavigazione.forEach(link => {
-        link.classList.remove("active");
         if (link.getAttribute("href").includes(current)) {
             link.classList.add("active");
+        } else {
+            link.classList.remove("active");
         }
     });
 }
