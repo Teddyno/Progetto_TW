@@ -49,7 +49,6 @@
                 <div class="barra-progressiva" id="barra-progressiva"></div>
             </div>
             <p id="testo-barra"></p>
-            <script src="js/barraProgressiva.js"></script>
             
         </div>
 
@@ -60,9 +59,9 @@
         <div class="container-offerte">
             <h1>Le Nostre Offerte</h1>
             <div class="container-offerte-card">
-                <a class="offerta-card">
+                <a class="offerta-card" id="codice-sconto">
                     <p>🐚 NUOVO CODICE SCONTO!</p>
-                    <p class="descrizione-offerta">Usa il codice "PAGURO" per ottenere il 10% di sconto sul tuo prossimo abbonamento</p>
+                    <p class="descrizione-offerta">Usa il codice "PAGURO2024" per ottenere il 10% di sconto sul tuo prossimo abbonamento</p>
                     <p class="descrizione-offerta">Clicca per COPIARE il codice</p>
                     <div class="angolo">
                         <div class="freccia">→</div>
@@ -79,7 +78,8 @@
                 </a>
             </div>
         </div>
-
+        <script src="js/barraProgressiva.js"></script>
+        <script src="js/copiaCodiceSconto.js"></script>
     </main>
     <?php include 'footer.html'; ?>
 </body>
