@@ -60,23 +60,23 @@
         <div class="container-offerte">
             <h1>Le Nostre Offerte</h1>
             <div class="container-offerte-card">
-                <div class="offerta-card">
+                <a class="offerta-card">
                     <p>🐚 NUOVO CODICE SCONTO!</p>
                     <p class="descrizione-offerta">Usa il codice "PAGURO" per ottenere il 10% di sconto sul tuo prossimo abbonamento</p>
-                    <p class="descrizione-offerta">Clicca qui per COPIARE il codice</p>
+                    <p class="descrizione-offerta">Clicca per COPIARE il codice</p>
                     <div class="angolo">
                         <div class="freccia">→</div>
                     </div>
-                </div>
+                </a>
 
-                <div class="offerta-card">
+                <a class="offerta-card" href="abbonamento.php#sezione-abbonamento">
                     <p>💰 SCONTO DEL 20%!</p>
                     <p class="descrizione-offerta">Ottieni il 20% di sconto sull'abbonamento da 12 mesi</p>
                     <p class="descrizione-offerta">Affrettati, scade tra 2 giorni!</p>
                     <div class="angolo">
                         <div class="freccia">→</div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
