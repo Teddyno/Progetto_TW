@@ -36,7 +36,7 @@
     </div>
 
 
-    <div class="contenitore-trainer">
+    <div class="contenitore-trainer" id="sezione-trainer">
         <h2 class="titolo-trainer">Personal Trainer</h2>
         <div class="griglia-trainer">
             <!-- Trainer 1 -->
