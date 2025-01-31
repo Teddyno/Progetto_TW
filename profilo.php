@@ -26,15 +26,15 @@
     </section>
     <section class="section-profilo" id="section2">
         <div class="dettagli-info">
-            <p class="titolo-info">Sicurezza</p>
-            <p>Email : Giorgo.cappello@gmail.com </p>
-            <p>Password : ******** </p>
+            <p class="titolo-info">abbonamento</p>
+            <p>Contenuto della sezione 3.</p>
         </div>
     </section>
     <section class="section-profilo" id="section3">
         <div class="dettagli-info">
-            <p class="titolo-info">abbonamento</p>
-            <p>Contenuto della sezione 3.</p>
+            <p class="titolo-info">Sicurezza</p>
+            <p>Email : Giorgo.cappello@gmail.com </p>
+            <p>Password : ******** </p>
         </div>
     </section>
     <section class="section-profilo" id="section4">
