@@ -12,7 +12,7 @@
 
     
          <!-- Sezione abbonamenti -->
-        <div class="contenitore-abbonamenti">
+        <div class="contenitore-abbonamenti" id="sezione-abbonamento">
         <h2 class="titolo-abbonamenti">I Nostri Abbonamenti</h2>
         <div class="opzioni-abbonamento">
             <div class="abbonamento">
@@ -36,7 +36,7 @@
     </div>
 
 
-    <div class="contenitore-trainer">
+    <div class="contenitore-trainer" id="sezione-trainer">
         <h2 class="titolo-trainer">Personal Trainer</h2>
         <div class="griglia-trainer">
             <!-- Trainer 1 -->
