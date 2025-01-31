@@ -1,0 +1,306 @@
+
+/* Sezione Abbonamenti */
+
+
+    /* Stile generale del corpo della pagina */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+          padding: 0;
+            text-align: center;
+            background-color: #f4f4f4; /* Sfondo chiaro */
+            color: #283b96; /* Colore principale */
+        }
+
+        /* Contenitore principale della sezione abbonamenti */
+        .contenitore-abbonamenti {
+            width: 800px; /* Larghezza fissa */
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+            border-radius: 8px;
+        }
+
+        /* Titolo della sezione */
+        .titolo-abbonamenti {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #283b96; /* Colore principale */
+        }
+
+        /* Contenitore degli abbonamenti */
+        .opzioni-abbonamento {
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* Stile singola opzione di abbonamento */
+        .abbonamento {
+            width: 220px; /* Dimensioni fisse */
+            display: inline-block;
+            margin: 15px;
+            background: #5063BF; /* Colore secondario della palette */
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: white; /* Testo bianco per contrasto */
+        }
+
+        /* Stile del numero di mesi */
+        .durata {
+            display: block;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        /* Testo "Mesi" */
+        .testo-mesi {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        /* Prezzo degli abbonamenti */
+        .prezzo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFD700; /* Oro, per evidenziare il prezzo */
+        }
+
+
+/*Sezione trainer*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #283b96;
+}
+
+/* Contenitore principale della sezione */
+.contenitore-trainer {
+    width: 900px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Titolo della sezione */
+.titolo-trainer {
+    font-size: 24px;
+    font-weight: bold;
+    color: #283b96;
+    margin-bottom: 20px;
+}
+
+/* Griglia dei personal trainer con 3 trainer per riga */
+.griglia-trainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Singolo box del trainer */
+.trainer {
+    width: 250px;
+    background: #5063BF;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+}
+
+/* Immagine del trainer */
+.foto-trainer {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #FFD700;
+    margin-bottom: 10px;
+}
+
+/* Nome del personal trainer */
+.nome-trainer {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Sezione icone social */
+.social-trainer {
+    margin: 5px 0;
+}
+
+.social-trainer a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    margin: 0 5px;
+}
+
+/* Contenitore tabella orari */
+.orari-container {
+    margin-top: 10px;
+    background: #3E4E9C;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Tabella orari */
+.tabella-orari {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabella-orari th, .tabella-orari td {
+    border: 1px solid #FFF;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.tabella-orari th {
+    background: #FFD700;
+    color: #283b96;
+}
+
+.tabella-orari td {
+    background: white;
+    color: black;
+}
+
+
+
+
+/* Sezione Servizi offerti*/
+       /* Contenitore della sezione */
+       .contenitore-servizi {
+        width: 900px;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    /* Titolo della sezione */
+    .titolo-servizi {
+        font-size: 24px;
+        font-weight: bold;
+        color: #283b96;
+        margin-bottom: 20px;
+    }
+
+    /* Griglia servizi */
+    .griglia-servizi {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    /* Singolo box servizio */
+    .servizio {
+        width: 250px;
+        background: #5063BF;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        color: white;
+    }
+
+    /* Icona servizio */
+    .icona-servizio {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    /* Nome del servizio */
+    .nome-servizio {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* Descrizione del servizio */
+    .descrizione-servizio {
+        font-size: 14px;
+        color: #FFD700;
+    }
+
+
+
+/******* Testimonianze *******/
+    .contenitore-testimonianze {
+    width: 900px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Titolo della sezione */
+.titolo-testimonianze {
+    font-size: 24px;
+    font-weight: bold;
+    color: #283b96;
+    margin-bottom: 20px;
+}
+
+/* Griglia testimonianze */
+.griglia-testimonianze {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Singola testimonianza */
+.testimonianza {
+    width: 250px;
+    background: #5063BF;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+}
+
+/* Foto cliente */
+.foto-cliente {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #FFD700;
+    margin-bottom: 10px;
+}
+
+/* Nome del cliente */
+.nome-cliente {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Valutazione a stelle */
+.stelle {
+    color: #FFD700;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Testo della recensione */
+.recensione {
+    font-size: 14px;
+    color: #FFD700;
+}
+
+   
+
+
