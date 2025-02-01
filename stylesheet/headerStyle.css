@@ -15,11 +15,21 @@
   }
 
 .header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #2868f3;
-    font-weight: bold;
-    height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #2868f3;
+  font-weight: bold;
+  height: 45px;
+  position: fixed;
+  width: 97%;
+  top:0;
+  left:0;
+  transition: transform 0.2s ease-in-out;
+  z-index: 1000;
+}
+
+.header.nascosto {
+  transform: translateY(-100%);
 }

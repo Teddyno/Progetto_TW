@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage - UniSA Gym</title>
-    <link rel="stylesheet" type="text/css" href="styleSheet/stYle.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
 </head>
 <body style="background-color:rgb(238, 238, 238);">
     <?php include 'header.html'; ?>
@@ -77,6 +77,7 @@
         <script src="js/barraProgressiva.js"></script>
         <script src="js/copiaCodiceSconto.js"></script>
         <script src="js/slideShowIndex.js"></script>
+        <script src="js/header.js"></script>
     </main>
     <?php include 'footer.html'; ?>
 </body>
