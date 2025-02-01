@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage - UniSA Gym</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet/stYle.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stYle.css">
 </head>
 <body style="background-color:rgb(238, 238, 238);">
     <?php include 'header.html'; ?>
@@ -16,9 +16,9 @@
         <div class="freccia freccia-sinistra" onclick="cambiaSlide(-1)">&#10094;</div>
 
         <div class="slideshow">
-            <div class="slide"><img src="images/interno_palestra_1.jpeg" alt="Palestra 1"></div>
-            <div class="slide"><img src="images/pt_2.jpeg" alt="Personal Trainer"></div>
-            <div class="slide"><img src="images/interno_palestra_2.jpeg" alt="Palestra 2"></div>
+            <div class="slide"><img src="images/interno_palestra_1.jpg"></div>
+            <div class="slide"><img src="images/pt_2.jpeg"></div>
+            <div class="slide"><img src="images/interno_palestra_2.jpg"></div>
         </div>
 
         <div class="freccia freccia-destra" onclick="cambiaSlide(1)">&#10095;</div>
@@ -51,40 +51,6 @@
         </div>
 
         <br><br>
-
-        <div class="container-vantaggi">
-        <h1>I Nostri Vantaggi</h1>
-            <div class="container-info">
-                <div class="card-info">
-                    <div class="dettagli-info">
-                        <p class="titolo-info">Aperti 24h su 24</p>
-                        <p class="descrizione-info">Lorem ipsum dolor sit amet</p>
-                    </div>
-                    <button class="bottone-info">Scopri di più</button>
-                </div>
-                <div class="card-info">
-                    <div class="dettagli-info">
-                        <p class="titolo-info">Personale Qualificato</p>
-                        <p class="descrizione-info">Lorem ipsum dolor sit amet</p>
-                    </div>
-                    <a href="abbonamento.php#sezione-trainer"><button class="bottone-info">Scopri di più</button></a>
-                </div>
-                <div class="card-info">
-                    <div class="dettagli-info">
-                        <p class="titolo-info">Energia Rinnovabile</p>
-                        <p class="descrizione-info">Lorem ipsum dolor sit amet</p>
-                    </div>
-                    <button class="bottone-info">Scopri di più</button>
-                </div>
-            </div>
-        </div>
-
-        <br><br>
-        <br>
-
-        <br><br>
-        <br>
-        <br><br><br>
 
         <div class="container-offerte">
             <h1>Le Nostre Offerte</h1>
