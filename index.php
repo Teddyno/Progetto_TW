@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage - UniSA Gym</title>
-    <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
 </head>
 <body style="background-color:rgb(238, 238, 238);">
     <?php include 'header.html'; ?>
@@ -11,6 +11,25 @@
         <br>
 
         <br><br><br>
+        <div class="container-a-meta">
+
+            <div class="container-cta">
+                <h1>Benvenuto in UniSA Gym</h1>
+                <p>Il tuo punto di riferimento per il fitness</p>
+                <a href="abbonamento.php#sezione-abbonamento"><button class="bottone-cta">Scopri i nostri abbonamenti</button></a>
+            </div>
+
+            <div class="container-abbonamento">
+                <h1>Il tuo Abbonamento</h1>
+                <div class="container-barra">
+                    <div class="barra-progressiva" id="barra-progressiva"></div>
+                </div>
+                <p id="testo-barra"></p>
+            </div>
+        </div>
+
+        <br><br>
+
         <div class="container-vantaggi">
         <h1>I Nostri Vantaggi</h1>
             <div class="container-info">
@@ -40,17 +59,6 @@
 
         <br><br>
         <br>
-
-        <div class="container-abbonamento">
-            <h1>Il tuo Abbonamento</h1>
-            <br><br><br>
-
-            <div class="container-barra">
-                <div class="barra-progressiva" id="barra-progressiva"></div>
-            </div>
-            <p id="testo-barra"></p>
-            
-        </div>
 
         <br><br>
         <br>
