@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HomePage - UniSA Gym</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/stYle.css">
 </head>
 <body style="background-color:rgb(238, 238, 238);">
     <?php include 'header.html'; ?>
@@ -11,6 +11,28 @@
         <br>
 
         <br><br><br>
+        <div class="container-pieno">
+    <div class="container-slideshow">
+        <div class="freccia freccia-sinistra" onclick="cambiaSlide(-1)">&#10094;</div>
+
+        <div class="slideshow">
+            <div class="slide"><img src="images/interno_palestra_1.jpeg" alt="Palestra 1"></div>
+            <div class="slide"><img src="images/pt_2.jpeg" alt="Personal Trainer"></div>
+            <div class="slide"><img src="images/interno_palestra_2.jpeg" alt="Palestra 2"></div>
+        </div>
+
+        <div class="freccia freccia-destra" onclick="cambiaSlide(1)">&#10095;</div>
+
+        <div class="container-punti">
+            <span class="punto" onclick="slideAttiva(0)"></span>
+            <span class="punto" onclick="slideAttiva(1)"></span>
+            <span class="punto" onclick="slideAttiva(2)"></span>
+        </div>
+    </div>
+</div>
+
+        <br><br>
+
         <div class="container-a-meta">
 
             <div class="container-cta">
@@ -72,7 +94,7 @@
                     <p class="descrizione-offerta">Usa il codice "PAGURO2024" per ottenere il 10% di sconto sul tuo prossimo abbonamento</p>
                     <p class="descrizione-offerta">Clicca per COPIARE il codice</p>
                     <div class="angolo">
-                        <div class="freccia">→</div>
+                        <div class="freccia-offerta">→</div>
                     </div>
                 </a>
 
@@ -81,13 +103,14 @@
                     <p class="descrizione-offerta">Ottieni il 20% di sconto sull'abbonamento da 12 mesi</p>
                     <p class="descrizione-offerta">Affrettati, scade tra 2 giorni!</p>
                     <div class="angolo">
-                        <div class="freccia">→</div>
+                        <div class="freccia-offerta">→</div>
                     </div>
                 </a>
             </div>
         </div>
         <script src="js/barraProgressiva.js"></script>
         <script src="js/copiaCodiceSconto.js"></script>
+        <script src="js/slideShowIndex.js"></script>
     </main>
     <?php include 'footer.html'; ?>
 </body>

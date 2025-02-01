@@ -2,9 +2,9 @@
     width: 300px;
     background-color: rgb(182, 182, 182);
     height: 25px;
-    margin: auto;
     border-radius: 10px;
     overflow: hidden;
+    margin: 12px 0px 8px 0px;
 }
 
 .barra-progressiva{
