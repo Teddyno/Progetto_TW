@@ -12,7 +12,7 @@
 
     <div class="contenitore-login">
         <h2 class="titolo-login">Accedi alla tua area riservata</h2>
-        <form class="form-login" action="#" method="POST">
+        <form class="form-login" action="login-manager.php" method="POST">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
 
