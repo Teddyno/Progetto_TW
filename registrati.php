@@ -9,17 +9,66 @@
 </head>
 <body>
     <?php include 'header.html'; ?>
+    <?php
+        if(isset($_POST['nome']))
+            $nome = $_POST['nome'];
+        else
+            $nome = "";
+        if(isset($_POST['email']))
+            $email = $_POST['email'];
+        else
+            $email = "";
+        if(isset($_POST['password']))
+            $pass = $_POST['password'];
+        else
+            $pass = "";
+        if(isset($_POST['repassword']))
+            $repassword = $_POST['repassword'];
+        else
+            $repassword = "";
+
+        // Se il campo password è vuoto non effettuiamo nessun altro controllo
+        if (!empty($pass)){
+            // Se le due password sono diverse mostriamo un messaggio di errore
+            if($pass!=$repassword){
+                echo "<p> Hai sbagliato a digitare la password. Riprova</p>";
+                // a $pass e $repass assegniamo una stringa vuota in modo tale che nel modulo sticky non capariranno più le password errate
+                $pass = "";
+                $repassword = "";
+            }
+            else{
+                // Se la password è stata inserita e la password di conferma coincide, proseguiamo
+                //ANDREBBERO INSERITI ANCHE I CONTROLLI DEGLI ALTRI VALORI OBBLIGATORI
+                //....
+
+                //CONTROLLO SE L'UTENTE GIA' ESISTE
+                if(username_exist($email)){
+                    echo "<p> Email $email già esistente. Riprova</p>";
+                }
+                else{
+                    //ORA posso inserire il nuovo utente nel db
+                    if(insert_utente($nome, $email, $pass)){
+                        echo "<p> Utente registrato con successo. Effettua il <a href=\"login.html\">login</a></p>";
+                    }
+                    else{
+                        echo "<p> Errore durante la registrazione. Riprova</p>";
+                    }
+                }
+            }
+        }
+
+    ?>
 
     <div class="contenitore-login">
         <h2 class="titolo-login">Crea il tuo account</h2>
-        <form class="form-login" action="#" method="POST">
+        <form class="form-login" action="registrati.php" method="POST">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
 
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
 
-            <label for="password">Password</label>
+            <label for="password">Passord</label>
             <input type="password" id="password" name="password" placeholder="Crea una password" required>
 
             <label for="conferma-password">Conferma Password</label>
@@ -36,3 +85,52 @@
     <?php include 'footer.html'; ?>
 </body>
 </html>
+
+<?php
+function username_exist($email){
+	require "./db.php";
+	//CONNESSIONE AL DB
+	//echo "Connessione al database riuscita<br/>";
+	$sql = "SELECT email FROM iscritti WHERE email=$1";
+	$prep = pg_prepare($db, "sqlEmail", $sql);
+	// $prep sarà uguale a false in caso di fallimento nella creazione del prepared statement
+
+	$ret = pg_execute($db, "sqlEmail", array($email));
+	// $ret sarà uguale a false in caso di fallimento nell'esecuzione del prepared statement
+
+	if(!$ret) {
+		echo "ERRORE QUERY: " . pg_last_error($db);
+		return false;
+	}
+	else{
+		// $row sarà uguale a false se non sono state restituite righe della tabella
+		// a seguito dell'esecizone del prepared statement.
+		// Nelle specifico, è false se la tabella non contiene un record con username uguale a $user
+		if ($row = pg_fetch_assoc($ret)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	pg_close($db);
+}
+
+function insert_utente($nome, $email, $pass){
+	require "./db.php";
+	//CONNESSIONE AL DB
+		//echo "Connessione al database riuscita<br/>";
+	$hash = password_hash($pass, PASSWORD_DEFAULT);
+	$sql = "INSERT INTO iscritti(nome, email, password) VALUES($1, $2, $3)";
+	$prep = pg_prepare($db, "insertUser", $sql);
+	$ret = pg_execute($db, "insertUser", array($nome, $email, $hash));
+	if(!$ret) {
+		echo "ERRORE QUERY: " . pg_last_error($db);
+		return false;
+	}
+	else{
+		return true;
+	}
+	pg_close($db);
+}
+?>
