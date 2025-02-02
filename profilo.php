@@ -46,5 +46,6 @@
     <script src="js/indiceDinamico.js"></script>
     
     <?php include 'footer.html'; ?>
+    <script src="js/header.js"></script>
 </body>
 </html>

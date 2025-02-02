@@ -2,9 +2,9 @@
     width: 300px;
     background-color: rgb(182, 182, 182);
     height: 25px;
-    margin: auto;
     border-radius: 10px;
     overflow: hidden;
+    margin: 12px 0px 8px 0px;
 }
 
 .barra-progressiva{
@@ -16,5 +16,4 @@
 #testo-barra{
     text-align: center;
     font-size: 16px;
-    margin-top: 5px;
 }
