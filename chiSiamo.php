@@ -25,7 +25,7 @@
 
             <div class="container-immagine">
                 <div class="immagine-int">
-                    <img src="" alt="Foto Palestra Interno">
+                    <img src="images/PalestraInterno" alt="Foto Palestra Interno">
                 </div>
             </div>
         </section>
