@@ -301,73 +301,63 @@
     padding: 20px;
     flex-direction: column;
     width: 550px;
-    height: 365px;
+    height: 340px;
+    margin-top: 20px;
+    align-items: center;
 }
 
-.controlli-calendario{
+.calendario {
+    overflow: hidden;
+    width: 500px;
+    color: white;;
+    margin-top: 10px;
+    height: 320px;
+}
+.titolo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    padding: 10px;
 }
-
-.controlli-calendario h2{
+.btn-calendario {
+    cursor: pointer;
+    color: black;
+}
+#mese-anno {
+    font-weight: bold;
     font-size: 20px;
     color: black;
 }
-
-.freccia-calendario{
-    background-color: #2868f3;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: 0.3s
-}
-
-.freccia-calendario:hover {
-    background-color: #1d4dbd;
-}
-
-.giorni-calendario{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-}
-
-.giorno{
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    background-color: rgba(135, 150, 249, 0.6);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: black
-}
-
-.giorno.allenato{
-    background-color: #2868f3;
-    color: white;
-    cursor: not-allowed;
-}
-
-.calendario{
-    background-color: transparent;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 500px;
-    color: white;
-    padding: 20px;
-    margin: auto;
-}
-
-#mese-anno{
+.giorni-settimana, .giorni {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+    flex-wrap: wrap;
+    color: black;
+}
+.giorni {
+    height: 210px;
+}
+.giorni-settimana div, .giorni div {
+    width: 14%;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    margin: 0.2px;
+}
+.giorni div {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.giorni div:hover {
+    background-color: white;
+    color: #2868f3;
+}
+.giorni .allenato {
+    background-color: #2868f3;
+    color: white;
+}
+.giorni .fade {
+    color: #555;
 }
 
 

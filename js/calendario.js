@@ -1,43 +1,44 @@
-let dataCorrente = new Date();
-let giorniAllenamento = new Set();
+let oggi = new Date();
+let meseCorrente = oggi.getMonth();
+let annoCorrente = oggi.getFullYear();
+let allenamenti = {};
 
 function creaCalendario() {
     const meseAnno = document.getElementById("mese-anno");
-    const giorni = document.getElementById("giorni-calendario");
-
-    const mese = dataCorrente.getMonth();
-    const anno = dataCorrente.getFullYear();
-
-    meseAnno.textContent = `${dataCorrente.toLocaleString('it-IT', { month: 'long' })} ${anno}`;
+    const giorni = document.getElementById("giorni");
     giorni.innerHTML = "";
 
-    const primoGiorno = new Date(anno, mese, 1);
-    const ultimoGiorno = new Date(anno, mese + 1, 0);
+    let primoGiorno = new Date(annoCorrente, meseCorrente, 1).getDay();
+    let ultimoGiorno = new Date(annoCorrente, meseCorrente + 1, 0).getDate();
 
-    const giornoInizio = primoGiorno.getDay();
+    meseAnno.textContent = new Date(annoCorrente, meseCorrente).toLocaleDateString("it-IT", { month: "long", year: "numeric" });
 
-    for(let i = 0; i < giornoInizio; i++) {
-        const giornoVuoto = document.createElement("div");
-        giornoVuoto.classList.add("giorno", "disabilitato");
+    for(let i = 0; i < primoGiorno; i++) {
+        let giornoVuoto = document.createElement("div");
+        giornoVuoto.classList.add("fade");
         giorni.appendChild(giornoVuoto);
     }
 
-    for(let giorno = 1; giorno <= ultimoGiorno.getDate(); giorno++) {
-        const giornoPieno = document.createElement("div");
-        giornoPieno.classList.add("giorno");
-        giornoPieno.textContent = giorno;
-
-        const dataGiorno = `${anno}-${mese + 1}-${giorno}`;
-        if(giorniAllenamento.has(dataGiorno)) {
+    for(let i = 1; i <= ultimoGiorno; i++) {
+        let giornoPieno = document.createElement("div");
+        giornoPieno.textContent = i;
+        let si = `${annoCorrente}-${meseCorrente + 1}-${i}`;
+        if (allenamenti[si]) {
             giornoPieno.classList.add("allenato");
         }
-
         giorni.appendChild(giornoPieno);
     }
 }
 
-function cambiaMese(direzione) {
-    dataCorrente.setMonth(dataCorrente.getMonth() + direzione);
+function cambiaMese(index) {
+    meseCorrente += index;
+    if(meseCorrente < 0) {
+        meseCorrente = 11;
+        annoCorrente--;
+    } else if(meseCorrente > 11) {
+        meseCorrente = 0;
+        annoCorrente++;
+    }  
     creaCalendario();
 }
 
@@ -48,9 +49,8 @@ function rispondiAllenamento(AllenamentoSi) {
     document.getElementById("domanda").classList.add('nascondi');
 
     if (AllenamentoSi) {
-        const oggi = new Date();
-        const dataOggi = `${oggi.getFullYear()}-${oggi.getMonth() + 1}-${oggi.getDate()}`;
-        giorniAllenamento.add(dataOggi);
+        let si = `${oggi.getFullYear()}-${oggi.getMonth() + 1}-${oggi.getDate()}`;
+        allenamenti[si] = true;
 
         const frasiMotivazionali = [
             "Grande! Continua così, sei sulla strada giusta! 🚀",
@@ -71,7 +71,7 @@ function rispondiAllenamento(AllenamentoSi) {
         messaggio.style.color = "red";
     }
     messaggio.classList.add('show-message');
+
     creaCalendario();
 }
-
-window.onload = creaCalendario;
+creaCalendario();

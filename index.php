@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>UniSA Gym - HomePage</title>
+    <title>UniSA Gym</title>
     <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
 </head>
 <body style="background-color:rgb(238, 238, 238);">
@@ -80,15 +80,23 @@
         </div>
 
         <div class="container-a-meta">
-
             <div class="container-calendario">
                 <div class="calendario">
-                    <div class="controlli-calendario">
-                        <button class="freccia-calendario" onclick="cambiaMese(-1)">⭠</button>
-                        <h2 id="mese-anno"></h2>
-                        <button class="freccia-calendario" onclick="cambiaMese(1)">⭢</button>
+                    <div class="titolo">
+                        <div id="mese-precedente" class="btn-calendario" onclick="cambiaMese(-1)">⭠</div>
+                        <div id="mese-anno"></div>
+                        <div id="mese-prossimo" class="btn-calendario" onclick="cambiaMese(1)">⭢</div>
                     </div>
-                    <div class="giorni-calendario" id="giorni-calendario"></div>
+                    <div class="giorni-settimana">
+                        <div>Dom</div>
+                        <div>Lun</div>
+                        <div>Mar</div>
+                        <div>Mer</div>
+                        <div>Gio</div>
+                        <div>Ven</div>
+                        <div>Sab</div>
+                    </div>
+                    <div class="giorni" id="giorni"></div>
                 </div>
             </div>
 
