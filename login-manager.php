@@ -19,7 +19,7 @@
 			//se username esiste nel DB. Se esiste, restituisce la password (hash), altrimenti restituisce false.
 			$hash = get_pwd($email,$db);
 			if(!$hash){
-				echo "<p> L'utente con $email non esiste. <a href=\"login.html\">Riprova</a></p>";
+				echo "<p style=\"margin-top:100px;\"> L'utente con $email non esiste. <a href=\"login.html\">Riprova</a></p>";
 			}
 			else{
 				if(password_verify($pass, $hash)){
@@ -27,15 +27,15 @@
 					//Se il login è corretto, inizializziamo la sessione
 					session_start();
 					$_SESSION['username']=$email;
-					echo "<p><a href=\"profilo.php\">Accedi</a> al contenuto riservato solo agli utenti registrati<p>";
+					echo "<p style=\"margin-top:100px;\"><a href=\"profilo.php\">Accedi</a> al contenuto riservato solo agli utenti registrati<p>";
 				}
 				else{
-					echo 'Username o password errati. <a href="login.html">Riprova</a>';
+					echo '<p style=\"margin-top:100px;\">Username o password errati. <a href="login.html">Riprova</a></p>';
 				}
 			}
 		}
 		else{
-			echo "<p>ERRORE: username o password non inseriti <a href=\"login.html\">Riprova</a></p>";
+			echo "<p style=\"margin-top:100px;\">ERRORE: username o password non inseriti <a href=\"login.html\">Riprova</a></p>";
 			exit();
 		}
 	?>
