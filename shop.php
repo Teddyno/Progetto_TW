@@ -7,7 +7,7 @@
     <title>Shop</title>
 </head>
 <body>
-    <?php include 'header.html'; ?>
+    <?php include 'header.php'; ?>
     <?php include 'footer.html'; ?>
 </body>
 </html>

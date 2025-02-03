@@ -8,12 +8,16 @@
     <title>Login</title>
 </head>
 <body>
-    <?php include 'header.html'; ?>
+    <?php include 'header.php'; ?>
     <?php
         if(isset($_POST['nome']))
             $nome = $_POST['nome'];
         else
             $nome = "";
+        if(isset($_POST['cognome']))
+            $cognome = $_POST['cognome'];
+        else
+            $cognome = "";
         if(isset($_POST['email']))
             $email = $_POST['email'];
         else
@@ -22,8 +26,8 @@
             $pass = $_POST['password'];
         else
             $pass = "";
-        if(isset($_POST['repassword']))
-            $repassword = $_POST['repassword'];
+        if(isset($_POST['conferma-password']))
+            $repassword = $_POST['conferma-password'];
         else
             $repassword = "";
 
@@ -31,7 +35,7 @@
         if (!empty($pass)){
             // Se le due password sono diverse mostriamo un messaggio di errore
             if($pass!=$repassword){
-                echo "<p> Hai sbagliato a digitare la password. Riprova</p>";
+                echo "<p style=\"margin-top:100px;\"> Hai sbagliato a digitare la password. Riprova</p>";
                 // a $pass e $repass assegniamo una stringa vuota in modo tale che nel modulo sticky non capariranno più le password errate
                 $pass = "";
                 $repassword = "";
@@ -41,17 +45,22 @@
                 //ANDREBBERO INSERITI ANCHE I CONTROLLI DEGLI ALTRI VALORI OBBLIGATORI
                 //....
 
+                require_once "db.php";
+
+                //CONNESSIONE AL DB
+                $db = pg_connect($connection_string) or die('Impossibile connettersi al database: ' . pg_last_error());
+	
                 //CONTROLLO SE L'UTENTE GIA' ESISTE
-                if(username_exist($email)){
-                    echo "<p> Email $email già esistente. Riprova</p>";
+                if(email_exist($email,$db)){
+                    echo "<p style=\"margin-top:100px;\"> Email $email già esistente. Riprova</p>";
                 }
                 else{
                     //ORA posso inserire il nuovo utente nel db
-                    if(insert_utente($nome, $email, $pass)){
-                        echo "<p> Utente registrato con successo. Effettua il <a href=\"login.html\">login</a></p>";
+                    if(insert_utente($nome, $cognome, $email, $pass,$db)){
+                        echo "<p style=\"margin-top:100px;\"> Utente registrato con successo. Effettua il <a href=\"login.php\">login</a></p>";
                     }
                     else{
-                        echo "<p> Errore durante la registrazione. Riprova</p>";
+                        echo "<p style=\"margin-top:100px;\"> Errore durante la registrazione. Riprova</p>";
                     }
                 }
             }
@@ -90,10 +99,8 @@
 </html>
 
 <?php
-function username_exist($email){
-	require "./db.php";
-	//CONNESSIONE AL DB
-	//echo "Connessione al database riuscita<br/>";
+function email_exist($email,$db){
+
 	$sql = "SELECT email FROM iscritti WHERE email=$1";
 	$prep = pg_prepare($db, "sqlEmail", $sql);
 	// $prep sarà uguale a false in caso di fallimento nella creazione del prepared statement
@@ -119,14 +126,12 @@ function username_exist($email){
 	pg_close($db);
 }
 
-function insert_utente($nome, $email, $pass){
-	require "./db.php";
-	//CONNESSIONE AL DB
-		//echo "Connessione al database riuscita<br/>";
+function insert_utente($nome,$cognome, $email, $pass,$db){
+
 	$hash = password_hash($pass, PASSWORD_DEFAULT);
-	$sql = "INSERT INTO iscritti(nome, email, password) VALUES($1, $2, $3)";
+	$sql = "INSERT INTO iscritti(nome, cognome, email, password) VALUES($1, $2, $3, $4)";
 	$prep = pg_prepare($db, "insertUser", $sql);
-	$ret = pg_execute($db, "insertUser", array($nome, $email, $hash));
+	$ret = pg_execute($db, "insertUser", array($nome, $cognome, $email, $hash));
 	if(!$ret) {
 		echo "ERRORE QUERY: " . pg_last_error($db);
 		return false;

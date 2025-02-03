@@ -8,7 +8,7 @@
     <title>Login</title>
 </head>
 <body>
-    <?php include 'header.html'; ?>
+    <?php include 'header.php'; ?>
 
     <div class="contenitore-login">
         <h2 class="titolo-login">Accedi alla tua area riservata</h2>
