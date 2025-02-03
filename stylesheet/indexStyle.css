@@ -235,7 +235,7 @@
     font-size: 20px;
 }
 
-.bottoni button {
+.bottone-si {
     background-color: #2868f3;
     color: white;
     border: none;
@@ -247,8 +247,24 @@
     transition: 0.3s;
 }
 
-.bottoni button:hover{
+.bottone-no{
+    background-color: #cd5050;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.bottone-si:hover{
     background-color: #1d4dbd;
+}
+
+.bottone-no:hover{
+    background-color: #b33d3d;
 }
 
 .messaggio{
@@ -276,3 +292,83 @@
 .container-cta h1{
     margin-top: 30px;
 }
+
+.container-calendario{
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    flex-direction: column;
+    width: 550px;
+    height: 365px;
+}
+
+.controlli-calendario{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.controlli-calendario h2{
+    font-size: 20px;
+    color: black;
+}
+
+.freccia-calendario{
+    background-color: #2868f3;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s
+}
+
+.freccia-calendario:hover {
+    background-color: #1d4dbd;
+}
+
+.giorni-calendario{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.giorno{
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(135, 150, 249, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: black
+}
+
+.giorno.allenato{
+    background-color: #2868f3;
+    color: white;
+    cursor: not-allowed;
+}
+
+.calendario{
+    background-color: transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 500px;
+    color: white;
+    padding: 20px;
+    margin: auto;
+}
+
+#mese-anno{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+
+

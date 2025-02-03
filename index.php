@@ -39,8 +39,8 @@
                 <h1>Benvenuto in UniSA Gym</h1>
                 <p class="domandona" id="domanda">Ti sei allenato oggi?</p>
                 <div class="bottoni">
-                    <button onclick="rispondiAllenamento(true)">Sì 💪</button>
-                    <button onclick="rispondiAllenamento(false)">No 😅</button>
+                    <button class="bottone-si" onclick="rispondiAllenamento(true)">Sì 💪</button>
+                    <button class="bottone-no" onclick="rispondiAllenamento(false)">No 😅</button>
                 </div>
                 <p id="messaggio-risposta" class="messaggio"></p>
             </div>
@@ -78,11 +78,34 @@
                 </a>
             </div>
         </div>
+
+        <div class="container-a-meta">
+
+            <div class="container-calendario">
+                <div class="calendario">
+                    <div class="controlli-calendario">
+                        <button class="freccia-calendario" onclick="cambiaMese(-1)">⭠</button>
+                        <h2 id="mese-anno"></h2>
+                        <button class="freccia-calendario" onclick="cambiaMese(1)">⭢</button>
+                    </div>
+                    <div class="giorni-calendario" id="giorni-calendario"></div>
+                </div>
+            </div>
+
+            <div class="container-abbonamento">
+                <h1>Il tuo Abbonamento</h1>
+                <div class="container-barra">
+                    <div class="barra-progressiva" id="barra-progressiva"></div>
+                </div>
+                <p id="testo-barra"></p>
+            </div>
+        </div>
+
         <script src="js/barraProgressiva.js"></script>
         <script src="js/copiaCodiceSconto.js"></script>
         <script src="js/slideShowIndex.js"></script>
         <script src="js/header.js"></script>
-        <script src="js/rispondiAllenamento.js"></script>
+        <script src="js/calendario.js"></script>
     </main>
     <?php include 'footer.html'; ?>
 </body>
