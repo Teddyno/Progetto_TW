@@ -3,7 +3,6 @@
 
 	//CONNESSIONE AL DB
 	$db = pg_connect($connection_string) or die('Impossibile connettersi al database: ' . pg_last_error());
-	
 ?>
 
 <html>
