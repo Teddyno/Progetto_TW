@@ -1,3 +1,10 @@
+<?php
+    require_once "db.php";
+
+	//CONNESSIONE AL DB
+	$db = pg_connect($connection_string) or die('Impossibile connettersi al database: ' . pg_last_error());
+
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -9,6 +16,23 @@
 <body>
     <?php include 'header.php'; ?>
 
+    <?php
+        $email = $_SESSION['email'];
+
+		$sql = "SELECT nome, cognome, datanascita FROM iscritti WHERE email = '$email';";
+		$ret = pg_query($db, $sql); 
+		if(!$ret) {
+			echo "ERRORE QUERY: " . pg_last_error($db);
+			exit; 
+		}
+			
+		$nome = pg_fetch_result($ret, 0, 'nome');
+		$cognome = pg_fetch_result($ret, 0, 'cognome');
+        $datanascita = pg_fetch_result($ret, 0, 'datanascita');
+
+		pg_close($db);
+	?>
+
     <header class="indice">
         <a href="#section1">Dati Personali</a>
         <a href="#section2">abbonamento</a>
@@ -19,9 +43,9 @@
         <section class="section-profilo" id="section1">
             <div class="dettagli-info">
                 <p class="titolo-info">Dati Personali</p>
-                <p>Nome : Giorgo </p>
-                <p>Cognome : Cappello</p>
-                <p>Data di nascita : 12/03/2004</p>
+                <p>Nome : <?php echo"$nome" ?></p>
+                <p>Cognome : <?php echo"$cognome" ?></p>
+                <p>Data di nascita : <?php echo"$datanascita" ?></p>
             </div>
         </section>
         <section class="section-profilo" id="section2">
@@ -33,7 +57,7 @@
         <section class="section-profilo" id="section3">
             <div class="dettagli-info">
                 <p class="titolo-info">Sicurezza</p>
-                <p>Email : Giorgo.cappello@gmail.com </p>
+                <p>Email : <?php echo"$email"?> </p>
                 <p>Password : ******** </p>
             </div>
         </section>
