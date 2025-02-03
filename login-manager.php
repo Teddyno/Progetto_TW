@@ -26,7 +26,13 @@
 					echo "<p>Login Eseguito con successo</p>";
 					//Se il login è corretto, inizializziamo la sessione
 					session_start();
-					$_SESSION['username']=$email;
+					$_SESSION['email']=$email;
+					$_SESSION['autenticato']=true;
+					?>
+					<script>
+						window.location.href = "profilo.php";
+					</script>
+					<?php
 					echo "<p style=\"margin-top:100px;\"><a href=\"profilo.php\">Accedi</a> al contenuto riservato solo agli utenti registrati<p>";
 				}
 				else{

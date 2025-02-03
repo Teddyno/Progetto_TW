@@ -8,12 +8,16 @@
     <title>Login</title>
 </head>
 <body>
-    <?php include 'header.html'; ?>
+    <?php include 'header.php'; ?>
     <?php
         if(isset($_POST['nome']))
             $nome = $_POST['nome'];
         else
             $nome = "";
+        if(isset($_POST['cognome']))
+            $cognome = $_POST['cognome'];
+        else
+            $cognome = "";
         if(isset($_POST['email']))
             $email = $_POST['email'];
         else
@@ -52,8 +56,8 @@
                 }
                 else{
                     //ORA posso inserire il nuovo utente nel db
-                    if(insert_utente($nome, $email, $pass,$db)){
-                        echo "<p style=\"margin-top:100px;\"> Utente registrato con successo. Effettua il <a href=\"login.html\">login</a></p>";
+                    if(insert_utente($nome, $cognome, $email, $pass,$db)){
+                        echo "<p style=\"margin-top:100px;\"> Utente registrato con successo. Effettua il <a href=\"login.php\">login</a></p>";
                     }
                     else{
                         echo "<p style=\"margin-top:100px;\"> Errore durante la registrazione. Riprova</p>";
@@ -122,12 +126,12 @@ function email_exist($email,$db){
 	pg_close($db);
 }
 
-function insert_utente($nome, $email, $pass,$db){
+function insert_utente($nome,$cognome, $email, $pass,$db){
 
 	$hash = password_hash($pass, PASSWORD_DEFAULT);
-	$sql = "INSERT INTO iscritti(nome, email, password) VALUES($1, $2, $3)";
+	$sql = "INSERT INTO iscritti(nome, cognome, email, password) VALUES($1, $2, $3, $4)";
 	$prep = pg_prepare($db, "insertUser", $sql);
-	$ret = pg_execute($db, "insertUser", array($nome, $email, $hash));
+	$ret = pg_execute($db, "insertUser", array($nome, $cognome, $email, $hash));
 	if(!$ret) {
 		echo "ERRORE QUERY: " . pg_last_error($db);
 		return false;

@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
 </head>
 <body style="background-color:rgb(238, 238, 238);">
-    <?php include 'header.html'; ?>
+    <?php include 'header.php'; ?>
     <main>
         <br>
 
