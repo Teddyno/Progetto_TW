@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>HomePage - UniSA Gym</title>
+    <title>UniSA Gym - HomePage</title>
     <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
 </head>
 <body style="background-color:rgb(238, 238, 238);">
