@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Logout</title>
+	<title>UniSa Gym - Logout</title>
 </head>
 <body>
 <?php
