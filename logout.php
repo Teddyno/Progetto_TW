@@ -18,10 +18,9 @@
 	if (isset($_COOKIE[$sname])) {
 		setcookie($sname,'', time()-3600,'/');
 	}
-	
-	echo "<p> Logout effettuato. Ciao $uname </p>";
-	echo "<p>Torna alla <a href=\"index.php\">Home</a></p>";
-
 ?>
+<script>
+	window.location.href = "index.php";
+</script>
 </body>
 </html>
