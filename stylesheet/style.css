@@ -1,6 +1,5 @@
 @import "headerStyle.css";
 @import "barraProgressivaStyle.css";
-@import "card.css";
 @import "profiloStyle.css";
 @import "indexStyle.css";
 
@@ -22,8 +21,4 @@ body {
 h1{
     text-align: center;
     color: black;
-}
-
-hr{
-    border-color: #283b96;
 }

@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
 </head>
 <body style="background-color:rgb(238, 238, 238);">
-    <?php include 'header.html'; ?>
+    <?php include 'header.php'; ?>
     <main>
         <br>
 
@@ -37,8 +37,12 @@
 
             <div class="container-cta">
                 <h1>Benvenuto in UniSA Gym</h1>
-                <p>Il tuo punto di riferimento per il fitness</p>
-                <a href="abbonamento.php#sezione-abbonamento"><button class="bottone-cta">Scopri i nostri abbonamenti</button></a>
+                <p class="domandona" id="domanda">Ti sei allenato oggi?</p>
+                <div class="bottoni">
+                    <button onclick="rispondiAllenamento(true)">Sì 💪</button>
+                    <button onclick="rispondiAllenamento(false)">No 😅</button>
+                </div>
+                <p id="messaggio-risposta" class="messaggio"></p>
             </div>
 
             <div class="container-abbonamento">
@@ -78,6 +82,7 @@
         <script src="js/copiaCodiceSconto.js"></script>
         <script src="js/slideShowIndex.js"></script>
         <script src="js/header.js"></script>
+        <script src="js/rispondiAllenamento.js"></script>
     </main>
     <?php include 'footer.html'; ?>
 </body>
