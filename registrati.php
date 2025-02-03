@@ -70,7 +70,7 @@
 
     <div class="contenitore-login">
         <h2 class="titolo-login">Crea il tuo account</h2>
-        <form class="form-login" action="registrati.php" method="POST">
+        <form class="form-login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
 
