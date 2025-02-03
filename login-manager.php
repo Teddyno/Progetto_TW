@@ -7,7 +7,7 @@
 
 <html>
 <head>
-	<title>Gestione Login</title>
+	<title>UniSa Gym - Gestione Login</title>
 </head>
 <body>
 	<?php
