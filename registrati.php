@@ -70,6 +70,9 @@
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
 
+            <label for="nome">Cognome</label>
+            <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
+
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
 
