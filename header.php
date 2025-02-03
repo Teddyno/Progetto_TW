@@ -15,7 +15,7 @@
             <div class="topnav">
                 <a href="abbonamento.php">Abbonamento</a>
                 <a href="shop.php">Shop</a>
-                <a href="ChiSiamo1.php">Chi Siamo?</a>
+                <a href="ChiSiamo.php">Chi Siamo?</a>
                 <?php
                     if($accesso){
                         echo "<a href=\"profilo.php\"><img src=\"images/icona_profilo.png\" height=\"20px\"></a>";
