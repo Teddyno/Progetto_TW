@@ -79,33 +79,40 @@
             </div>
         </div>
 
+        <br><br>
+
         <div class="container-a-meta">
-            <div class="container-calendario">
-                <div class="calendario">
-                    <div class="titolo">
-                        <div id="mese-precedente" class="btn-calendario" onclick="cambiaMese(-1)">⭠</div>
-                        <div id="mese-anno"></div>
-                        <div id="mese-prossimo" class="btn-calendario" onclick="cambiaMese(1)">⭢</div>
+
+            <div class="contenitore-playlist">
+                <div class="card-playlist">
+                    <img src="images/playlist1.png" alt="Copertina Playlist" class="copertina-playlist">
+                    <div class="info-playlist">
+                        <h3 class="titolo-playlist">Playlist Motivazionale</h3>
+                        <p class="descrizione-playlist">Una selezione di brani potenti e carichi di energia per spingerti </p>
+                        <p class="descrizione-playlist">oltre i tuoi limiti. 🏋️🏅</p>
                     </div>
-                    <div class="giorni-settimana">
-                        <div>Dom</div>
-                        <div>Lun</div>
-                        <div>Mar</div>
-                        <div>Mer</div>
-                        <div>Gio</div>
-                        <div>Ven</div>
-                        <div>Sab</div>
+                <a href="https://open.spotify.com/playlist/3EsJeVdF6LGU08QoCv7Jnn?si=1c53f08dfd6c46e2"><button class="button-riproduzione">▶</button></a>
+                </div>
+                <div class="card-playlist">
+                    <img src="images/playlist2.png" class="copertina-playlist">
+                    <div class="info-playlist">
+                        <h3 class="titolo-playlist">Top 100 Global</h3>
+                        <p class="descrizione-playlist">I brani più ascoltati del momento, per allenarti con il ritmo che fa tendenza! 🎶💪</p>
                     </div>
-                    <div class="giorni" id="giorni"></div>
+                    <a href="https://open.spotify.com/playlist/7ckYCUqfzKKJceZEiZu1QI?si=NIYa44hHTYCvhhA_DDb_DQ"><button class="button-riproduzione">▶</button></a>
+                </div>
+                <div class="card-playlist">
+                    <img src="images/playlist3.png" alt="Copertina Playlist" class="copertina-playlist">
+                    <div class="info-playlist">
+                        <h3 class="titolo-playlist">Hot Hits Italia</h3>
+                        <p class="descrizione-playlist">Allenati con le migliori canzoni italiane! 🔥🔥</p>
+                    </div>
+                    <a href="https://open.spotify.com/playlist/5hHMJVp0I5y5iSxz3XFPSm?si=xZX9MLSVTQO6gsoEyppf6w"><button class="button-riproduzione">▶</button></a>
                 </div>
             </div>
 
-            <div class="container-abbonamento">
-                <h1>Il tuo Abbonamento</h1>
-                <div class="container-barra">
-                    <div class="barra-progressiva" id="barra-progressiva"></div>
-                </div>
-                <p id="testo-barra"></p>
+            <div class="container-provvisorio">
+                
             </div>
         </div>
 
@@ -113,7 +120,9 @@
         <script src="js/copiaCodiceSconto.js"></script>
         <script src="js/slideShowIndex.js"></script>
         <script src="js/header.js"></script>
-        <script src="js/calendario.js"></script>
+        <script src="js/rispondiAllenamento.js"></script>
+        
+
     </main>
     <?php include 'footer.html'; ?>
 </body>

@@ -293,72 +293,92 @@
     margin-top: 30px;
 }
 
-.container-calendario{
+.contenitore-playlist {
     display: flex;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    padding: 20px;
     flex-direction: column;
-    width: 550px;
-    height: 340px;
-    margin-top: 20px;
     align-items: center;
-}
-
-.calendario {
-    overflow: hidden;
-    width: 500px;
-    color: white;;
-    margin-top: 10px;
-    height: 320px;
-}
-.titolo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-.btn-calendario {
-    cursor: pointer;
-    color: black;
-}
-#mese-anno {
-    font-weight: bold;
-    font-size: 20px;
-    color: black;
-}
-.giorni-settimana, .giorni {
-    display: flex;
-    flex-wrap: wrap;
-    color: black;
-}
-.giorni {
-    height: 210px;
-}
-.giorni-settimana div, .giorni div {
-    width: 14%;
-    text-align: center;
-    padding: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    margin: 0.2px;
-}
-.giorni div {
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.giorni div:hover {
     background-color: white;
-    color: #2868f3;
+    width: 550px;
+    padding: 20px 15px 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    gap: 15px; 
+    height: 310px;
 }
-.giorni .allenato {
-    background-color: #2868f3;
+
+.card-playlist {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.card-playlist:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.copertina-playlist {
+    width: 60px;
+    height: 60px; 
+    border-radius: 10px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.info-playlist {
+    flex: 1;
+}
+
+.titolo-playlist {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+.descrizione-playlist {
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+.button-riproduzione {
+    background-color: #5770DE;
+    border: none;
     color: white;
-}
-.giorni .fade {
-    color: #555;
+    font-size: 18px; 
+    width: 35px; 
+    height: 35px; 
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
+.button-riproduzione:hover {
+    background-color: #7898ff;
+}
 
+.container-provvisorio{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    max-width: 800px;
+    width: 100%;
+    height: 310px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
 
