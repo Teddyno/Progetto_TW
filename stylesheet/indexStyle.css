@@ -1,4 +1,4 @@
-.container-pieno{
+.container-pieno {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@
 .slide.attiva {
     opacity: 1;
     transform: scale(1);
-    z-index: 2; 
+    z-index: 2;
 }
 
 .freccia {
@@ -95,7 +95,7 @@
     background-color: white;
 }
 
-.container-a-meta{
+.container-a-meta {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,7 +118,7 @@
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.container-cta{
+.container-cta {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -132,7 +132,7 @@
     position: relative;
 }
 
-.container-offerte{
+.container-offerte {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -147,25 +147,25 @@
 
 /******   SEZIONE OFFERTE   ******/
 
-.container-offerte-card p{
+.container-offerte-card p {
     font-size: 20px;
     font-weight: bold;
     line-height: 20px;
     text-decoration: none;
 }
 
-.container-offerte-card{
+.container-offerte-card {
     display: flex;
     gap: 70px;
     justify-content: center;
 }
 
-.container-offerte-card p.descrizione-offerta{
+.container-offerte-card p.descrizione-offerta {
     font-size: 14px;
-    font-weight:500;
+    font-weight: 500;
 }
 
-.angolo{
+.angolo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,17 +174,17 @@
     height: 32px;
     top: 0;
     right: 0;
-    background-color: #5770DE;
-    border-radius:0 2px 0 22px;
+    background-color: #5770de;
+    border-radius: 0 2px 0 22px;
 }
 
-.freccia-offerta{
+.freccia-offerta {
     margin-top: -4px;
     margin-right: -4px;
     color: white;
 }
 
-.offerta-card{
+.offerta-card {
     display: block;
     position: relative;
     width: 400px;
@@ -200,13 +200,13 @@
     transition: all 0.6s ease-out;
 }
 
-.offerta-card:before{
+.offerta-card:before {
     content: "";
     position: absolute;
     z-index: -1;
     top: -16px;
     right: -16px;
-    background: #5770DE;
+    background: #5770de;
     height: 32px;
     width: 32px;
     border-radius: 32px;
@@ -223,7 +223,7 @@
     color: white;
 }
 
-.offerta-card:hover{
+.offerta-card:hover {
     box-shadow: none;
 }
 
@@ -231,7 +231,7 @@
     text-align: center;
 }
 
-.container-cta p{
+.container-cta p {
     font-size: 20px;
 }
 
@@ -247,7 +247,7 @@
     transition: 0.3s;
 }
 
-.bottone-no{
+.bottone-no {
     background-color: #cd5050;
     color: white;
     border: none;
@@ -259,15 +259,15 @@
     transition: 0.3s;
 }
 
-.bottone-si:hover{
+.bottone-si:hover {
     background-color: #1d4dbd;
 }
 
-.bottone-no:hover{
+.bottone-no:hover {
     background-color: #b33d3d;
 }
 
-.messaggio{
+.messaggio {
     font-size: 24px;
     font-weight: bold;
     opacity: 0;
@@ -278,18 +278,18 @@
     bottom: 10px;
 }
 
-.show-message{
+.show-message {
     opacity: 1;
     transform: translateY(-80px);
 }
 
-.nascondi{
+.nascondi {
     opacity: 0;
     pointer-events: none;
     z-index: -1;
 }
 
-.container-cta h1{
+.container-cta h1 {
     margin-top: 30px;
 }
 
@@ -303,7 +303,7 @@
     border-radius: 15px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
-    gap: 15px; 
+    gap: 15px;
     height: 310px;
 }
 
@@ -324,12 +324,16 @@
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+.card-playlist:hover .copertina-playlist {
+    transform: scale(1.1);
+}
+
 .copertina-playlist {
     width: 60px;
-    height: 60px; 
+    height: 60px;
     border-radius: 10px;
     margin-right: 10px;
-    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .info-playlist {
@@ -350,12 +354,12 @@
 }
 
 .button-riproduzione {
-    background-color: #5770DE;
+    background-color: #5770de;
     border: none;
     color: white;
-    font-size: 18px; 
-    width: 35px; 
-    height: 35px; 
+    font-size: 18px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -368,7 +372,7 @@
     background-color: #7898ff;
 }
 
-.container-provvisorio{
+.container-provvisorio {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -382,3 +386,48 @@
     position: relative;
 }
 
+.promozione-tapis-roulant {
+    text-align: center;
+    padding: 20px;
+}
+
+.h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.prezzo {
+    font-size: 20px;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.prezzo span.vecchio-prezzo {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.prezzo span.nuovo-prezzo {
+    color: #27ae60;
+}
+
+.pulsante-acquisto {
+    background-color: #5770de;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.pulsante-acquisto:hover {
+    background-color: #2e3e85;
+}

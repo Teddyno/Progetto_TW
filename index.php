@@ -112,8 +112,17 @@
             </div>
 
             <div class="container-provvisorio">
-                
+                <div class="promozione-tapis-roulant">
+                    <h2>🚀 Offerta Imperdibile! 🚀</h2>
+                    <p>Allenati come un professionista con il nostro tapis roulant di ultima generazione!</p>
+                    <img src="https://via.placeholder.com/300x150" alt="Tapis Roulant">
+                    <p class="prezzo">
+                        Solo <span class="vecchio-prezzo">€999</span> <span class="nuovo-prezzo">€799!</span>
+                    </p>
+                    <a href="shop.php#tapis-roulant" class="pulsante-acquisto">Acquista Ora!</a>
+                </div>
             </div>
+            
         </div>
 
         <script src="js/barraProgressiva.js"></script>
