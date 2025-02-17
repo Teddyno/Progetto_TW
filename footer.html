@@ -1,110 +1,111 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Footer - UniSa Gym</title>
     <style>
-        /* Stile Generale */
-        body {
-            font-family: Arial, sans-serif; /* Imposta il font generale */
-            margin: 0; /* Rimuove il margine del body */
-            padding: 0; /* Rimuove il padding del body */
-            background-color: #f4f4f4; /* Colore di sfondo della pagina */
-        }
+      /* Stile Generale */
+      body {
+        font-family: Arial, sans-serif; /* Imposta il font generale */
+        margin: 0; /* Rimuove il margine del body */
+        padding: 0; /* Rimuove il padding del body */
+        background-color: #f4f4f4; /* Colore di sfondo della pagina */
+      }
 
-        /* Contenitore del Footer */
-        .contenitore-footer {
-            background-color: transparent; /* Sfondo bianco per il footer */
-            padding: 10px 15px; /* Ridotta spaziatura per un footer più compatto */
-            text-align: center; /* Centra il contenuto */
-            font-size: 13px; /* Imposta la dimensione del testo */
-            padding-top: 0px; /* Rimuove lo spazio sopra il logo */
-        }
+      /* Contenitore del Footer */
+      .contenitore-footer {
+        background-color: transparent; /* Sfondo bianco per il footer */
+        padding: 10px 15px; /* Ridotta spaziatura per un footer più compatto */
+        text-align: center; /* Centra il contenuto */
+        font-size: 13px; /* Imposta la dimensione del testo */
+        padding-top: 0px; /* Rimuove lo spazio sopra il logo */
+      }
 
-        /* Sezione Logo */
-        .sezione-logo img {
-            max-width: 220px; /* Leggermente più grande per maggiore visibilità */
-            margin-bottom: -20px; /* Riduce lo spazio tra il logo e i link */
-        }
+      /* Sezione Logo */
+      .sezione-logo img {
+        max-width: 220px; /* Leggermente più grande per maggiore visibilità */
+        margin-bottom: -20px; /* Riduce lo spazio tra il logo e i link */
+      }
 
-        /* Contenitore dei link */
-        .link-footer {
-            display: flex; /* Usa il layout flex per affiancare i link */
-            justify-content: center; /* Centra gli elementi */
-            gap: 20px; /* Distanza tra le colonne */
-            flex-wrap: wrap; /* Permette agli elementi di andare a capo su schermi piccoli */
-            margin-bottom: 20px; /* Riduce lo spazio tra i link e i social */
-        }
+      /* Contenitore dei link */
+      .link-footer {
+        display: flex; /* Usa il layout flex per affiancare i link */
+        justify-content: center; /* Centra gli elementi */
+        gap: 20px; /* Distanza tra le colonne */
+        flex-wrap: wrap; /* Permette agli elementi di andare a capo su schermi piccoli */
+        margin-bottom: 20px; /* Riduce lo spazio tra i link e i social */
+      }
 
-        /* Colonne del Footer */
-        .colonna-footer {
-            text-align: left; /* Allinea il testo a sinistra */
-        }
+      /* Colonne del Footer */
+      .colonna-footer {
+        text-align: left; /* Allinea il testo a sinistra */
+      }
 
-        .colonna-footer h4 {
-            color: #283b96; /* Colore del titolo */
-            font-size: 14px; /* Imposta la dimensione del titolo */
-            margin-bottom: 5px; /* Riduce lo spazio sotto il titolo */
-        }
+      .colonna-footer h4 {
+        color: #283b96; /* Colore del titolo */
+        font-size: 14px; /* Imposta la dimensione del titolo */
+        margin-bottom: 5px; /* Riduce lo spazio sotto il titolo */
+      }
 
-        .colonna-footer a {
-            text-decoration: none; /* Rimuove la sottolineatura dai link */
-            color: #5063BF; /* Colore base dei link */
-            font-size: 13px; /* Imposta la dimensione dei link */
-            transition: color 0.3s, transform 0.2s; /* Anima il cambio colore e il leggero ingrandimento */
-            display: block; /* Rende il link cliccabile su tutta la riga */
-        }
+      .colonna-footer a {
+        text-decoration: none; /* Rimuove la sottolineatura dai link */
+        color: #5063bf; /* Colore base dei link */
+        font-size: 13px; /* Imposta la dimensione dei link */
+        transition: color 0.3s, transform 0.2s; /* Anima il cambio colore e il leggero ingrandimento */
+        display: block; /* Rende il link cliccabile su tutta la riga */
+      }
 
-        .colonna-footer a:hover {
-            color: #283b96; /* Cambia il colore al passaggio del mouse */
-            transform: scale(1.05); /* Aggiunge un leggero ingrandimento */
-        }
+      .colonna-footer a:hover {
+        color: #283b96; /* Cambia il colore al passaggio del mouse */
+        transform: scale(1.05); /* Aggiunge un leggero ingrandimento */
+      }
 
-        /* Sezione Social */
-        .sezione-social {
-            margin-top: 15px; /* Aumenta lo spazio tra i link e i social */
-            margin-bottom: 20px; /* Aggiunge spazio tra i social e il copyright */
-        }
+      /* Sezione Social */
+      .sezione-social {
+        margin-top: 15px; /* Aumenta lo spazio tra i link e i social */
+        margin-bottom: 20px; /* Aggiunge spazio tra i social e il copyright */
+      }
 
-        .sezione-social a img {
-            width: 30px; /* Imposta la dimensione delle icone social */
-            margin: 0 5px; /* Aggiunge margine tra le icone */
-            transition: transform 0.3s; /* Anima il passaggio del mouse */
-        }
+      .sezione-social a img {
+        width: 30px; /* Imposta la dimensione delle icone social */
+        margin: 0 5px; /* Aggiunge margine tra le icone */
+        transition: transform 0.3s; /* Anima il passaggio del mouse */
+      }
 
-        .sezione-social a img:hover {
-            transform: scale(1.1); /* Effetto di ingrandimento leggero al passaggio del mouse */
-            /* Questo effetto rende le icone social più evidenti quando l'utente ci passa sopra */
-        }
+      .sezione-social a img:hover {
+        transform: scale(
+          1.1
+        ); /* Effetto di ingrandimento leggero al passaggio del mouse */
+        /* Questo effetto rende le icone social più evidenti quando l'utente ci passa sopra */
+      }
 
-        /* Copyright */
-        .footer-finale {
-            border-top: 1px solid #ddd; /* Linea divisoria sopra il copyright */
-            padding-top: 10px; /* Aggiunge spazio sopra il testo */
-            font-size: 12px; /* Riduce leggermente la dimensione del testo */
-            color: #283b96; /* Colore del testo */
-        }
+      /* Copyright */
+      .footer-finale {
+        border-top: 1px solid #ddd; /* Linea divisoria sopra il copyright */
+        padding-top: 10px; /* Aggiunge spazio sopra il testo */
+        font-size: 12px; /* Riduce leggermente la dimensione del testo */
+        color: #283b96; /* Colore del testo */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <footer class="contenitore-footer">
+      <!-- Sezione Logo -->
+      <div class="sezione-logo">
+        <img src="images/UnisaGym_logo2.png" alt="Logo UniSa Gym" />
+      </div>
 
-<footer class="contenitore-footer">
-    <!-- Sezione Logo -->
-    <div class="sezione-logo">
-        <img src="images/UnisaGym_logo2.png" alt="Logo UniSa Gym">
-    </div>
-
-    <!-- Contenitore Link -->
-    <div class="link-footer">
+      <!-- Contenitore Link -->
+      <div class="link-footer">
         <div class="colonna-footer">
-            <h4><a href="index.php">Home</a></h4>
+          <h4><a href="index.php">Home</a></h4>
         </div>
         <div class="colonna-footer">
-            <h4><a href="abbonamento.php">Abbonamento</a></h4>
+          <h4><a href="abbonamento.php">Abbonamento</a></h4>
         </div>
         <div class="colonna-footer">
-            <h4><a href="shop.php">Shop</a></h4>
+          <h4><a href="shop.php">Shop</a></h4>
         </div>
         <!--
         <div class="colonna-footer">
@@ -112,14 +113,14 @@
         </div>
         -->
         <div class="colonna-footer">
-            <h4><a href="ChiSiamo.php">Chi Siamo?</a></h4>
+          <h4><a href="ChiSiamo.php">Chi Siamo?</a></h4>
         </div>
         <!--
         <div class="colonna-footer">
             <h4><a href="profilo.php">Profilo</a></h4>
         </div>
         -->
-    </div>
+      </div>
 
     <!-- Sezione Social -->
     <div class="sezione-social">
@@ -129,12 +130,10 @@
         <a href="https://www.youtube.com" target="_blank"><img src="images/footer/ic-youtube.png" alt="YouTube"></a>
     </div>
 
-    <!-- Copyright -->
-    <div class="footer-finale">
+      <!-- Copyright -->
+      <div class="footer-finale">
         <p>&copy; 2025 UniSa Gym</p>
-    </div>
-
-</footer>
-
-</body>
+      </div>
+    </footer>
+  </body>
 </html>
