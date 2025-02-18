@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
     <link rel="stylesheet" type="text/css" href="stylesheet/chiSiamo.css">
-    <title>UnisaGym - ChiSiamo</title>
+    <title>UnisaGym</title>
 </head>
 <body>
     <?php include 'header.php'; ?>
@@ -25,7 +25,7 @@
 
             <div class="container-immagine">
                 <div class="immagine-int">
-                    <img src="images/PalestraInterno" alt="Foto Palestra Interno">
+                    <img src="" alt="Foto Palestra Interno">
                 </div>
             </div>
         </section>
@@ -33,10 +33,10 @@
         <section class="container-intro-2">
             <div class="container-immagine-2">
                 <div class="immagine-int-2">
-                    <img src=".jpg" alt="Foto Palestra Interno 2">
+                    <img src="" alt="Foto Palestra Interno 2">
                 </div>
             </div>
-
+            
             <div class="container-text-2">
                 <div class="feature">
                     <img src="images/check-icon" alt="Spunta Verde" class="check-icon">
@@ -62,6 +62,7 @@
                     </div>
                 </div>
             </div>
+        </section>
         
         <section class="container">
             <div class="slideshow-container">
@@ -82,8 +83,8 @@
                 </div>
             </div>
         </section>
-
-            <div class="branches">
+     
+        <section class="branches">
                 <div class="branch">
                     <h3>Nocera Superiore</h3>
                     <p><strong>Numero Telefonico</strong><br>333123123123</p>
