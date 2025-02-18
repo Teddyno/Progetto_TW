@@ -33,10 +33,10 @@
         <section class="container-intro-2">
             <div class="container-immagine-2">
                 <div class="immagine-int-2">
-                    <img src="images/.jpg" alt="Foto Palestra Interno 2">
+                    <img src="" alt="Foto Palestra Interno 2">
                 </div>
             </div>
-
+            
             <div class="container-text-2">
                 <div class="feature">
                     <img src="images/check-icon" alt="Spunta Verde" class="check-icon">
@@ -62,6 +62,7 @@
                     </div>
                 </div>
             </div>
+        </section>
         
         <section class="container">
             <div class="slideshow-container">
@@ -82,8 +83,8 @@
                 </div>
             </div>
         </section>
-
-            <div class="branches">
+     
+        <section class="branches">
                 <div class="branch">
                     <h3>Nocera Superiore</h3>
                     <p><strong>Numero Telefonico</strong><br>333123123123</p>
