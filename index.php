@@ -17,7 +17,7 @@
 
         <div class="slideshow">
             <div class="slide"><img src="images/interno_palestra_1.jpg"></div>
-            <div class="slide"><img src="images/pt_2.jpeg"></div>
+            <div class="slide"><img src="images/personal_trainer_2.jpeg"></div>
             <div class="slide"><img src="images/interno_palestra_2.jpg"></div>
         </div>
 
@@ -120,7 +120,7 @@
                         <p class="prezzo">
                             Solo <span class="vecchio-prezzo">€499</span> <span class="nuovo-prezzo">€299!</span>
                         </p>
-                        <a href="shop.php#tapis-roulant" class="pulsante-acquisto">Acquista Ora!</a>
+                        <a href="shop.php" class="pulsante-acquisto">Acquista Ora!</a>
                     </div>
                 </div>
             </div>
