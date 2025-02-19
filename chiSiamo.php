@@ -25,7 +25,7 @@
 
             <div class="container-immagine">
                 <div class="immagine-int">
-                    <img src="" alt="Foto Palestra Interno">
+                    <img src="images/PalestraInterno.jpg" alt="Foto Palestra Interno">
                 </div>
             </div>
         </section>
@@ -69,9 +69,9 @@
                 <div class="freccia freccia-sinistra" onclick="cambiaSlide(-1)">&#10094;</div>
 
                 <div class="slideshow">
-                    <div class="slide"><img src=""></div>
-                    <div class="slide"><img src=""></div>
-                    <div class="slide"><img src=""></div>
+                    <div class="slide"><img src="images/PalestraNocSup.jpg"></div>
+                    <div class="slide"><img src="images/PalestraAngri.jpg"></div>
+                    <div class="slide"><img src="images/PalestraFisciano.jpg"></div>
                 </div>
 
                 <div class="freccia freccia-destra" onclick="cambiaSlide(1)">&#10095;</div>
