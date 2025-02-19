@@ -157,36 +157,6 @@
     </div>
 
 
-    <div class="contenitore-testimonianze">
-        <h2 class="titolo-testimonianze">Testimonianze dei Clienti</h2>
-        <div class="griglia-testimonianze">
-            <!-- Cliente 1 -->
-            <div class="testimonianza">
-                <img class="foto-cliente" src="images/pt_1.jpg" alt="Foto Sara">
-                <p class="nome-cliente">Sara Moretti</p>
-                <p class="stelle">⭐⭐⭐⭐⭐</p>
-                <p class="recensione">"Grazie al mio trainer ho finalmente raggiunto la forma fisica che desideravo!"</p>
-            </div>
-
-            <!-- Cliente 2 -->
-            <div class="testimonianza">
-                <img class="foto-cliente" src="images/pt_1.jpg" alt="Foto Marco">
-                <p class="nome-cliente">Marco Esposito</p>
-                <p class="stelle">⭐⭐⭐⭐⭐</p>
-                <p class="recensione">"Allenamenti personalizzati e grande motivazione. Il miglior investimento per la mia salute!"</p>
-            </div>
-
-            <!-- Cliente 3 -->
-            <div class="testimonianza">
-                <img class="foto-cliente" src="images/pt_1.jpg" alt="Foto Giulia">
-                <p class="nome-cliente">Giulia Romano</p>
-                <p class="stelle">⭐⭐⭐⭐⭐</p>
-                <p class="recensione">"Professionalità e risultati eccellenti. Consiglio a tutti!"</p>
-            </div>
-        </div>
-    </div>
-
-
     <?php include 'footer.html'; ?>
 </body>
 </html>
