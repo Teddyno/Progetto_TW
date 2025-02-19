@@ -53,18 +53,26 @@
         <section class="section-profilo" id="section2">
             <div class="dettagli-info">
                 <p class="titolo-info">abbonamento</p>
-                <?php include 'datiAbbonamento.php'; ?>
-                <div class="container-barra">
-                    <div class="barra-progressiva" id="barra-progressiva"></div>
-                    <script>
-                        let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
-                        let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
-                    </script>
-                </div>
-                <p id="testo-barra"></p>
-                <p>tipo abbonamento : <?php echo $tipoAbbonamento; ?></p>
-                <p>data sottoscrizione : <?php echo $dataIscrizione; ?></p>
-                <p>Scadenza abbonamento: <?php echo $dataScadenza; ?></p>
+                <?php 
+                    include 'datiAbbonamento.php'; 
+                    if($_SESSION['abbonato']){
+                ?> <!-- sezione se utente è abbonato -->
+                    <div class="container-barra">
+                        <div class="barra-progressiva" id="barra-progressiva"></div>
+                        <script>
+                            let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
+                            let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
+                        </script>
+                    </div>
+                    <p id="testo-barra"></p>
+                    <p>tipo abbonamento : <?php echo $tipoAbbonamento; ?></p>
+                    <p>data sottoscrizione : <?php echo $dataIscrizione; ?></p>
+                    <p>Scadenza abbonamento: <?php echo $dataScadenza; ?></p>
+                <?php /*  sezione utente non abbonato */
+                    } else {
+                        echo "<p>Non hai ancora un abbonamento, inserisci il tuo abbonamento</p>";
+                    }
+                ?>
             </div>
         </section>
 

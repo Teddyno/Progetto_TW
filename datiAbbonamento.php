@@ -19,8 +19,9 @@
         $dataIscrizione = pg_fetch_result($ret, 0, 'dataIscrizione');
         $tipoAbbonamento = pg_fetch_result($ret, 0, 'tipoAbbonamento');
         $dataScadenza = pg_fetch_result($ret, 0, 'dataScadenza');
+        $_SESSION['abbonato'] = true;
     }else{
-        echo "Non hai ancora un abbonamento, inserisci il tuo abbonamento";
+        $_SESSION['abbonato'] = false;
     }
 
     pg_close($db);
