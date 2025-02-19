@@ -1,9 +1,3 @@
-<?php
-// abbonamenti.php
-
-// Includi l'header del sito (rimane invariato)
-include 'header.php';
-?>
 <!DOCTYPE html>
 <html lang="it">
 <head>

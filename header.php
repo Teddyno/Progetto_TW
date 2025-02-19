@@ -1,4 +1,5 @@
 <?php
+    error_reporting(E_ALL ^ E_NOTICE); 
     session_start();
 
     if(isset($_SESSION['autenticato'])){
@@ -13,7 +14,7 @@
         <div class="header">
             <div><a href="index.php"><img src="images/UnisaGym_logo1.png" style="width: 170px"></a></div>
             <div class="topnav">
-                <a href="abbonamentonew.php" style="color:white">Abbonamento</a>
+                <a href="abbonamento.php" style="color:white">Abbonamento</a>
                 <a href="shop.php" style="color:white">Shop</a>
                 <a href="ChiSiamo.php" style="color:white">Chi Siamo?</a>
                 <?php
