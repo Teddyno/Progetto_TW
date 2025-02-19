@@ -22,7 +22,7 @@
             <button type="submit" class="pulsante-login">Accedi</button>
 
             <p class="link-extra">
-                <a href="#">Password dimenticata?</a> | <a href="registrati.php">Registrati</a>
+                <!--<a href="#">Password dimenticata?</a> | -->  Non sei ancora registrato? <a href="registrati.php">Registrati</a>
             </p>
         </form>
     </div>
