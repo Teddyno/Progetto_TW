@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif; /* Imposta il font generale */
+  background-color: #f4f4f4; 
+}
+
+/* Contenitore del Footer */
+.contenitore-footer {
+  text-align: center; /* Centra il contenuto */
+  font-size: 13px;
+}
+
+/* Sezione Logo */
+.sezione-logo img {
+  max-width: 220px;      /* Leggermente più grande per maggiore visibilità */
+  margin-bottom: -20px; /* Riduce lo spazio tra il logo e i link */
+}
+
+/* Contenitore dei link */
+.link-footer {
+  display: flex; /* Usa il layout flex per affiancare i link */
+  justify-content: center; /* Centra gli elementi */
+  gap: 20px; /* Distanza tra le colonne */
+  margin-bottom: 20px; /* Riduce lo spazio tra i link e i social */
+}
+
+
+/* Colonne del Footer */
+.colonna-footer h4 {
+  color: #283b96; /* titolo */
+  font-size: 14px; /* dimensione del titolo */
+  margin-bottom: 5px; /* Riduce lo spazio sotto il titolo */
+}
+
+.colonna-footer a {
+  text-decoration: none; /* Rimuove la sottolineatura dai link */
+  color: #5063bf;       
+}
+
+.colonna-footer a:hover {
+  color: #283b96; /* Cambia il colore al passaggio del mouse */
+}
+
+
+/* Sezione Social */
+.sezione-social {
+  margin-top: 15px; /* Aumenta lo spazio tra i link e i social */
+  margin-bottom: 20px; /* Aggiunge spazio tra i social e il copyright */
+}
+
+.sezione-social a img {
+  width: 30px; /* Imposta la dimensione delle icone social */
+  margin: 0 5px; /* Aggiunge margine tra le icone */
+}
+
+
+/* Copyright */
+.footer-finale {
+  border-top: 1px solid #ddd; /* Linea divisoria sopra il copyright */
+  padding-top: 10px; /* Aggiunge spazio sopra il testo */
+  font-size: 12px; /* Riduce leggermente la dimensione del testo */
+  color: #283b96; /* Colore del testo */
+}
