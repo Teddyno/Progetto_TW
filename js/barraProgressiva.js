@@ -6,14 +6,20 @@ function barraProgressiva(giorniRestanti, giorniTotali){
 
     
     barraProgressiva.style.width = percentuale + '%';
-    testoBarra.textContent = 'Giorni restanti: ' + giorniRestanti;
-
     if(percentuale>50){
         barraProgressiva.style.backgroundColor = 'green';
+        testoBarra.textContent = 'Giorni restanti: ' + giorniRestanti;
+
     } else if(percentuale>25){
         barraProgressiva.style.backgroundColor = 'orange';
-    } else {
+        testoBarra.textContent = 'Giorni restanti: ' + giorniRestanti;
+
+    } else if(percentuale>0){
         barraProgressiva.style.backgroundColor = 'red';
+        testoBarra.textContent = 'Giorni restanti: ' + giorniRestanti;
+    } else {
+        barraProgressiva.style.backgroundColor = 'black';
+        testoBarra.textContent = 'Abbonamento scaduto';
     }
 }
 
@@ -23,15 +29,22 @@ switch(tipoAbbonamento) {
     case 'mensile':
         giorniTotali = 30;
         break;
-    case 'annuale':
-        giorniTotali = 365;
-        break;
     case 'trimestrale':
         giorniTotali = 120;
         break;
+    case 'annuale':
+        giorniTotali = 365;
+        break;
+    
     default:
         giorniTotali = 0;
   }
 
-    let giorniRestanti = 3;
-    barraProgressiva(giorniRestanti, giorniTotali);
+// data attuale e data scadenza in secondi
+let dataAttuale =new Date().getTime();
+let dataScadenzaSec = new Date(dataScadenza).getTime();
+
+//                       differenza tra le due date in secondi,   poi faccio la conversione in giorni
+let giorniRestanti = Math.floor((dataScadenzaSec - dataAttuale) / (1000 * 60 * 60 * 24));
+
+barraProgressiva(giorniRestanti, giorniTotali);

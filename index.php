@@ -1,5 +1,5 @@
-<?php
-    session_start();
+<?php 
+    session_start(); 
 
     if(isset($_SESSION['autenticato'])){
         $accesso = $_SESSION['autenticato'];
@@ -75,15 +75,15 @@
             <div class="container-abbonamento">
                 <?php
                     if($accesso){
+                       include 'datiAbbonamento.php';
                 ?>
-                        <script>
-                            let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
-                            let dataIscrizione = <?php echo json_encode($dataIscrizione); ?>;
-                            let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
-                        </script>
                         <h1>Il tuo Abbonamento</h1>
                         <div class="container-barra">
                             <div class="barra-progressiva" id="barra-progressiva"></div>
+                            <script>
+                                let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
+                                let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
+                            </script>
                         </div>
                         <p id="testo-barra"></p>
                 <?php
@@ -182,3 +182,4 @@
     <?php include 'footer.html'; ?>
 </body>
 </html>
+

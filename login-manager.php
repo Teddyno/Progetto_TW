@@ -27,7 +27,7 @@
 					session_start();
 					$_SESSION['email']=$email;
 					$_SESSION['autenticato']=true;
-					$_SESSION['nome']= get_nome($email,$db);
+					get_dati($email,$db);
 	?>
 					<script>
 						window.location.href = "profilo.php";
@@ -49,9 +49,9 @@
 </html>
 
 <?php
-function get_pwd($email, $db){
+function get_pwd($email,$db){
 		require 'db.php';
-		$sql = "SELECT nome, password FROM iscritti WHERE email=$1;";
+		$sql = "SELECT password FROM iscritti WHERE email=$1;";
 		$prep = pg_prepare($db, "sqlPassword", $sql);
 		$ret = pg_execute($db, "sqlPassword", array($email));
 		if(!$ret) {
@@ -70,9 +70,9 @@ function get_pwd($email, $db){
 		pg_close($db);
 }
 
-function get_nome($email, $db){
+function get_dati($email,$db){
 	require 'db.php';
-	$sql = "SELECT nome FROM iscritti WHERE email=$1;";
+	$sql = "SELECT id, nome FROM iscritti WHERE email=$1;";
 	$prep = pg_prepare($db, "sqlNome", $sql);
 	$ret = pg_execute($db, "sqlNome", array($email));
 	if(!$ret) {
@@ -81,8 +81,9 @@ function get_nome($email, $db){
 	}
 	else{
 		if ($row = pg_fetch_assoc($ret)){
-			$nome = $row['nome'];
-			return $nome;
+			$_SESSION['idIscritto']= $row['id'];
+			$_SESSION['nome']= $row['nome'];
+			return true;
 		}
 		else{
 			return false;

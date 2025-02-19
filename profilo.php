@@ -53,28 +53,18 @@
         <section class="section-profilo" id="section2">
             <div class="dettagli-info">
                 <p class="titolo-info">abbonamento</p>
-        <?php
-            $sql = "SELECT dataiscrizione, tipoabbonamento, datascadenza FROM datiabbonamento WHERE idiscritto = '$id';";
-            $ret = pg_query($db, $sql); 
-            if(!$ret) {
-                echo "ERRORE QUERY: " . pg_last_error($db);
-                exit; 
-            }
-    
-            if(pg_num_rows($ret) != 0){
-                $dataIscrizione = pg_fetch_result($ret, 0, 'dataIscrizione');
-                $tipoAbbonamento = pg_fetch_result($ret, 0, 'tipoAbbonamento');
-                $dataScadenza = pg_fetch_result($ret, 0, 'dataScadenza');
-            }else{
-                echo "Non hai ancora un abbonamento, inserisci il tuo abbonamento";
-        ?>
-                <!-- da inserire un form per inserire l'abbonamento -->
-        <?php
-            }
-
-            pg_close($db);
-        ?>
-                <p>Contenuto della sezione 3.</p>
+                <?php include 'datiAbbonamento.php'; ?>
+                <div class="container-barra">
+                    <div class="barra-progressiva" id="barra-progressiva"></div>
+                    <script>
+                        let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
+                        let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
+                    </script>
+                </div>
+                <p id="testo-barra"></p>
+                <p>tipo abbonamento : <?php echo $tipoAbbonamento; ?></p>
+                <p>data sottoscrizione : <?php echo $dataIscrizione; ?></p>
+                <p>Scadenza abbonamento: <?php echo $dataScadenza; ?></p>
             </div>
         </section>
 
@@ -99,6 +89,7 @@
         }
     </script>
     <script src="js/indiceDinamico.js"></script>
+    <script src="js/barraProgressiva.js"></script>
     
     <?php include 'footer.html'; ?>
     <script src="js/header.js"></script>
