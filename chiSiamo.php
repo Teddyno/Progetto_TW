@@ -33,7 +33,7 @@
         <section class="container-intro-2">
             <div class="container-immagine-2">
                 <div class="immagine-int-2">
-                    <img src="" alt="Foto Palestra Interno 2">
+                    <img src="images/PalestraInterno1.jpg" alt="Foto Palestra Interno 2">
                 </div>
             </div>
             
@@ -41,7 +41,7 @@
                 <div class="feature">
                     <img src="images/check-icon" alt="Spunta Verde" class="check-icon">
                     <div class="text">
-                        <h2>ABBONAMENTI A PARTIRE DA 9,99€!</h2>
+                        <h2>ABBONAMENTI A PARTIRE DA 19,99€!</h2>
                         <p>Crea il tuo percorso di fitness su misura, scegliendo ciò che fa davvero per te!</p>
                     </div>
                 </div>
@@ -63,6 +63,12 @@
                 </div>
             </div>
         </section>
+
+        <br><br><br><br><br>
+        <div class="sedi-text">
+            <h3>Le Nostre Sedi</h3>
+            <p>Dove potrai allenarti nel modo che preferisci, ma sopratutto più vicino a te</p>
+        </div>
         
         <section class="container">
             <div class="slideshow-container">
@@ -78,8 +84,8 @@
 
                 <div class="container-punti">
                     <span class="punto" onclick="slideAttiva(0)"></span>
-                    <span class="punto" onclick="slideAttiva(0)"></span>
-                    <span class="punto" onclick="slideAttiva(0)"></span>
+                    <span class="punto" onclick="slideAttiva(1)"></span>
+                    <span class="punto" onclick="slideAttiva(2)"></span>
                 </div>
             </div>
         </section>
