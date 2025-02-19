@@ -19,19 +19,19 @@
     <?php
         $email = $_SESSION['email'];
 
-		$sql = "SELECT nome, cognome, datanascita FROM iscritti WHERE email = '$email';";
+		$sql = "SELECT id, nome, cognome, datanascita FROM iscritti WHERE email = '$email';";
 		$ret = pg_query($db, $sql); 
 		if(!$ret) {
 			echo "ERRORE QUERY: " . pg_last_error($db);
 			exit; 
 		}
 			
+        $id = pg_fetch_result($ret, 0, 'id');
 		$nome = pg_fetch_result($ret, 0, 'nome');
 		$cognome = pg_fetch_result($ret, 0, 'cognome');
         $datanascita = pg_fetch_result($ret, 0, 'datanascita');
 
-		pg_close($db);
-	?>
+    ?>
 
     <header class="indice">
         <a href="#section1">Dati Personali</a>
@@ -39,6 +39,7 @@
         <a href="#section3">Sicurezza</a>
         <a href="#section4">Log out</a>
     </header>
+
     <div class="contenitore-profilo">
         <section class="section-profilo" id="section1">
             <div class="dettagli-info">
@@ -48,12 +49,35 @@
                 <p>Data di nascita : <?php echo"$datanascita" ?></p>
             </div>
         </section>
+
         <section class="section-profilo" id="section2">
             <div class="dettagli-info">
                 <p class="titolo-info">abbonamento</p>
+        <?php
+            $sql = "SELECT dataiscrizione, tipoabbonamento, datascadenza FROM datiabbonamento WHERE idiscritto = '$id';";
+            $ret = pg_query($db, $sql); 
+            if(!$ret) {
+                echo "ERRORE QUERY: " . pg_last_error($db);
+                exit; 
+            }
+    
+            if(pg_num_rows($ret) != 0){
+                $dataIscrizione = pg_fetch_result($ret, 0, 'dataIscrizione');
+                $tipoAbbonamento = pg_fetch_result($ret, 0, 'tipoAbbonamento');
+                $dataScadenza = pg_fetch_result($ret, 0, 'dataScadenza');
+            }else{
+                echo "Non hai ancora un abbonamento, inserisci il tuo abbonamento";
+        ?>
+                <!-- da inserire un form per inserire l'abbonamento -->
+        <?php
+            }
+
+            pg_close($db);
+        ?>
                 <p>Contenuto della sezione 3.</p>
             </div>
         </section>
+
         <section class="section-profilo" id="section3">
             <div class="dettagli-info">
                 <p class="titolo-info">Sicurezza</p>
@@ -61,6 +85,7 @@
                 <p>Password : ******** </p>
             </div>
         </section>
+
         <section class="section-profilo" id="section4">
             <div class="dettagli-info">
                 <p class="titolo-info">Log out</p>

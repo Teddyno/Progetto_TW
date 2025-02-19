@@ -1,3 +1,14 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['autenticato'])){
+        $accesso = $_SESSION['autenticato'];
+        $nome = $_SESSION['nome'];
+    } else {
+        $accesso = FALSE;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -36,21 +47,55 @@
         <div class="container-a-meta">
 
             <div class="container-cta">
-                <h1>Benvenuto in UniSA Gym</h1>
-                <p class="domandona" id="domanda">Ti sei allenato oggi?</p>
-                <div class="bottoni">
-                    <button class="bottone-si" onclick="rispondiAllenamento(true)">Sì 💪</button>
-                    <button class="bottone-no" onclick="rispondiAllenamento(false)">No 😅</button>
-                </div>
-                <p id="messaggio-risposta" class="messaggio"></p>
+                <?php
+                    if($accesso){
+                        echo"<h1>$nome benvenuto in UniSA Gym</h1>";
+                    ?>
+                        <p class="domandona" id="domanda">Ti sei allenato oggi?</p>
+                        <div class="bottoni">
+                            <button class="bottone-si" onclick="rispondiAllenamento(true)">Sì 💪</button>
+                            <button class="bottone-no" onclick="rispondiAllenamento(false)">No 😅</button>
+                        </div>
+                        <p id="messaggio-risposta" class="messaggio"></p>
+                    <?php
+                    } else {
+                    ?>
+                        <h1>Benvenuto in UniSA Gym</h1>
+                        <p class="domandona" id="domanda">Ti sei allenato oggi?</p>
+                        <div class="bottoni">
+                            <button class="bottone-si" onclick="rispondiAllenamento(true)">Sì 💪</button>
+                            <button class="bottone-no" onclick="rispondiAllenamento(false)">No 😅</button>
+                        </div>
+                        <p id="messaggio-risposta" class="messaggio"></p>
+                    <?php
+                    }
+                ?>
             </div>
 
             <div class="container-abbonamento">
-                <h1>Il tuo Abbonamento</h1>
-                <div class="container-barra">
-                    <div class="barra-progressiva" id="barra-progressiva"></div>
-                </div>
-                <p id="testo-barra"></p>
+                <?php
+                    if($accesso){
+                ?>
+                        <script>
+                            let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
+                            let dataIscrizione = <?php echo json_encode($dataIscrizione); ?>;
+                            let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
+                        </script>
+                        <h1>Il tuo Abbonamento</h1>
+                        <div class="container-barra">
+                            <div class="barra-progressiva" id="barra-progressiva"></div>
+                        </div>
+                        <p id="testo-barra"></p>
+                <?php
+                    } else {
+                ?>
+                        <h1>Accedi per avere info sul tuo abbonamento</h1>
+                        <div class="bottoni">
+                            <button class="bottone-login" onclick="window.location.href='login.php'">Login</button>
+                        </div>
+                <?php
+                    }
+                ?>
             </div>
         </div>
 
@@ -132,7 +177,6 @@
         <script src="js/slideShowIndex.js"></script>
         <script src="js/header.js"></script>
         <script src="js/rispondiAllenamento.js"></script>
-        
 
     </main>
     <?php include 'footer.html'; ?>

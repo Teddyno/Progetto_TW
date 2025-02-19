@@ -16,7 +16,22 @@ function barraProgressiva(giorniRestanti, giorniTotali){
         barraProgressiva.style.backgroundColor = 'red';
     }
 }
-    
-    const giorniTotali = 60;
-    const giorniRestanti = 45;
+
+let giorniTotali = 0;
+
+switch(tipoAbbonamento) {
+    case 'mensile':
+        giorniTotali = 30;
+        break;
+    case 'annuale':
+        giorniTotali = 365;
+        break;
+    case 'trimestrale':
+        giorniTotali = 120;
+        break;
+    default:
+        giorniTotali = 0;
+  }
+
+    let giorniRestanti = 3;
     barraProgressiva(giorniRestanti, giorniTotali);

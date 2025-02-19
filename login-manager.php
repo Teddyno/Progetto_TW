@@ -27,11 +27,12 @@
 					session_start();
 					$_SESSION['email']=$email;
 					$_SESSION['autenticato']=true;
-					?>
+					$_SESSION['nome']= get_nome($email,$db);
+	?>
 					<script>
 						window.location.href = "profilo.php";
 					</script>
-					<?php
+	<?php
 					echo "<p style=\"margin-top:100px;\"><a href=\"profilo.php\">Accedi</a> al contenuto riservato solo agli utenti registrati<p>";
 				}
 				else{
@@ -50,7 +51,7 @@
 <?php
 function get_pwd($email, $db){
 		require 'db.php';
-		$sql = "SELECT password FROM iscritti WHERE email=$1;";
+		$sql = "SELECT nome, password FROM iscritti WHERE email=$1;";
 		$prep = pg_prepare($db, "sqlPassword", $sql);
 		$ret = pg_execute($db, "sqlPassword", array($email));
 		if(!$ret) {
@@ -65,7 +66,28 @@ function get_pwd($email, $db){
 			else{
 				return false;
 			}
-   	}
+		}
 		pg_close($db);
+}
+
+function get_nome($email, $db){
+	require 'db.php';
+	$sql = "SELECT nome FROM iscritti WHERE email=$1;";
+	$prep = pg_prepare($db, "sqlNome", $sql);
+	$ret = pg_execute($db, "sqlNome", array($email));
+	if(!$ret) {
+		echo "ERRORE QUERY: " . pg_last_error($db);
+		return false;
+	}
+	else{
+		if ($row = pg_fetch_assoc($ret)){
+			$nome = $row['nome'];
+			return $nome;
+		}
+		else{
+			return false;
+		}
+	}
+	pg_close($db);
 }
 ?>

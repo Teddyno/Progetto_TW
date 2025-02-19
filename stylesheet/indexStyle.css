@@ -259,6 +259,22 @@
     transition: 0.3s;
 }
 
+.bottone-login {
+    background-color: #2868f3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.bottone-login:hover {
+    background-color: #1d4dbd;
+}
+
 .bottone-si:hover {
     background-color: #1d4dbd;
 }
