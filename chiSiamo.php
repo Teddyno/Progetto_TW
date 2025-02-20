@@ -15,8 +15,9 @@
 
         <br><br><br>
         <section class="container-intro">
-            <div class="container_text">
-                <h1>Perchè sceglierci?</h1>
+            <div class="container-text">
+                <h1>UnisaGym</h1>
+                <h4>Cosa facciamo</h4>
                 <p>UnisaGym ti offre servizi h24 con la possibilità di scegliere il proprio personal trainer adatto alle vostre esigenze.</p> 
                 <p>Le strutture sono certificate e all'avanguardia per permettervi la miglior attività fisica possibile, quando volete e come volete.</p> 
                 <p>Vi aspettiamo nelle nostre 3 sedi: Nocera Superiore, Angri e Fisciano con possibilità di agevolazione sul primo acquisto di un corso.</p>
