@@ -10,8 +10,8 @@ body {
 
 /* Contenitore principale della sezione abbonamenti */
 .contenitore-abbonamenti {
-    width: 800px;
-    margin: 50px auto;
+    width: 60%;
+    margin: 100px auto 50px;
     background: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -67,7 +67,7 @@ body {
 
 /* Contenitore della sezione */
 .contenitore-servizi {
-    width: 1000px;
+    width: 60%;
     margin: 50px auto;
     background: white;
     padding: 20px;
@@ -122,7 +122,7 @@ body {
 
 /* Contenitore principale della sezione trainer */
 .contenitore-trainer {
-    width: 1000px;
+    width: 60%;
     margin: 50px auto;
     background: white;
     padding: 20px;
@@ -140,16 +140,17 @@ body {
 
 /* Griglia dei personal trainer */
 .griglia-trainer {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 /* Singolo box del trainer */
 .trainer {
     width: 250px;
-    display: inline-block;
     background: #5063BF;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 15px;
     text-align: center;
     color: white;
     margin: 10px;
@@ -159,10 +160,8 @@ body {
 .foto-trainer {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 45%;
     object-fit: cover;
-    /* border: 3px solid #FFD700; */
-    margin-bottom: 10px;
 }
 
 /* Nome del personal trainer */
@@ -170,6 +169,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 /* Sezione icone social */
@@ -188,7 +188,7 @@ body {
 .orari-container {
     margin-top: 10px;
     background: #3E4E9C;
-    padding: 10px;
+    padding: 6px;
     border-radius: 5px;
 }
 
@@ -199,7 +199,7 @@ body {
 }
 
 .tabella-orari th, .tabella-orari td {
-    border: 1px solid #FFF;
+    border: 0px solid #FFF;
     padding: 5px;
     font-size: 14px;
 }
