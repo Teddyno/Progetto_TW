@@ -173,13 +173,11 @@
                     </div>
                 </div>
             </div>
-            
         </div>
 
         <script src="js/barraProgressiva.js"></script>
         <script src="js/copiaCodiceSconto.js"></script>
         <script src="js/slideShowIndex.js"></script>
-        <script src="js/header.js"></script>
         <script src="js/rispondiAllenamento.js"></script>
 
     </main>

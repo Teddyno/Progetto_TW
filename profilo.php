@@ -98,8 +98,7 @@
     </script>
     <script src="js/indiceDinamico.js"></script>
     <script src="js/barraProgressiva.js"></script>
-    
+
     <?php include 'footer.html'; ?>
-    <script src="js/header.js"></script>
 </body>
 </html>

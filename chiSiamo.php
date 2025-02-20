@@ -118,7 +118,6 @@
             </div>
         </section>
         <script src="js/slideShowIndex.js"></script>
-        <script src="js/header.js"></script>
     </main>
     <?php include 'footer.html'; ?>
 </body>

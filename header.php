@@ -18,12 +18,17 @@
                 <a href="ChiSiamo.php" style="color:white">Chi Siamo?</a>
                 <?php
                     if($accesso){
-                        echo "<a href=\"profilo.php\"><img src=\"images/icona_profilo.png\" height=\"20px\"></a>";
+                        echo "<a href=\"profilo.php\">";
                     } else {
-                        echo "<a href=\"login.php\"><img src=\"images/icona_profilo.png\" height=\"20px\"></a>";
+                        echo "<a href=\"login.php\">";
                     }
                 ?>
+                <img src="images/icona_profilo.png" height="20px"></a>
+                
             </div>
         </div>
+
+        <script src="js/header.js"></script>
+
     </header>
 </html>
