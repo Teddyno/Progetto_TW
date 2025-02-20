@@ -17,7 +17,7 @@
         <section class="container-intro">
             <div class="container-text">
                 <h1>UnisaGym</h1>
-                <h4>Cosa facciamo</h4>
+                <h4>Cosa offriamo</h4>
                 <p>UnisaGym ti offre servizi h24 con la possibilità di scegliere il proprio personal trainer adatto alle vostre esigenze.</p> 
                 <p>Le strutture sono certificate e all'avanguardia per permettervi la miglior attività fisica possibile, quando volete e come volete.</p> 
                 <p>Vi aspettiamo nelle nostre 3 sedi: Nocera Superiore, Angri e Fisciano con possibilità di agevolazione sul primo acquisto di un corso.</p>
@@ -60,6 +60,14 @@
                     <div class="text">
                         <h2>INGRESSO SENZA LIMITI DI ORARIO</h2>
                         <p>Per te che ami la flessibilità, UnisaGym è aperta sempre mattina, pomeriggio o sera</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <img src="images/check-icon" alt="Spunta Verde" class="check-icon">
+                    <div class="text">
+                        <h2>CHIAMARE PER SAPERNE DI PIU'</h2>
+                        <p>Puoi contattarci quando vuoi, per fissare un appuntamento per una consulenza, o per richiedere il tuo periodo di prova gratuito di 7 giorni</p>
                     </div>
                 </div>
             </div>
