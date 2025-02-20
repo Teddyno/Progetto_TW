@@ -1,11 +1,10 @@
 <?php 
     session_start(); 
 
+    $accesso = FALSE;
     if(isset($_SESSION['autenticato'])){
         $accesso = $_SESSION['autenticato'];
         $nome = $_SESSION['nome'];
-    } else {
-        $accesso = FALSE;
     }
 ?>
 
@@ -75,18 +74,23 @@
             <div class="container-abbonamento">
                 <?php
                     if($accesso){
-                       include 'datiAbbonamento.php';
+                        include 'datiAbbonamento.php';
+                        $abbonato = $_SESSION['abbonato'];
+                        if($abbonato){
                 ?>
-                        <h1>Il tuo Abbonamento</h1>
-                        <div class="container-barra">
-                            <div class="barra-progressiva" id="barra-progressiva"></div>
-                            <script>
-                                let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
-                                let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
-                            </script>
-                        </div>
-                        <p id="testo-barra"></p>
+                            <h1>Il tuo Abbonamento</h1>
+                            <div class="container-barra">
+                                <div class="barra-progressiva" id="barra-progressiva"></div>
+                                <script>
+                                    let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
+                                    let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
+                                </script>
+                            </div>
+                            <p id="testo-barra"></p>
                 <?php
+                        } else {
+                            echo "<h1>Non hai un abbonamento attivo</h1>";
+                        }
                     } else {
                 ?>
                         <h1>Accedi per avere info sul tuo abbonamento</h1>

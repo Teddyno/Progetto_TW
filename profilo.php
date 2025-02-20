@@ -19,18 +19,18 @@
     <?php
         $email = $_SESSION['email'];
 
-		$sql = "SELECT id, nome, cognome, datanascita FROM iscritti WHERE email = '$email';";
-		$ret = pg_query($db, $sql); 
+		$sql = "SELECT id, nome, cognome, datanascita FROM iscritti WHERE email = $1;";
+        $prep = pg_prepare($db, "sqlProfilo", $sql);
+		$ret = pg_execute($db, "sqlProfilo", array($email));
 		if(!$ret) {
 			echo "ERRORE QUERY: " . pg_last_error($db);
 			exit; 
-		}
-			
-        $id = pg_fetch_result($ret, 0, 'id');
-		$nome = pg_fetch_result($ret, 0, 'nome');
-		$cognome = pg_fetch_result($ret, 0, 'cognome');
-        $datanascita = pg_fetch_result($ret, 0, 'datanascita');
-
+		} else {
+            $id = pg_fetch_result($ret, 0, 'id');
+            $nome = pg_fetch_result($ret, 0, 'nome');
+            $cognome = pg_fetch_result($ret, 0, 'cognome');
+            $datanascita = pg_fetch_result($ret, 0, 'datanascita');
+        }
     ?>
 
     <header class="indice">

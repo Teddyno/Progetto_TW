@@ -22,7 +22,7 @@
 			}
 			else{
 				if(password_verify($pass, $hash)){
-					echo "<p>Login Eseguito con successo</p>";
+					//echo "<p>Login Eseguito con successo</p>";
 					//Se il login è corretto, inizializziamo la sessione
 					session_start();
 					$_SESSION['email']=$email;

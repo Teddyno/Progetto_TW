@@ -2,10 +2,9 @@
     error_reporting(E_ALL ^ E_NOTICE); 
     session_start();
 
+    $accesso = FALSE;
     if(isset($_SESSION['autenticato'])){
         $accesso = $_SESSION['autenticato'];
-    } else {
-        $accesso = FALSE;
     }
 ?>
 
