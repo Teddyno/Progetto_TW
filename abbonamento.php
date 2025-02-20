@@ -74,22 +74,22 @@
                                 echo pg_last_error($db); 
                             } else {
                                 if(pg_num_rows($retCorsi) == 0){
-                                    echo <<<_HTML
+                                    echo <<<HTML
                                         <tr>
                                             <td colspan="2">Nessun corso disponibile</td>
                                         </tr>
-                                    _HTML;
+HTML;
                                 } else {
                                     while($rowCorsi = pg_fetch_assoc($retCorsi)){
                                         $giorno = $rowCorsi['giornocorso'];
                                         $orainizio = $rowCorsi['orainizio'];
                                         $orafine = $rowCorsi['orafine'];
-                                        echo <<<_HTML
+                                        echo <<<HTML
                                             <tr>
                                                 <td>$giorno</td>
                                                 <td>$orainizio - $orafine</td>
                                             </tr>
-                                        _HTML;
+HTML;
                                     }
                                 }
                                 
