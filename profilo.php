@@ -55,7 +55,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         $cognome = pg_fetch_result($ret, 0, 'cognome');
         $datanascitaAnni = pg_fetch_result($ret, 0, 'datanascita');
         $date = str_replace('-', '/', $datanascitaAnni);
-        $datanascitaGioni = date('d-m-Y', strtotime($date));
+        $datanascitaGiorni = date('d-m-Y', strtotime($date));
         $sesso = pg_fetch_result($ret, 0, 'sesso');
         $telefono = pg_fetch_result($ret, 0, 'telefono');
     }
@@ -76,7 +76,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                     <div class="col1">
                         <p><strong>Nome: </strong><?php echo"$nome" ?></p>
                         <p><strong>Cognome: </strong><?php echo"$cognome" ?></p>
-                        <p><strong>Data di Nascita: </strong><?php echo"$datanascitaGioni" ?></p>
+                        <p><strong>Data di Nascita: </strong><?php echo"$datanascitaGiorni" ?></p>
                     </div>
                     <div class="col2">
                         <p><strong>Sesso: </strong><?php echo"$sesso" ?></p>
