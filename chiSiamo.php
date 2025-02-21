@@ -18,6 +18,7 @@
             </div>
         </div>
         <p class="title-2">
+            UnisaGym vanta una struttura di oltre 3000 mq che offre numerosi servizi dedicati al benessere della persona.
             La <span class="highlight"> persona al centro</span> è questa la missione di UnisaGym che mira ad offrire non solo attività sportiva, ma accompagnare i suoi soci alla ricerca del benessere psico-fisico.
             Non è solo un impegno con te stesso, ma la nostra promessa di fare sempre meglio.
         </p>
@@ -114,6 +115,23 @@
             </div>
         </section>
 
+        <section class="stats-section">
+            <div class="stat">
+                <img src="images/heart_icon.jpg" alt="Iscritti">
+                <h6>+1,000</h6>
+                <p>ISCRITTI</p>
+            </div>
+            <div class="stat">
+                <img src="images/people_icon.jpg" alt="Trainer">
+                <h2>+20</h2>
+                <p>TRAINER</p>
+            </div>
+            <div class="stat">
+                <img src="images/running_icon.jpg" alt="Classi Attive">
+                <h2>+30</h2>
+                <p>CLASSI ATTIVE</p>
+            </div>
+        </section>
         <br><br><br><br><br>
         <div class="sedi-text">
             <h3>Le Nostre Sedi</h3>
