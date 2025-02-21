@@ -13,7 +13,8 @@
     line-height: 20px;
 }
 
-#testo-barra{
+.testo-barra-index{
     text-align: center;
     font-size: 16px;
+    margin:10px auto;
 }

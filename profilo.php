@@ -126,7 +126,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                                 let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
                             </script>
                         </div>
-                        <p id="testo-barra"></p>
+                        <p id="testo-barra" class="testo-barra-profilo"></p>
                     </div>
                 <?php /*  sezione utente non abbonato */
                     } else {

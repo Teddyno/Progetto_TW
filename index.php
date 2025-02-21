@@ -86,7 +86,7 @@
                         let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
                     </script>
                 </div>
-                <p id="testo-barra"></p>
+                <p id="testo-barra" class="testo-barra-index"></p>
                 <?php
                         } else {
                             echo "<h1>Non hai un abbonamento attivo</h1>";

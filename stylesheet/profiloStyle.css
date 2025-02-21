@@ -87,28 +87,6 @@ p {
     align-items:start;
 }
 
-.container-barra {
-    width: 300px;
-    background-color: rgb(182, 182, 182);
-    height: 25px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 50px;
-}
-
-.barra-progressiva{
-    height: 100%;
-    font-weight: bold;
-    line-height: 20px;
-}
-
-#testo-barra {
-    font-size: 14px; 
-    text-align: center;
-    margin-left: 100px;
-
-}
-
 .col1{
     grid-column: 1;
 }
@@ -182,4 +160,24 @@ p {
     transition: all 0.3s;
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
     margin: auto;
+}
+
+.container-barra{
+    width: 300px;
+    background-color: rgb(182, 182, 182);
+    height: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 40px 0px 0px;
+}
+
+.barra-progressiva{
+    height: 100%;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.testo-barra-profilo{
+    font-size: 14px; 
+    margin: 10px 100px;
 }
