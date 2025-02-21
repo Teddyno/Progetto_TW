@@ -58,10 +58,6 @@
                         <div class="trainer">
                             <img class="foto-trainer" src="images/pt_1.jpg" alt="Foto Marco Bianchi">
                             <p class="nome-trainer"><?php echo $rowP['nome']." ".$rowP['cognome']?></p>
-                            <div class="social-trainer">
-                                <a href="#">📷</a>
-                                <a href="#">🔵</a>
-                            </div>
                             <div class="orari-container">
                                 <table class="tabella-orari">
                                     <tr>
