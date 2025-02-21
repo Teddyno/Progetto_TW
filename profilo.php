@@ -162,12 +162,8 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     </script>
     <script src="js/indiceDinamico.js"></script>
     <script src="js/barraProgressiva.js"></script>
-<<<<<<< HEAD
-
-=======
     <script src="js/modificaDatiProfilo.js"></script>
     
->>>>>>> 1a00ebc (FUNZIONA LA MODIFICA DEI DATI)
     <?php include 'footer.html'; ?>
 </body>
 </html>
