@@ -53,7 +53,9 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         $id = pg_fetch_result($ret, 0, 'id');
         $nome = pg_fetch_result($ret, 0, 'nome');
         $cognome = pg_fetch_result($ret, 0, 'cognome');
-        $datanascita = pg_fetch_result($ret, 0, 'datanascita');
+        $datanascitaAnni = pg_fetch_result($ret, 0, 'datanascita');
+        $date = str_replace('-', '/', $datanascitaAnni);
+        $datanascitaGioni = date('d-m-Y', strtotime($date));
         $sesso = pg_fetch_result($ret, 0, 'sesso');
         $telefono = pg_fetch_result($ret, 0, 'telefono');
     }
@@ -74,7 +76,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                     <div class="col1">
                         <p><strong>Nome: </strong><?php echo"$nome" ?></p>
                         <p><strong>Cognome: </strong><?php echo"$cognome" ?></p>
-                        <p><strong>Data di Nascita: </strong><?php echo"$datanascita" ?></p>
+                        <p><strong>Data di Nascita: </strong><?php echo"$datanascitaGioni" ?></p>
                     </div>
                     <div class="col2">
                         <p><strong>Sesso: </strong><?php echo"$sesso" ?></p>
@@ -87,7 +89,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                     <div class="col1">
                         <p><strong>Nome: </strong><input type="text" name="nome" value="<?php echo htmlspecialchars("$nome")?>" required /></p>
                         <p><strong>Cognome: </strong><input type="text" name="cognome" value="<?php echo htmlspecialchars("$cognome")?>" required /></p>
-                        <p><strong>Data di Nascita: </strong><input type="date" name="datanascita" value="<?php echo $datanascita;?>" required /></p>
+                        <p><strong>Data di Nascita: </strong><input type="date" name="datanascita" value="<?php echo $datanascitaAnni;?>" required /></p>
                     </div>
                     <div class="col2">
                         <p><strong>Sesso: </strong>
