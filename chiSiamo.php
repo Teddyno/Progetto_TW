@@ -11,8 +11,16 @@
     <?php include 'header.php'; ?>
     
     <main>
-        <br>
-
+        <br><br><br>
+        <div class="container-title">
+            <div class="title">
+                <h4>BENVENUTI IN <span class="highlight">UNISAGYM!</span></h4>
+            </div>
+        </div>
+        <p class="title-2">
+            La <span class="highlight"> persona al centro</span> è questa la missione di UnisaGym che mira ad offrire non solo attività sportiva, ma accompagnare i suoi soci alla ricerca del benessere psico-fisico.
+            Non è solo un impegno con te stesso, ma la nostra promessa di fare sempre meglio.
+        </p>
         <br><br><br>
         <section class="container-intro">
             <div class="container-text">
@@ -69,6 +77,39 @@
                         <h2>CHIAMARE PER SAPERNE DI PIU'</h2>
                         <p>Puoi contattarci quando vuoi, per fissare un appuntamento per una consulenza, o per richiedere il tuo periodo di prova gratuito di 7 giorni</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-intro-3">
+            <div class="container-text-3">
+                <div class="feature">
+                    <img src="images/check-icon" alt="Spunta Verde" class="check-icon">
+                    <div class="text">
+                        <h2>WELNESS & SPA</h2>
+                        <p>Un percorso multisensoriale vi accompagnerà nella nostra Spa firmata Starpool, tra profumi, suoni e colori.  Un’esperienza unica, una pausa rigenerante tra sauna, bagno turco, percorso di docce emozionali, cascata del ghiaccio, piscina idromassaggio</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <img src="images/check-icon" alt="Spunta Verde" class="check-icon">
+                    <div class="text">
+                        <h2>ESPERIENZA RIGENERATIVA</h2>
+                        <p>L’attività fisica contribuisce a modellare il nostro corpo e renderlo più sano, soprattutto grazie ai trattamenti estetici in grado di massimizzare i benefici dello sport stesso. Le nostre beauty specialist lavorano su protocolli viso e corpo personalizzati per risolvere le imperfezioni come smagliature, rughe, cellulite e migliorare la tonificazione e l’elasticità dei tessuti, anche con il supporto delle nostre tecnologie</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <img src="images/check-icon" alt="Spunta Verde" class="check-icon">
+                    <div class="text">
+                        <h2>HEALTHY BAR</h2>
+                        <p>Bar interno per colazioni, pause e pranzi all’insegna del benessere</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-immagine-3">
+            <div class="immagine-int-3">
+                    <img src="images/FotoPalestraInterno3.jpg" alt="Foto Palestra Interno 3">
                 </div>
             </div>
         </section>
