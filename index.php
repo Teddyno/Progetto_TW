@@ -78,15 +78,15 @@
                         $abbonato = $_SESSION['abbonato'];
                         if($abbonato){
                 ?>
-                            <h1>Il tuo Abbonamento</h1>
-                            <div class="container-barra">
-                                <div class="barra-progressiva" id="barra-progressiva"></div>
-                                <script>
-                                    let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
-                                    let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
-                                </script>
-                            </div>
-                            <p id="testo-barra"></p>
+                <h1>Il tuo Abbonamento</h1>
+                <div class="container-barra">
+                    <div class="barra-progressiva" id="barra-progressiva"></div>
+                    <script>
+                        let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
+                        let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
+                    </script>
+                </div>
+                <p id="testo-barra"></p>
                 <?php
                         } else {
                             echo "<h1>Non hai un abbonamento attivo</h1>";

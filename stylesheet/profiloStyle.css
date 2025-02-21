@@ -5,10 +5,7 @@
     height: 100%;
     padding-left: 20px;
     padding-right: 20px;
-}
-
-.contenitore-profilo{
-    margin-top: 125px;
+    width: 280px;
 }
 
 .indice a{
@@ -24,21 +21,104 @@
     color: #ffffff;
 }
 
-.section-profilo{
-    margin-left: 150px;
-    padding-left: 20px;
-    min-height: 500px; /* solo per le prove */
+.contenitore-profilo {
+    max-width: 1000px;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-left: 350px;
 }
 
-.bottone-logOut{
-    border-radius: 16px;
+.section-profilo {
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.titolo-info {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center; 
+    background-color: #447bf2; 
+    color: white; 
+    border-radius: 5px; 
+}
+
+.dettagli-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; 
+}
+
+.dettagli-info p {
+    margin: 0;
+    padding: 5px 0;
+    break-inside: avoid; 
+}
+
+.dettagli-info strong {
+    display: block;
+    font-weight: bold;
+}
+
+p {
+    margin: 5px 0;
+    padding-top: 10px;
+}
+
+.bottone-logOut {
+    background-color: #007bff;
+    color: white;
     border: none;
-    background-color: #e22525;
-    color: #fff;
-    font-size: 16px;
-    padding: 8px 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .bottone-logOut:hover {
-    background-color: #b61f1f;
+    background-color: #0056b3;
+}
+
+.container-barra-e-scritta {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    grid-column: 2;
+    align-items:start;
+}
+
+.container-barra {
+    width: 300px;
+    background-color: rgb(182, 182, 182);
+    height: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.barra-progressiva{
+    height: 100%;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+#testo-barra {
+    font-size: 14px; 
+    text-align: center;
+    margin-left: 100px;
+
+}
+
+.col1{
+    grid-column: 1;
+}
+
+.col2{
+    grid-column: 2;
 }
