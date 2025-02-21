@@ -87,18 +87,19 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
 
                 <form id="form-modifica" style="display: none;" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                     <div class="col1">
-                        <p><strong>Nome: </strong><input type="text" name="nome" value="<?php echo htmlspecialchars("$nome")?>" required /></p>
-                        <p><strong>Cognome: </strong><input type="text" name="cognome" value="<?php echo htmlspecialchars("$cognome")?>" required /></p>
-                        <p><strong>Data di Nascita: </strong><input type="date" name="datanascita" value="<?php echo $datanascitaAnni;?>" required /></p>
+                        <p><strong>Nome: </strong><input class="input-modifica" type="text" name="nome" value="<?php echo htmlspecialchars("$nome")?>" required /><span class="bordo-input"></span></p>
+                        <p><strong>Cognome: </strong><input class="input-modifica" type="text" name="cognome" value="<?php echo htmlspecialchars("$cognome")?>" required /><span class="bordo-input"></p>
+                        <p><strong>Data di Nascita: </strong><input class="input-modifica" type="date" name="datanascita" value="<?php echo $datanascitaAnni;?>" required /><span class="bordo-input"></p>
                     </div>
                     <div class="col2">
                         <p><strong>Sesso: </strong>
-                            <select name="sesso" required>
+                            <select name="sesso" class="input-modifica" required>
+                                <span class="bordo-input">
                                 <option value="M" <?php if ($sesso == 'M') echo 'selected'; ?>>Maschio</option>
                                 <option value="F" <?php if ($sesso == 'F') echo 'selected'; ?>>Femmina</option>
                             </select>
                         </p>
-                        <p><strong>Numero di Telefono: </strong><input type="text" name="telefono" value="<?php echo $telefono; ?>" required /></p>
+                        <p><strong>Numero di Telefono: </strong><input class="input-modifica" type="text" name="telefono" value="<?php echo $telefono; ?>" required /><span class="bordo-input"></p>
                     </div>
                     <button type="submit" id="bottone-salva">Salva</button>
                     <button type="button" id="btn-annulla" class="bottone-annulla">Annulla</button>
@@ -148,13 +149,9 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
             </div>
         </section>
 
-        <section class="section-profilo" id="section4">
-        <p class="titolo-info">Log out</p>
-            <div class="dettagli-info">
-                <p><button class="bottone-logOut" type="button" onclick="logout()">Log out</button></p>
-            </div>
-        </section>
-    </div>
+        <button class="bottone-logOut" onclick="logout()"> <img src="images/logout">
+            <span class="testo-logout">Logout</span>
+        </button>
 
 
     <script>

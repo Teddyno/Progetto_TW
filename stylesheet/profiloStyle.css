@@ -65,20 +65,6 @@ p {
     padding-top: 10px;
 }
 
-.bottone-logOut {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.bottone-logOut:hover {
-    background-color: #0056b3;
-}
-
 .container-barra-e-scritta {
     display: flex;
     flex-direction: column; 
@@ -105,12 +91,6 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 20px; 
-}
-
-.invisible {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease; 
 }
 
 #btn-modifica {
@@ -181,3 +161,69 @@ p {
     font-size: 14px; 
     margin: 10px 100px;
 }
+
+.bottone-logOut{
+    display: flex;
+    margin: 0px auto;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    height: 45px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 65, 65);
+}
+
+.testo-logout {
+    position: absolute;
+    opacity: 0;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    right: 15px;
+}
+
+.bottone-logOut:hover{
+    width: 150px;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.bottone-logOut:hover .testo-logout {
+    opacity: 1;
+    transition-duration: all 0.3s ease;
+    padding-left: 10px;
+}
+
+.bottone-logOut img{
+    width: 27px;
+    height: 27px;
+    margin: 0px 0px 0px 12px;
+}
+
+.input-modifica{
+    font-size: 16px;
+    padding: 10px 10px 2px 5px;
+    width: 50%;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+.bordo-input{
+    position: absolute;
+    background: #5891ff;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+
