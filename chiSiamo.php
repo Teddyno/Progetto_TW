@@ -18,7 +18,7 @@
             </div>
         </div>
         <p class="title-2">
-            La <span class="highlight"> persona al centro</span> è questa la missione di UnisaGym che mira ad offrire non solo attività sportiva, ma accompagnare i suoi soci alla ricerca del benessere psico-fisico.
+            La <span class="highlight"> persona al centro</span>, è questa la missione di UnisaGym che mira ad offrire non solo attività sportiva, ma accompagnare i suoi soci alla ricerca del benessere psico-fisico.
             Non è solo un impegno con te stesso, ma la nostra promessa di fare sempre meglio.
         </p>
         <br><br><br>

@@ -10,11 +10,9 @@ body {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    gap: 40px;
-    max-width: 200px;
+    max-width: 275px;
     max-height: 200px;
-    margin: auto;
-    padding: 40px 20px;
+    margin: 70px auto;
 }
 
 .title h4 {
@@ -26,10 +24,6 @@ body {
     text-transform: uppercase;
     line-height: 1.6;
     animation: fadeIn 1s ease-in-out;
-    padding: 20px 0;
-    margin-top: 40px;
-    margin-bottom: 5px;
-    margin-left: -50px;
     text-align: center;
 }
 
@@ -51,28 +45,17 @@ body {
 .title-2 {
     font-family: 'Times New Roman', Times, serif;
     background: none;
-    font-size: 18px; 
+    font-size: 25px; 
     margin: 20px auto;
-    margin-top: 40px;
     margin-bottom: 0;
     color: rgba(0, 0, 0, 0.7);
-    text-align: left;
+    text-align: center;
     font-weight: bold;
-    margin-left: 75px;
+    max-width: 1100px;
     padding: 20px 0;
     line-height: 1.6;
 }
 
-.title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    max-width: 100px;
-    max-height: 100px;
-    margin: auto;
-    padding: 40px 20px;
-}
 
 .container-intro, .container-intro-2 , .container-intro-3{
     display: flex;
@@ -130,30 +113,27 @@ body {
     background-color: white;
     height: 320px;
     padding: 10px;
-    border: 2px solid;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
 .container-text-2 {
     background-color: white;
-    height: 350px;
+    height: 365px;
     padding: 20px;
-    border: 2px solid green;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
 .container-text-3 {
     background-color: white;
     width: 925px;
-    height: 350px;
+    height: 365px;
     padding: 10px;
-    border: 2px solid green;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
