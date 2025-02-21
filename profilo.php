@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+$email = $_SESSION['email'];
+
 require_once "db.php";
 
 //CONNESSIONE AL DB
@@ -17,46 +20,45 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     <?php include 'header.php'; ?>
     <?php
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $email = $_SESSION['email'];
-        $nome = $_POST['nome'];
-        $cognome = $_POST['cognome'];
-        $datanascita = $_POST['datanascita'];
-        $sesso = $_POST['sesso'];
-        $telefono = $_POST['telefono'];
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $email = $_SESSION['email'];
+            $nome = $_POST['nome'];
+            $cognome = $_POST['cognome'];
+            $datanascita = $_POST['datanascita'];
+            $sesso = $_POST['sesso'];
+            $telefono = $_POST['telefono'];
 
-        $sql_update = <<<_QUERY
-            UPDATE iscritti 
-            SET nome = $1, 
-            cognome = $2, 
-            datanascita = $3, 
-            sesso = $4, 
-            telefono = $5 
-            WHERE email = $6;
-        _QUERY;
+            $sql_update = <<<_QUERY
+                UPDATE iscritti 
+                SET nome = $1, 
+                cognome = $2, 
+                datanascita = $3, 
+                sesso = $4, 
+                telefono = $5 
+                WHERE email = $6;
+            _QUERY;
 
-        $prep = pg_prepare($db, "updateProfilo", $sql_update);
+            $prep = pg_prepare($db, "updateProfilo", $sql_update);
 
-        $ret = pg_execute($db, "updateProfilo", array($nome, $cognome, $datanascita, $sesso, $telefono, $email));
-    }
+            $ret = pg_execute($db, "updateProfilo", array($nome, $cognome, $datanascita, $sesso, $telefono, $email));
+        }
 
-    //RECUPERO DATI UTENTE
-    $email = $_SESSION['email'];
-
-    $sql = "SELECT id, nome, cognome, datanascita, sesso, telefono FROM iscritti WHERE email = $1;";
-    $prep = pg_prepare($db, "sqlProfilo", $sql);
-    $ret = pg_execute($db, "sqlProfilo", array($email));
-    if(!$ret) {
-        echo "ERRORE QUERY: " . pg_last_error($db);
-        exit; 
-    } else {
-        $id = pg_fetch_result($ret, 0, 'id');
-        $nome = pg_fetch_result($ret, 0, 'nome');
-        $cognome = pg_fetch_result($ret, 0, 'cognome');
-        $datanascita = pg_fetch_result($ret, 0, 'datanascita');
-        $sesso = pg_fetch_result($ret, 0, 'sesso');
-        $telefono = pg_fetch_result($ret, 0, 'telefono');
-    }
+        //RECUPERO DATI UTENTE
+        
+        $sql = "SELECT id, nome, cognome, datanascita, sesso, telefono FROM iscritti WHERE email = $1;";
+        $prep = pg_prepare($db, "sqlProfilo", $sql);
+        $ret = pg_execute($db, "sqlProfilo", array($email));
+        if(!$ret) {
+            echo "ERRORE QUERY: " . pg_last_error($db);
+            exit; 
+        } else {
+            $id = pg_fetch_result($ret, 0, 'id');
+            $nome = pg_fetch_result($ret, 0, 'nome');
+            $cognome = pg_fetch_result($ret, 0, 'cognome');
+            $datanascita = pg_fetch_result($ret, 0, 'datanascita');
+            $sesso = pg_fetch_result($ret, 0, 'sesso');
+            $telefono = pg_fetch_result($ret, 0, 'telefono');
+        }
 
     ?>
     <header class="indice">
@@ -162,12 +164,8 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     </script>
     <script src="js/indiceDinamico.js"></script>
     <script src="js/barraProgressiva.js"></script>
-<<<<<<< HEAD
-
-=======
     <script src="js/modificaDatiProfilo.js"></script>
     
->>>>>>> 1a00ebc (FUNZIONA LA MODIFICA DEI DATI)
     <?php include 'footer.html'; ?>
 </body>
 </html>

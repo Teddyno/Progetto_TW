@@ -8,6 +8,50 @@
 <html>
 <head>
 	<title>UniSa Gym - Gestione Login</title>
+	<?php
+		function get_pwd($email,$db){
+				require 'db.php';
+				$sql = "SELECT password FROM iscritti WHERE email=$1;";
+				$prep = pg_prepare($db, "sqlPassword", $sql);
+				$ret = pg_execute($db, "sqlPassword", array($email));
+				if(!$ret) {
+					echo "ERRORE QUERY: " . pg_last_error($db);
+					return false;
+				}
+				else{
+					if ($row = pg_fetch_assoc($ret)){
+						$pass = $row['password'];
+						return $pass;
+					}
+					else{
+						return false;
+					}
+				}
+				pg_close($db);
+		}
+
+		function get_dati($email,$db){
+			require 'db.php';
+			$sql = "SELECT id, nome FROM iscritti WHERE email=$1;";
+			$prep = pg_prepare($db, "sqlNome", $sql);
+			$ret = pg_execute($db, "sqlNome", array($email));
+			if(!$ret) {
+				echo "ERRORE QUERY: " . pg_last_error($db);
+				return false;
+			}
+			else{
+				if ($row = pg_fetch_assoc($ret)){
+					$_SESSION['idIscritto']= $row['id'];
+					$_SESSION['nome']= $row['nome'];
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+			pg_close($db);
+		}
+	?>
 </head>
 <body>
 	<?php
@@ -18,7 +62,7 @@
 			//se username esiste nel DB. Se esiste, restituisce la password (hash), altrimenti restituisce false.
 			$hash = get_pwd($email,$db);
 			if(!$hash){
-				echo "<p style=\"margin-top:100px;\"> L'utente con $email non esiste. <a href=\"login.html\">Riprova</a></p>";
+				echo "<p style=\"margin-top:100px;\"> L'utente con $email non esiste. <a href=\"login.php\">Riprova</a></p>";
 			}
 			else{
 				if(password_verify($pass, $hash)){
@@ -33,62 +77,17 @@
 						window.location.href = "profilo.php";
 					</script>
 	<?php
-					echo "<p style=\"margin-top:100px;\"><a href=\"profilo.php\">Accedi</a> al contenuto riservato solo agli utenti registrati<p>";
 				}
 				else{
-					echo '<p style=\"margin-top:100px;\">Username o password errati. <a href="login.html">Riprova</a></p>';
+					echo '<p style=\"margin-top:100px;\">Username o password errati. <a href="login.php">Riprova</a></p>';
 				}
 			}
 		}
 		else{
-			echo "<p style=\"margin-top:100px;\">ERRORE: username o password non inseriti <a href=\"login.html\">Riprova</a></p>";
+			echo "<p style=\"margin-top:100px;\">ERRORE: username o password non inseriti <a href=\"login.php\">Riprova</a></p>";
 			exit();
 		}
 	?>
 </body>
 </html>
 
-<?php
-function get_pwd($email,$db){
-		require 'db.php';
-		$sql = "SELECT password FROM iscritti WHERE email=$1;";
-		$prep = pg_prepare($db, "sqlPassword", $sql);
-		$ret = pg_execute($db, "sqlPassword", array($email));
-		if(!$ret) {
-			echo "ERRORE QUERY: " . pg_last_error($db);
-			return false;
-		}
-		else{
-			if ($row = pg_fetch_assoc($ret)){
-				$pass = $row['password'];
-				return $pass;
-			}
-			else{
-				return false;
-			}
-		}
-		pg_close($db);
-}
-
-function get_dati($email,$db){
-	require 'db.php';
-	$sql = "SELECT id, nome FROM iscritti WHERE email=$1;";
-	$prep = pg_prepare($db, "sqlNome", $sql);
-	$ret = pg_execute($db, "sqlNome", array($email));
-	if(!$ret) {
-		echo "ERRORE QUERY: " . pg_last_error($db);
-		return false;
-	}
-	else{
-		if ($row = pg_fetch_assoc($ret)){
-			$_SESSION['idIscritto']= $row['id'];
-			$_SESSION['nome']= $row['nome'];
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	pg_close($db);
-}
-?>
