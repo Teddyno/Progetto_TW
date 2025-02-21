@@ -71,8 +71,8 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     <div class="contenitore-profilo">
         <section class="section-profilo" id="section1">
         <p class="titolo-info">Dati Personali</p>
-            <div class="dettagli-info">
-                <div id="visualizza-dati" style="display: block;">
+            <div class="dettagli-info-dati">
+                <div id="visualizza-dati">
                     <div class="col1">
                         <p><strong>Nome: </strong><?php echo"$nome" ?></p>
                         <p><strong>Cognome: </strong><?php echo"$cognome" ?></p>
@@ -82,8 +82,8 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                         <p><strong>Sesso: </strong><?php echo"$sesso" ?></p>
                         <p><strong>Numero di Telefono: </strong><?php echo"$telefono" ?></p>
                     </div>
-                    <button id="btn-modifica" class="bottone-modifica">Modifica</button>
                 </div>
+                <button id="btn-modifica" class="bottone-modifica">Modifica</button>
 
                 <form id="form-modifica" style="display: none;" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                     <div class="col1">
@@ -100,7 +100,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                         </p>
                         <p><strong>Numero di Telefono: </strong><input type="text" name="telefono" value="<?php echo $telefono; ?>" required /></p>
                     </div>
-                    <button type="submit" class="bottone-salva">Salva</button>
+                    <button type="submit" id="bottone-salva">Salva</button>
                     <button type="button" id="btn-annulla" class="bottone-annulla">Annulla</button>
                 </form>
             </div>
@@ -164,6 +164,9 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     </script>
     <script src="js/indiceDinamico.js"></script>
     <script src="js/barraProgressiva.js"></script>
+<<<<<<< HEAD
+
+=======
     <script src="js/modificaDatiProfilo.js"></script>
     
     <?php include 'footer.html'; ?>
