@@ -53,7 +53,9 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         $id = pg_fetch_result($ret, 0, 'id');
         $nome = pg_fetch_result($ret, 0, 'nome');
         $cognome = pg_fetch_result($ret, 0, 'cognome');
-        $datanascita = pg_fetch_result($ret, 0, 'datanascita');
+        $datanascitaAnni = pg_fetch_result($ret, 0, 'datanascita');
+        $date = str_replace('-', '/', $datanascitaAnni);
+        $datanascitaGiorni = date('d-m-Y', strtotime($date));
         $sesso = pg_fetch_result($ret, 0, 'sesso');
         $telefono = pg_fetch_result($ret, 0, 'telefono');
     }
@@ -69,25 +71,25 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     <div class="contenitore-profilo">
         <section class="section-profilo" id="section1">
         <p class="titolo-info">Dati Personali</p>
-            <div class="dettagli-info">
-                <div id="visualizza-dati" style="display: block;">
+            <div class="dettagli-info-dati">
+                <div id="visualizza-dati">
                     <div class="col1">
                         <p><strong>Nome: </strong><?php echo"$nome" ?></p>
                         <p><strong>Cognome: </strong><?php echo"$cognome" ?></p>
-                        <p><strong>Data di Nascita: </strong><?php echo"$datanascita" ?></p>
+                        <p><strong>Data di Nascita: </strong><?php echo"$datanascitaGiorni" ?></p>
                     </div>
                     <div class="col2">
                         <p><strong>Sesso: </strong><?php echo"$sesso" ?></p>
                         <p><strong>Numero di Telefono: </strong><?php echo"$telefono" ?></p>
                     </div>
-                    <button id="btn-modifica" class="bottone-modifica">Modifica</button>
                 </div>
+                <button id="btn-modifica" class="bottone-modifica">Modifica</button>
 
                 <form id="form-modifica" style="display: none;" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                     <div class="col1">
                         <p><strong>Nome: </strong><input type="text" name="nome" value="<?php echo htmlspecialchars("$nome")?>" required /></p>
                         <p><strong>Cognome: </strong><input type="text" name="cognome" value="<?php echo htmlspecialchars("$cognome")?>" required /></p>
-                        <p><strong>Data di Nascita: </strong><input type="date" name="datanascita" value="<?php echo $datanascita;?>" required /></p>
+                        <p><strong>Data di Nascita: </strong><input type="date" name="datanascita" value="<?php echo $datanascitaAnni;?>" required /></p>
                     </div>
                     <div class="col2">
                         <p><strong>Sesso: </strong>
@@ -98,7 +100,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                         </p>
                         <p><strong>Numero di Telefono: </strong><input type="text" name="telefono" value="<?php echo $telefono; ?>" required /></p>
                     </div>
-                    <button type="submit" class="bottone-salva">Salva</button>
+                    <button type="submit" id="bottone-salva">Salva</button>
                     <button type="button" id="btn-annulla" class="bottone-annulla">Annulla</button>
                 </form>
             </div>
@@ -162,6 +164,9 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     </script>
     <script src="js/indiceDinamico.js"></script>
     <script src="js/barraProgressiva.js"></script>
+<<<<<<< HEAD
+
+=======
     <script src="js/modificaDatiProfilo.js"></script>
     
     <?php include 'footer.html'; ?>
