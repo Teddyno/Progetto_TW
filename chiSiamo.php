@@ -18,12 +18,8 @@
             </div>
         </div>
         <p class="title-2">
-<<<<<<< HEAD
             UnisaGym vanta una struttura di oltre 3000 mq che offre numerosi servizi dedicati al benessere della persona.
             La <span class="highlight"> persona al centro</span> è questa la missione di UnisaGym che mira ad offrire non solo attività sportiva, ma accompagnare i suoi soci alla ricerca del benessere psico-fisico.
-=======
-            La <span class="highlight"> persona al centro</span>, è questa la missione di UnisaGym che mira ad offrire non solo attività sportiva, ma accompagnare i suoi soci alla ricerca del benessere psico-fisico.
->>>>>>> 4ab269f0b0d0cbe6bb34459e4c349426444c585a
             Non è solo un impegno con te stesso, ma la nostra promessa di fare sempre meglio.
         </p>
         <br><br><br>
@@ -122,19 +118,44 @@
         <section class="stats-section">
             <div class="stat">
                 <img src="images/heart_icon.jpg" alt="Iscritti">
-                <h6>+1,000</h6>
+                <div class="number" data-target="+1000">0</div>
                 <p>ISCRITTI</p>
             </div>
             <div class="stat">
                 <img src="images/people_icon.jpg" alt="Trainer">
-                <h2>+20</h2>
-                <p>TRAINER</p>
+                <div class="number" data-target="+30">0</div>
+                <p>PERSONAL TRAINER</p>
             </div>
             <div class="stat">
                 <img src="images/running_icon.jpg" alt="Classi Attive">
-                <h2>+30</h2>
+                <div class="number" data-target="+30">0</div>
                 <p>CLASSI ATTIVE</p>
             </div>
+
+            <script>
+                function animateCountUp(element, target) {
+                    let start = 0;
+                    const duration = 5000;
+                    const stepTime = Math.abs(Math.floor(duration / target));
+
+                    const timer = setInterval(() => {
+                        start += Math.ceil(target / 100);
+                        if (start >= target) {
+                            element.textContent = target.toLocaleString();
+                            clearInterval(timer);
+                        } else {
+                            element.textContent = start.toLocaleString();
+                        }
+                    }, stepTime);
+                }
+
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.querySelectorAll(".number").forEach(num => {
+                        const target = +num.getAttribute("data-target");
+                        animateCountUp(num, target);
+                    });
+                });
+            </script>
         </section>
         <br><br><br><br><br>
         <div class="sedi-text">
