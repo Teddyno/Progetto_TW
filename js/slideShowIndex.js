@@ -33,4 +33,3 @@ function cambiaSlide(direzione) {
 }
 
 slideAttiva(slideIndex);
-avviaSlideshow();
