@@ -174,7 +174,7 @@
     height: 32px;
     top: 0;
     right: 0;
-    background-color: #5770de;
+    background-color: #0460D9;
     border-radius: 0 2px 0 22px;
 }
 
@@ -206,7 +206,7 @@
     z-index: -1;
     top: -16px;
     right: -16px;
-    background: #5770de;
+    background: #0460D9;
     height: 32px;
     width: 32px;
     border-radius: 32px;
@@ -236,7 +236,7 @@
 }
 
 .bottone-si {
-    background-color: #2868f3;
+    background-color: #0460D9;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -260,7 +260,7 @@
 }
 
 .bottone-login {
-    background-color: #2868f3;
+    background-color: #0460D9;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -272,11 +272,11 @@
 }
 
 .bottone-login:hover {
-    background-color: #1d4dbd;
+    background-color: #022873;
 }
 
 .bottone-si:hover {
-    background-color: #1d4dbd;
+    background-color: #022873;
 }
 
 .bottone-no:hover {
@@ -370,7 +370,7 @@
 }
 
 .button-riproduzione {
-    background-color: #5770de;
+    background-color: #0460D9;
     border: none;
     color: white;
     font-size: 18px;
@@ -385,7 +385,7 @@
 }
 
 .button-riproduzione:hover {
-    background-color: #7898ff;
+    background-color: #022873;
 }
 
 .container-provvisorio {
@@ -458,14 +458,14 @@
     padding: 10px 20px;
     font-size: 1.2em;
     color: #fff;
-    background-color: #5770de;
+    background-color: #0460D9;
     border-radius: 5px;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .pulsante-acquisto:hover {
-    background-color: #7898ff;
+    background-color: #022873;
     transform: scale(1.05);
 }
 

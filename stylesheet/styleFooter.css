@@ -26,18 +26,18 @@ body {
 
 /* Colonne del Footer */
 .colonna-footer h4 {
-  color: #283b96; /* titolo */
+  color: #0460D9; /* titolo */
   font-size: 14px; /* dimensione del titolo */
   margin-bottom: 5px; /* Riduce lo spazio sotto il titolo */
 }
 
 .colonna-footer a {
   text-decoration: none; /* Rimuove la sottolineatura dai link */
-  color: #5063bf;       
+  color: #0460D9;       
 }
 
 .colonna-footer a:hover {
-  color: #283b96; /* Cambia il colore al passaggio del mouse */
+  color: #022873; /* Cambia il colore al passaggio del mouse */
 }
 
 
@@ -58,5 +58,5 @@ body {
   border-top: 1px solid #ddd; /* Linea divisoria sopra il copyright */
   padding-top: 10px; /* Aggiunge spazio sopra il testo */
   font-size: 12px; /* Riduce leggermente la dimensione del testo */
-  color: #283b96; /* Colore del testo */
+  color: #0460D9; /* Colore del testo */
 }

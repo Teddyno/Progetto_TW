@@ -5,7 +5,7 @@ body {
     padding: 0;
     text-align: center;
     background-color: #f4f4f4;
-    color: #283b96;
+    color: #022873;
 }
 
 /* Contenitore principale della sezione abbonamenti */
@@ -23,7 +23,7 @@ body {
     font-size: 24px;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #283b96;
+    color: #022873;
 }
 
 /* Contenitore degli abbonamenti */
@@ -37,7 +37,7 @@ body {
     width: 220px;
     display: inline-block;
     margin: 15px;
-    background: #5063BF;
+    background: #0460D9;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
@@ -64,62 +64,6 @@ body {
     color: #FFD700;
 }
 
-
-/* Contenitore della sezione */
-.contenitore-servizi {
-    width: 60%;
-    margin: 50px auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-}
-
-/* Titolo della sezione */
-.titolo-servizi {
-    font-size: 24px;
-    font-weight: bold;
-    color: #283b96;
-    margin-bottom: 20px;
-}
-
-/* Griglia servizi */
-.griglia-servizi {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-}
-
-/* Singolo box servizio */
-.servizio {
-    width: 250px;
-    background: #5063BF;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    color: white;
-}
-
-/* Icona servizio */
-.icona-servizio {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-/* Nome del servizio */
-.nome-servizio {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-/* Descrizione del servizio */
-.descrizione-servizio {
-    font-size: 14px;
-    color: #FFD700;
-}
-
 /* Contenitore principale della sezione trainer */
 .contenitore-trainer {
     width: 60%;
@@ -134,7 +78,7 @@ body {
 .titolo-trainer {
     font-size: 24px;
     font-weight: bold;
-    color: #283b96;
+    color: #022873;
     margin-bottom: 20px;
 }
 
@@ -148,7 +92,7 @@ body {
 /* Singolo box del trainer */
 .trainer {
     width: 250px;
-    background: #5063BF;
+    background: #0460D9;
     padding: 20px;
     border-radius: 15px;
     text-align: center;
@@ -187,8 +131,8 @@ body {
 /* Contenitore tabella orari */
 .orari-container {
     margin-top: 10px;
-    background: #3E4E9C;
-    padding: 6px;
+    background: #0597F2;
+    padding: 3px;
     border-radius: 5px;
 }
 
@@ -206,10 +150,66 @@ body {
 
 .tabella-orari th {
     background: #FFD700;
-    color: #283b96;
+    color: #022873;
 }
 
 .tabella-orari td {
     background: white;
     color: black;
 }
+
+/* Contenitore della sezione */
+.contenitore-servizi {
+    width: 60%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Titolo della sezione */
+.titolo-servizi {
+    font-size: 24px;
+    font-weight: bold;
+    color: #022873;
+    margin-bottom: 20px;
+}
+
+/* Griglia servizi */
+.griglia-servizi {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Singolo box servizio */
+.servizio {
+    width: 250px;
+    background: #0460D9;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+}
+
+/* Icona servizio */
+.icona-servizio {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Nome del servizio */
+.nome-servizio {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Descrizione del servizio */
+.descrizione-servizio {
+    font-size: 14px;
+    color: #FFD700;
+}
+
