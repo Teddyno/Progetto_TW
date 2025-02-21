@@ -24,6 +24,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         $datanascita = $_POST['datanascita'];
         $sesso = $_POST['sesso'];
         $telefono = $_POST['telefono'];
+        $nickname = $_SESSION['nickname'];
 
         $sql_update = <<<_QUERY
             UPDATE iscritti 
@@ -65,7 +66,6 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         <a href="#section1">Dati Personali</a>
         <a href="#section2">Abbonamento</a>
         <a href="#section3">Sicurezza</a>
-        <a href="#section4">Log out</a>
     </header>
 
     <div class="contenitore-profilo">
@@ -141,10 +141,12 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         <p class="titolo-info">Sicurezza</p>
             <div class="dettagli-info">
                 <div class="col1">
-                    <p>Email : <?php echo"$email"?> </p>
+                    <p><strong>Email: </strong><?php echo"$email"?> </p>
                 </div>
                 <div class="col2">
-                    <p>Password : ******** </p>
+                    <p><strong>Nickname: </strong><?php echo $_SESSION['nickname']; ?></p>
+                    <p><strong>Password:</strong> ******** </p>
+                    <button id="btn-modifica" class="bottone-modifica">Modifica</button>
                 </div>
             </div>
         </section>

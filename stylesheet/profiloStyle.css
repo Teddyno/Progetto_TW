@@ -105,7 +105,7 @@ p {
     border: 1px solid #e8e8e8;
     transition: all 0.3s;
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-    margin: auto;
+    margin: 20px auto 0px;
 }
 
 #btn-modifica:active {
@@ -185,7 +185,7 @@ p {
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     right: 15px;
 }
 
@@ -197,7 +197,6 @@ p {
 
 .bottone-logOut:hover .testo-logout {
     opacity: 1;
-    transition-duration: all 0.3s ease;
     padding-left: 10px;
 }
 
