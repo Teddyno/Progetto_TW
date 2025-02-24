@@ -10,21 +10,21 @@ function attivaSezioni(linkNavigazione, current) {
 
 function controllaVisibilita(sezioni, current, scroll) {
     let newCurrent = current;
-    let closestSection = null;
-    let minDistance = Infinity;
+    let sezioneVicina = null;
+    let minimo = Infinity;
 
     sezioni.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const distance = Math.abs(scroll - sectionTop);
+        const sezioneTop = section.offsetTop;
+        const distanza = Math.abs(scroll - sezioneTop);
 
-        if (distance < minDistance && scroll >= sectionTop - 300) {
-            minDistance = distance;
-            closestSection = section;
+        if (distanza < minimo && scroll >= sezioneTop - 300) {
+            minimo = distanza;
+            sezioneVicina = section;
         }
     });
 
-    if (closestSection) {
-        newCurrent = closestSection.getAttribute("id");
+    if (sezioneVicina) {
+        newCurrent = sezioneVicina.getAttribute("id");
     }
 
     return newCurrent;
@@ -34,12 +34,12 @@ function scrollToSection(event) {
     event.preventDefault();
 
     const targetId = this.getAttribute("href").substring(1);
-    const targetSection = document.getElementById(targetId);
+    const targetSezione = document.getElementById(targetId);
 
-    if (targetSection) {
-        const offsetTop = targetSection.offsetTop - 90; //serve per non farsi coprire dall'header
+    if (targetSezione) {
+        const distanzaTop = targetSezione.offsetTop - 90; //serve per non farsi coprire dall'header
         window.scrollTo({
-            top: offsetTop,
+            top: distanzaTop,
             behavior: "smooth"
         });
 

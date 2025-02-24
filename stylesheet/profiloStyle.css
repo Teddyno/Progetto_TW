@@ -16,6 +16,7 @@
     text-decoration: none;
     border-radius: 15px;
 }
+
 .indice a.active{
     background-color: #447bf2;
     color: #ffffff;
@@ -60,7 +61,7 @@
     break-inside: avoid; 
 }
 
-p {
+.contenitore-profilo p {
     margin: 8px 0;
     padding-top: 10px;
 }
@@ -70,7 +71,7 @@ p {
     flex-direction: column; 
     gap: 10px; 
     grid-column: 2;
-    align-items:start;
+    align-items:center;
 }
 
 .col1{
@@ -81,19 +82,19 @@ p {
     grid-column: 2;
 }
 
-#visualizza-dati {
+#visualizza-dati, #visualizza-sicurezza {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 20px; 
 }
 
-#form-modifica {
+#form-modifica, #form-modifica-sicurezza {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 20px; 
 }
 
-#btn-modifica {
+.bottone-modifica {
     color: #090909;
     display: block;
     justify-content: center;
@@ -112,7 +113,7 @@ p {
     box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
-#btn-annulla{
+#btn-annulla, #btn-annulla-sicurezza{
     color: #090909;
     display: block;
     justify-content: center;
@@ -155,11 +156,6 @@ p {
     height: 100%;
     font-weight: bold;
     line-height: 20px;
-}
-
-.testo-barra-profilo{
-    font-size: 14px; 
-    margin: 10px 100px;
 }
 
 .bottone-logOut{

@@ -17,16 +17,15 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     <?php include 'header.php'; ?>
     <?php
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])){
         $email = $_SESSION['email'];
         $nome = $_POST['nome'];
         $cognome = $_POST['cognome'];
         $datanascita = $_POST['datanascita'];
         $sesso = $_POST['sesso'];
         $telefono = $_POST['telefono'];
-        $nickname = $_SESSION['nickname'];
 
-        $sql_update = <<<_QUERY
+        $sql_update_dati = <<<_QUERY
             UPDATE iscritti 
             SET nome = $1, 
             cognome = $2, 
@@ -36,15 +35,57 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
             WHERE email = $6;
         _QUERY;
 
-        $prep = pg_prepare($db, "updateProfilo", $sql_update);
+        $prep_dati = pg_prepare($db, "updateProfiloDati", $sql_update_dati);
 
-        $ret = pg_execute($db, "updateProfilo", array($nome, $cognome, $datanascita, $sesso, $telefono, $email));
+        $ret_dati = pg_execute($db, "updateProfiloDati", array($nome, $cognome, $datanascita, $sesso, $telefono, $email));
+    }
+
+    //MODIFICA PASSWORD E NICKNAME
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nickname'])){
+        $email = $_SESSION['email'];
+        $nickname = $_POST['nickname'];
+        $password = $_POST['password'];
+
+        $check_nickname_sql = "SELECT COUNT(*) FROM iscritti WHERE nickname = $1 AND email != $2";
+        $check_nickname_prep = pg_prepare($db, "checkNickname", $check_nickname_sql);
+        $check_nickname_ret = pg_execute($db, "checkNickname", array($nickname, $email));
+        $nickname_exists = pg_fetch_result($check_nickname_ret, 0, 0);
+
+        if ($nickname_exists > 0) {
+            echo "Errore: Il nickname è già in uso.";
+        } else {
+            if(!empty($password)){
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            } else{
+                $hashed_password = null;
+            }
+            if($hashed_password != null){
+                $sql_update_sicurezza = <<<_QUERY
+                    UPDATE iscritti 
+                    SET nickname = $1, 
+                    password = $2
+                    WHERE email = $3;
+                _QUERY;
+                
+                $prep_sicurezza = pg_prepare($db, "updateProfiloSicurezza", $sql_update_sicurezza);
+                $ret_sicurezza = pg_execute($db, "updateProfiloSicurezza", array($nickname, $hashed_password, $email));
+            } else {
+                $sql_update_sicurezza = <<<_QUERY
+                    UPDATE iscritti 
+                    SET nickname = $1
+                    WHERE email = $2;
+                _QUERY;
+
+                $prep_sicurezza = pg_prepare($db, "updateProfiloSicurezza", $sql_update_sicurezza);
+                $ret_sicurezza = pg_execute($db, "updateProfiloSicurezza", array($nickname, $email));
+            }
+        }
     }
 
     //RECUPERO DATI UTENTE
     $email = $_SESSION['email'];
 
-    $sql = "SELECT id, nome, cognome, datanascita, sesso, telefono FROM iscritti WHERE email = $1;";
+    $sql = "SELECT id, nome, cognome, datanascita, sesso, telefono, nickname FROM iscritti WHERE email = $1;";
     $prep = pg_prepare($db, "sqlProfilo", $sql);
     $ret = pg_execute($db, "sqlProfilo", array($email));
     if(!$ret) {
@@ -59,6 +100,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         $datanascitaGiorni = date('d-m-Y', strtotime($date));
         $sesso = pg_fetch_result($ret, 0, 'sesso');
         $telefono = pg_fetch_result($ret, 0, 'telefono');
+        $nickname = pg_fetch_result($ret, 0, 'nickname');
     }
 
     ?>
@@ -137,19 +179,41 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
             </div>
         </section>
 
+        <!-- SEZIONE SICUREZZA -->
         <section class="section-profilo" id="section3">
         <p class="titolo-info">Sicurezza</p>
-            <div class="dettagli-info">
+            <div class="dettagli-info-sicurezza">
+                <div id="visualizza-sicurezza">
+                    <div class="col1">
+                        <p><strong>Email: </strong><?php echo"$email"?> </p>
+                    </div>
+                    <div class="col2">
+                        <p><strong>Nickname: </strong><?php echo "$nickname";?></p>
+                        <p><strong>Password:</strong> ******** </p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="btn-modifica-sicurezza" class="bottone-modifica">Modifica</button>
+
+            <!-- FORM MODIIFICA SICUREZZA -->
+            <form id="form-modifica-sicurezza" style="display: none;" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                 <div class="col1">
                     <p><strong>Email: </strong><?php echo"$email"?> </p>
                 </div>
                 <div class="col2">
-                    <p><strong>Nickname: </strong><?php echo $_SESSION['nickname']; ?></p>
-                    <p><strong>Password:</strong> ******** </p>
-                    <button id="btn-modifica" class="bottone-modifica">Modifica</button>
+                    <p><strong>Nickname: </strong><input class="input-modifica" type="text" name="nickname" value="<?php echo htmlspecialchars("$nickname"); ?>"/><span class="bordo-input"></p>
+                    <p><strong>Password: </strong><input class="input-modifica" type="password" name="password"/><span class="bordo-input"></p>
                 </div>
-            </div>
+                <button type="submit" id="bottone-salva">Salva</button>
+                <button type="button" id="btn-annulla-sicurezza" class="bottone-annulla">Annulla</button>
+            </form>
         </section>
+        <?php
+            if ($nickname_exists > 0) {
+                echo "Errore: Il nickname è già in uso.";
+            } 
+        ?>
 
         <button class="bottone-logOut" onclick="logout()"> <img src="images/logout">
             <span class="testo-logout">Logout</span>
