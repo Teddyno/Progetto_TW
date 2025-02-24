@@ -105,9 +105,9 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
 
     ?>
     <header class="indice">
-        <a href="#section1">Dati Personali</a>
-        <a href="#section2">Abbonamento</a>
-        <a href="#section3">Sicurezza</a>
+        <div class="container-indice"><a href="#section1">Dati Personali</a></div>
+        <div class="container-indice"><a href="#section2">Abbonamento</a></div>
+        <div class="container-indice"><a href="#section3">Sicurezza</a></div>
     </header>
 
     <div class="contenitore-profilo">
