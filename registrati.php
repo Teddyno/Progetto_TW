@@ -46,7 +46,7 @@
             <label for="nome">Cognome</label>
             <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" value="<?php echo $cognome ?>" required>
 
-            <label for="nome">nickname</label>
+            <label for="nome">Nickname</label>
             <input type="text" id="nickname" name="nickname" placeholder="Inserisci il tuo nickname" value="<?php echo $nickname ?>" required>
 
             <label for="email">Email</label>
