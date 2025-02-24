@@ -171,9 +171,9 @@
                 <div class="freccia freccia-sinistra" onclick="cambiaSlide(-1)">&#10094;</div>
 
                 <div class="slideshow">
-                    <div class="slide"><img src="images/PalestraNocSupEsterno1.jpg"></div>
-                    <div class="slide"><img src="images/PalestraAngri.jpg"></div>
-                    <div class="slide"><img src="images/esterno-palaunisa.jpeg"></div>
+                    <div class="slide"><img src="images/foto-interno-2.jpg"></div>
+                    <div class="slide"><img src="images/foto-interno-3.jpg"></div>
+                    <div class="slide"><img src="images/foto-interno.jpg"></div>
                 </div>
 
                 <div class="freccia freccia-destra" onclick="cambiaSlide(1)">&#10095;</div>
