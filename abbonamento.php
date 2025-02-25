@@ -65,7 +65,7 @@
             ?>
                     <!-- Trainer -->
                         <div class="trainer">
-                            <img class="foto-trainer" src="<?php echo $row['foto']?>" alt="Foto Profilo">
+                            <img class="foto-trainer" src="<?php echo $rowP['foto']?>" alt="Foto Profilo">
                             <p class="nome-trainer"><?php echo $rowP['nome']." ".$rowP['cognome']?></p>
                             <div class="orari-container">
                                 <table class="tabella-orari">

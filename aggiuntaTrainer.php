@@ -12,12 +12,14 @@
 
     if(isset($_POST['foto'])){
         $foto = $_POST['foto'];
+        upload_foto();
     }
     else{
         $foto = "images\icona_profilo_default.png";
     }
-
+    
     insert_trainer($nome,$cognome,$foto,$db);
+    
     ?>
     <script>
         window.location.href = "abbonamento.php";
@@ -37,5 +39,34 @@
             return true;
         }
         pg_close($db);
+    }
+
+    function upload_foto(){
+        if (!empty($_FILES)) {
+            $uploads_dir = "images/personaltrainer/"; // Directory di destinazione per i file caricati
+        
+            // Crea la directory se non esiste
+            if (!is_dir($uploads_dir)) {
+                mkdir($uploads_dir, 0777, true);
+            }
+        
+            // Cicla su tutti i file caricati
+            foreach ($_FILES as $key => $file) {
+                $tmp_name = $file['tmp_name'];
+                $name = basename($file['name']);
+                // Nuovo percorso in cui verrà salvato il filer
+                $path =  $uploads_dir . $name;
+                echo "$path";
+                $car = move_uploaded_file($tmp_name,$path);
+        
+                if ($car) {
+                    echo "File $name caricato con successo!";
+                } else {
+                    echo "Errore nel caricamento del file $name.";
+                }
+            }
+        } else {
+            echo "Nessun file caricato.";
+        }
     }
 ?>
