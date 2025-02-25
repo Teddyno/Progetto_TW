@@ -1,24 +1,50 @@
 .indice {
     position: fixed;
-    top: 100px;
     left: 0;
     height: 100%;
     padding-left: 20px;
     padding-right: 20px;
     width: 280px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
 }
 
 .indice a{
     display: block;
     margin: 10px 0;
     padding:7px;
-    color: #000000;
+    color: black;
     text-decoration: none;
     border-radius: 15px;
+    font-size: larger;
+    font-weight: bold;
 }
-.indice a.active{
+
+.container-indice{
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 7px;
+    max-height:60px;
+    height: 60px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.container-indice .active{
     background-color: #447bf2;
     color: #ffffff;
+    border-radius: 7px;
+    height: 80%;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.container-indice:hover{
+    border-radius: 7px;
+    height: 80%;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
 .contenitore-profilo {
@@ -60,7 +86,7 @@
     break-inside: avoid; 
 }
 
-p {
+.contenitore-profilo p {
     margin: 8px 0;
     padding-top: 10px;
 }
@@ -70,7 +96,7 @@ p {
     flex-direction: column; 
     gap: 10px; 
     grid-column: 2;
-    align-items:start;
+    align-items:center;
 }
 
 .col1{
@@ -81,19 +107,19 @@ p {
     grid-column: 2;
 }
 
-#visualizza-dati {
+#visualizza-dati, #visualizza-sicurezza {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 20px; 
 }
 
-#form-modifica {
+#form-modifica, #form-modifica-sicurezza {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 20px; 
 }
 
-#btn-modifica {
+.bottone-modifica {
     color: #090909;
     display: block;
     justify-content: center;
@@ -105,14 +131,14 @@ p {
     border: 1px solid #e8e8e8;
     transition: all 0.3s;
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-    margin: auto;
+    margin: 20px auto 0px;
 }
 
 #btn-modifica:active {
     box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
-#btn-annulla{
+#btn-annulla, #btn-annulla-sicurezza{
     color: #090909;
     display: block;
     justify-content: center;
@@ -157,11 +183,6 @@ p {
     line-height: 20px;
 }
 
-.testo-barra-profilo{
-    font-size: 14px; 
-    margin: 10px 100px;
-}
-
 .bottone-logOut{
     display: flex;
     margin: 0px auto;
@@ -185,7 +206,7 @@ p {
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     right: 15px;
 }
 
@@ -197,7 +218,6 @@ p {
 
 .bottone-logOut:hover .testo-logout {
     opacity: 1;
-    transition-duration: all 0.3s ease;
     padding-left: 10px;
 }
 

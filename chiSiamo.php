@@ -35,7 +35,7 @@
 
             <div class="container-immagine">
                 <div class="immagine-int">
-                    <img src="images/PalestraInterno.jpg" alt="Foto Palestra Interno">
+                    <img src="images/foto-palestra-interno-2.jpg" alt="Foto Palestra Interno">
                 </div>
             </div>
         </section>
@@ -43,7 +43,7 @@
         <section class="container-intro-2">
             <div class="container-immagine-2">
                 <div class="immagine-int-2">
-                    <img src="images/PalestraInterno1.jpg" alt="Foto Palestra Interno 2">
+                    <img src="images/PalestraInterno2.jpg" alt="Foto Palestra Interno 2">
                 </div>
             </div>
             
@@ -118,17 +118,20 @@
         <section class="stats-section">
             <div class="stat">
                 <img src="images/heart_icon.jpg" alt="Iscritti">
-                <div class="number" data-target="+1000">0</div>
+                <p>+</p>
+                <div class="number" data-target="1000">0</div>
                 <p>ISCRITTI</p>
             </div>
             <div class="stat">
                 <img src="images/people_icon.jpg" alt="Trainer">
-                <div class="number" data-target="+30">0</div>
+                <p>+</p>
+                <div class="number" data-target="30">0</div>
                 <p>PERSONAL TRAINER</p>
             </div>
             <div class="stat">
                 <img src="images/running_icon.jpg" alt="Classi Attive">
-                <div class="number" data-target="+30">0</div>
+                <p>+</p>
+                <div class="number" data-target="30">0</div>
                 <p>CLASSI ATTIVE</p>
             </div>
 
@@ -169,8 +172,11 @@
 
                 <div class="slideshow">
                     <div class="slide"><img src="images/PalestraNocSup.jpg"></div>
+                        <div class="caption-text">Nocera Superiore</div>
                     <div class="slide"><img src="images/PalestraAngri.jpg"></div>
+                        <div class="caption-text">Angri</div>
                     <div class="slide"><img src="images/PalestraFisciano.jpg"></div>
+                        <div class="caption-text">Fisciano</div>
                 </div>
 
                 <div class="freccia freccia-destra" onclick="cambiaSlide(1)">&#10095;</div>
@@ -186,18 +192,21 @@
         <section class="branches">
                 <div class="branch">
                     <h3>Nocera Superiore</h3>
-                    <p><strong>Numero Telefonico</strong><br>333123123123</p>
-                    <p><strong>Indirizzo</strong><br>Via Lorem Ipsum 123</p>
+                    <p><strong>Numero Telefonico</strong><br>3398777704</p>
+                    <p><strong>Indirizzo</strong><br>Via Pareti 167</p>
+                    <p><strong>Email</strong><br>info@unisagym.it</p>
                 </div>
                 <div class="branch">
                     <h3>Angri</h3>
                     <p><strong>Numero Telefonico</strong><br>33333333333</p>
                     <p><strong>Indirizzo</strong><br>Via Nazionale 174</p>
+                    <p><strong>Email</strong><br>info@unisagym.it</p>
                 </div>
                 <div class="branch">
                     <h3>Fisciano</h3>
                     <p><strong>Numero Telefonico</strong><br>3334343434</p>
                     <p><strong>Indirizzo</strong><br>Via Lorem Ipsum 174</p>
+                    <p><strong>Email</strong><br>info@unisagym.it</p>
                 </div>
             </div>
         </section>
