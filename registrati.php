@@ -52,7 +52,7 @@
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
 
-            <label for="password">Passord</label>
+            <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Crea una password" required>
 
             <label for="conferma-password">Conferma Password</label>
