@@ -1,7 +1,5 @@
 <?php
 
-    session_start();
-
     require_once "db.php";
 
     //CONNESSIONE AL DB
@@ -9,16 +7,14 @@
 
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
+    if($_FILES["foto"]){
+        $target_dir = "images/personaltrainer/";
+        $fotopath = $target_dir . basename($_FILES["foto"]["name"]);
+    }else{
+        $fotopath = "images/personaltrainer/foto_profilo_default.png";
+    }
 
-    if(isset($_POST['foto'])){
-        $foto = $_POST['foto'];
-        upload_foto();
-    }
-    else{
-        $foto = "images\icona_profilo_default.png";
-    }
-    
-    insert_trainer($nome,$cognome,$foto,$db);
+    insert_trainer($nome,$cognome,$fotopath,$db);
     
     ?>
     <script>
@@ -26,11 +22,11 @@
     </script>
     <?php
 
-    function insert_trainer($nome,$cognome,$foto,$db){
+    function insert_trainer($nome,$cognome,$fotopath,$db){
 
-        $sql = "INSERT INTO personaltrainer(nome, cognome, foto) VALUES($1, $2, $3)";
+        $sql = "INSERT INTO personaltrainer(nome, cognome, fotopath) VALUES($1, $2, $3)";
         $prep = pg_prepare($db, "insertTrainer", $sql);
-        $ret = pg_execute($db, "insertTrainer", array($nome, $cognome, $foto));
+        $ret = pg_execute($db, "insertTrainer", array($nome, $cognome, $fotopath));
         if(!$ret) {
             echo "ERRORE QUERY: " . pg_last_error($db);
             return false;
@@ -39,34 +35,5 @@
             return true;
         }
         pg_close($db);
-    }
-
-    function upload_foto(){
-        if (!empty($_FILES)) {
-            $uploads_dir = "images/personaltrainer/"; // Directory di destinazione per i file caricati
-        
-            // Crea la directory se non esiste
-            if (!is_dir($uploads_dir)) {
-                mkdir($uploads_dir, 0777, true);
-            }
-        
-            // Cicla su tutti i file caricati
-            foreach ($_FILES as $key => $file) {
-                $tmp_name = $file['tmp_name'];
-                $name = basename($file['name']);
-                // Nuovo percorso in cui verrà salvato il filer
-                $path =  $uploads_dir . $name;
-                echo "$path";
-                $car = move_uploaded_file($tmp_name,$path);
-        
-                if ($car) {
-                    echo "File $name caricato con successo!";
-                } else {
-                    echo "Errore nel caricamento del file $name.";
-                }
-            }
-        } else {
-            echo "Nessun file caricato.";
-        }
     }
 ?>
