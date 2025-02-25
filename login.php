@@ -55,6 +55,10 @@
                     $_SESSION['nickname']= $row['nickname'];
 					$_SESSION['idIscritto']= $row['id'];
 					$_SESSION['nome']= $row['nome'];
+                    $_SESSION['admin'] = false;
+                    if($_SESSION['idIscritto'] == 0){
+                        $_SESSION['admin'] = true;
+                    }
 					return true;
 				}
 				else{

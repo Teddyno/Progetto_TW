@@ -215,3 +215,19 @@ body {
     color: #FFD700;
 }
 
+/* Contenitore della sezione */
+.contenitore-aggiunta-trainer{
+    width: 60%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contenitore-aggiunta-trainer h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #022873;
+    margin-bottom: 20px;
+}
