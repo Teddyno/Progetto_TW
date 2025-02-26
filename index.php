@@ -26,9 +26,9 @@
         <div class="freccia freccia-sinistra" onclick="cambiaSlide(-1)">&#10094;</div>
 
         <div class="slideshow">
-            <div class="slide"><img src="images/interno_palestra_1.jpg"></div>
-            <div class="slide"><img src="images/personal_trainer_2.jpeg"></div>
-            <div class="slide"><img src="images/interno_palestra_2.jpg"></div>
+            <div class="slide"><img src="images/slideshow1.jpg"></div>
+            <div class="slide"><img src="images/slideshow2.jpg"></div>
+            <div class="slide"><img src="images/slideshow3.jpg"></div>
         </div>
 
         <div class="freccia freccia-destra" onclick="cambiaSlide(1)">&#10095;</div>

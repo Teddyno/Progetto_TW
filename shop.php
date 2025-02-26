@@ -19,7 +19,6 @@ $categoriaFiltro = $_GET['categoria'] ?? 'tutti';
   <link rel="stylesheet" href="styleSheet/style.css">
   <link rel="stylesheet" href="styleSheet/styleShop.css">
   <link rel="stylesheet" type="text/css" href="stylesheet/formAggiuntaProdotto.css">
-  
 </head>
 <body>
   <?php include 'header.php'; ?>

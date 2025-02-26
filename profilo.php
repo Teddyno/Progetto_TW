@@ -253,7 +253,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
             <button class="bottone-logOut" onclick="logout()"> <img src="images/logout">
                 <span class="testo-logout">Logout</span>
             </button>
-            <button id="bottone-elimina" class="bottone-elimina"><img src="images/cestino">
+            <button id="bottone-elimina" class="bottone-elimina"><img src="images/remove">
                 <span class="testo-elimina">Elimina</span>
             </button>
         </div>
