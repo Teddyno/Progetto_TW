@@ -1,3 +1,12 @@
+<?php 
+    session_start(); 
+
+    $admin = FALSE;
+    if(isset($_SESSION['admin'])){
+        $admin = $_SESSION['admin'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="it">
     <head>
@@ -5,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
         <link rel="stylesheet" type="text/css" href="styleSheet/styleAbbonamento.css">
+        <link rel="stylesheet" type="text/css" href="stylesheet/FormAggiuntaTrainer.css">
         <title>UniSa Gym - Abbonamento</title>
     </head>
     <body>
@@ -56,7 +66,7 @@
             ?>
                     <!-- Trainer -->
                         <div class="trainer">
-                            <img class="foto-trainer" src="images/pt_1.jpg" alt="Foto Marco Bianchi">
+                            <img class="foto-trainer" src="<?php echo $rowP['fotopath']?>" alt="Foto Profilo">
                             <p class="nome-trainer"><?php echo $rowP['nome']." ".$rowP['cognome']?></p>
                             <div class="orari-container">
                                 <table class="tabella-orari">
@@ -102,6 +112,32 @@ HTML;
             </div>
         </div>
 
+        <?php
+            if($admin){
+        ?>
+            <div class="contenitore-aggiunta-trainer">
+                <h1>Aggiunta personal trainer</h1>
+                <form class="form-aggiunta" action="aggiuntaTrainer.php" method="POST" enctype="multipart/form-data">
+                    <label for="nome">nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Inserisci nome" required>
+
+                    <label for="cognome">cognome</label>
+                    <input type="text" id="cognome" name="cognome" placeholder="Inserisci cognome" required>
+
+                    <label for="foto">foto</label>
+                    <div id="drop-area">
+                        <h2>Trascina la foto qui</h2>
+                        <p>Oppure clicca per selezionare un file</p>
+                        <input type="file" id="foto" name="foto">
+                    </div>
+
+                    <button type="submit" class="pulsante-aggiunta" id="bottone-aggiunta">Aggiungi</button>
+                </form>
+            </div>    
+        <?php
+            }
+        ?>
+
         <div class="contenitore-servizi">
             <h2 class="titolo-servizi">Servizi Offerti</h2>
             <div class="griglia-servizi">
@@ -128,5 +164,7 @@ HTML;
             </div>
         </div>
         <?php include 'footer.html'; ?>
+
+        <script src="js/script_drag_drop.js"></script>
     </body>
 </html>

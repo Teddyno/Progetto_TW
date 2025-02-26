@@ -1,0 +1,65 @@
+
+.form-aggiunta {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-aggiunta label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+}
+
+.form-aggiunta input[type="text"],
+.form-aggiunta input[type="file"] {
+  padding: 10px;
+  width: 350px;
+  margin: auto;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-aggiunta input[type="text"]:focus {
+  border-color: #022873;
+}
+
+#drop-area {
+  border: 2px dashed #022873;
+  padding-top: 15px;
+
+  margin-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+#drop-area h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #022873;
+}
+
+.pulsante-aggiunta {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: #0460D9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pulsante-aggiunta:hover {
+  background: #022873;
+}

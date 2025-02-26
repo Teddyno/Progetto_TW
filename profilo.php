@@ -17,6 +17,32 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     <?php include 'header.php'; ?>
     <?php
 
+    require_once "db.php";
+
+    //RECUPERO DATI UTENTE
+    $email = $_SESSION['email'];
+
+    $sql = "SELECT id, nome, cognome, datanascita, sesso, telefono, nickname FROM iscritti WHERE email = $1;";
+    $prep = pg_prepare($db, "sqlProfilo", $sql);
+    $ret = pg_execute($db, "sqlProfilo", array($email));
+    if(!$ret) {
+        echo "ERRORE QUERY: " . pg_last_error($db);
+        exit; 
+    } else {
+        $id = pg_fetch_result($ret, 0, 'id');
+        $nome = pg_fetch_result($ret, 0, 'nome');
+        $cognome = pg_fetch_result($ret, 0, 'cognome');
+        $datanascitaAnni = pg_fetch_result($ret, 0, 'datanascita');
+        $date = str_replace('-', '/', $datanascitaAnni);
+        $datanascitaGiorni = date('d-m-Y', strtotime($date));
+        $sesso = pg_fetch_result($ret, 0, 'sesso');
+        $telefono = pg_fetch_result($ret, 0, 'telefono');
+        $nickname = pg_fetch_result($ret, 0, 'nickname');
+    }
+
+    //CONNESSIONE AL DB
+    $db = pg_connect($connection_string) or die('Impossibile connettersi al database: ' . pg_last_error());
+    
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])){
         $email = $_SESSION['email'];
         $nome = $_POST['nome'];
@@ -82,25 +108,33 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         }
     }
 
-    //RECUPERO DATI UTENTE
-    $email = $_SESSION['email'];
+    // ELIMINA ACCOUNT
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['email']) && isset($_POST['conferma_password'])) {
+        $email = $_SESSION['email'];
+        $conferma_password = $_POST['conferma_password'];
 
-    $sql = "SELECT id, nome, cognome, datanascita, sesso, telefono, nickname FROM iscritti WHERE email = $1;";
-    $prep = pg_prepare($db, "sqlProfilo", $sql);
-    $ret = pg_execute($db, "sqlProfilo", array($email));
-    if(!$ret) {
-        echo "ERRORE QUERY: " . pg_last_error($db);
-        exit; 
-    } else {
-        $id = pg_fetch_result($ret, 0, 'id');
-        $nome = pg_fetch_result($ret, 0, 'nome');
-        $cognome = pg_fetch_result($ret, 0, 'cognome');
-        $datanascitaAnni = pg_fetch_result($ret, 0, 'datanascita');
-        $date = str_replace('-', '/', $datanascitaAnni);
-        $datanascitaGiorni = date('d-m-Y', strtotime($date));
-        $sesso = pg_fetch_result($ret, 0, 'sesso');
-        $telefono = pg_fetch_result($ret, 0, 'telefono');
-        $nickname = pg_fetch_result($ret, 0, 'nickname');
+        $sql_check_password = "SELECT password FROM iscritti WHERE email = $1;";
+        $ret_check_password = pg_query_params($db, $sql_check_password, array($email));
+
+        if ($ret_check_password && pg_num_rows($ret_check_password) > 0) {
+            $hash = pg_fetch_result($ret_check_password, 0, 'password');
+
+            if (password_verify($conferma_password, $hash)) {
+                $sql_delete_user = "DELETE FROM iscritti WHERE id = $1;";
+                $prep_delete_user = pg_prepare($db, "deleteUser", $sql_delete_user);
+                $ret_delete_user = pg_execute($db, "deleteUser", array($id));
+
+                if ($ret_delete_user) {
+                    session_destroy(); 
+                    header("Location: index.php"); 
+                    exit();
+                }
+            } else {
+                echo "<script>alert('Password errata. L\'account non può essere eliminato.');</script>";
+            }
+        } else {
+            echo "<script>alert('Utente non trovato.');</script>";
+        }
     }
 
     ?>
@@ -215,10 +249,26 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
             } 
         ?>
 
-        <button class="bottone-logOut" onclick="logout()"> <img src="images/logout">
-            <span class="testo-logout">Logout</span>
-        </button>
+        <div class="container-bottoni-finali">
+            <button class="bottone-logOut" onclick="logout()"> <img src="images/logout">
+                <span class="testo-logout">Logout</span>
+            </button>
+            <button id="bottone-elimina" class="bottone-elimina"><img src="images/cestino">
+                <span class="testo-elimina">Elimina</span>
+            </button>
+        </div>
 
+        <div id="conferma-password-popup" class="popup">
+            <div class="contenuto-popup">
+                <h4>Conferma Eliminazione Account</h4>
+                <p>Inserisci la tua password per procedere:</p>
+                <form id="conferma-password-form" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                    <input type="password" id="conferma_password" name="conferma_password" placeholder="Password" required />
+                    <button type="submit" name="delete_account" class="bottone-conferma">Conferma</button>
+                    <button type="button" id="annulla-conferma" class="bottone-annulla">Annulla</button>
+                </form>
+            </div>
+        </div>
 
     <script>
         function logout(){

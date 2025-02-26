@@ -46,13 +46,13 @@
             <label for="nome">Cognome</label>
             <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" value="<?php echo $cognome ?>" required>
 
-            <label for="nome">nickname</label>
+            <label for="nome">Nickname</label>
             <input type="text" id="nickname" name="nickname" placeholder="Inserisci il tuo nickname" value="<?php echo $nickname ?>" required>
 
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
 
-            <label for="password">Passord</label>
+            <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Crea una password" required>
 
             <label for="conferma-password">Conferma Password</label>
