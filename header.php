@@ -11,7 +11,7 @@
 <!DOCTYPE html>
     <header id="header1">
         <div class="header">
-            <div><a href="index.php"><img src="images/UnisaGym_logo1.png" style="width: 170px"></a></div>
+            <div><a href="index.php"><img src="images/UnisaGym_logo1.png" style="height: 50px"></a></div>
             <div class="topnav">
                 <a href="abbonamento.php" style="color:white">Abbonamento</a>
                 <a href="shop.php" style="color:white">Shop</a>

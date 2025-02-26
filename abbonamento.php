@@ -103,6 +103,18 @@ HTML;
             ?>                            
                                 </table>
                             </div>
+            <?php
+                if($admin){
+            ?>
+                            <div class="azioni-trainer">
+                                <a href="modificaTrainer.php?id=<?php echo $rowP['id']; ?>">
+                                    <img src="images/modify.png"></a>
+                                <a href="eliminaTrainer.php?id=<?php echo $rowP['id']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo trainer?');">
+                                    <img src="images/cestino.png"></a>
+                            </div>
+            <?php
+                }
+            ?>
                         </div>
             <?php
                     }

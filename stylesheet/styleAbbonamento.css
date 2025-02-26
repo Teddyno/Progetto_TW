@@ -101,6 +101,10 @@ body {
     margin: 10px;
 }
 
+.trainer:hover {
+    transform: scale(1.05);
+}
+
 /* Immagine del trainer */
 .foto-trainer {
     width: 120px;
@@ -230,4 +234,19 @@ body {
     font-weight: bold;
     color: #022873;
     margin-bottom: 20px;
+}
+
+
+.azioni-trainer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.trainer:hover .azioni-trainer {
+    opacity: 1;
 }
