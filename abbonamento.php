@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
         <link rel="stylesheet" type="text/css" href="styleSheet/styleAbbonamento.css">
-        <link rel="stylesheet" type="text/css" href="stylesheet/FormAggiuntaTrainer.css">
+        <link rel="stylesheet" type="text/css" href="stylesheet/FormGestioneTrainer.css">
         <title>UniSa Gym - Abbonamento</title>
     </head>
     <body>
@@ -107,7 +107,7 @@ HTML;
                 if($admin){
             ?>
                             <div class="azioni-trainer">
-                                <a href="modificaTrainer.php?id=<?php echo $rowP['id']; ?>">
+                                <a href="<?php echo $_SERVER['PHP_SELF'] ?>?idModifica=<?php echo $rowP['id']; ?>">
                                     <img src="images/modify.png"></a>
                                 <a href="eliminaTrainer.php?id=<?php echo $rowP['id']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo trainer?');">
                                     <img src="images/cestino.png"></a>
@@ -127,8 +127,9 @@ HTML;
         <?php
             if($admin){
         ?>
+        <div class="contenitore-gestione-trainer">
             <div class="contenitore-aggiunta-trainer">
-                <h1>Aggiunta personal trainer</h1>
+                <h1>Aggiunta</h1>
                 <form class="form-aggiunta" action="aggiuntaTrainer.php" method="POST" enctype="multipart/form-data">
                     <label for="nome">nome</label>
                     <input type="text" id="nome" name="nome" placeholder="Inserisci nome" required>
@@ -145,7 +146,27 @@ HTML;
 
                     <button type="submit" class="pulsante-aggiunta" id="bottone-aggiunta">Aggiungi</button>
                 </form>
-            </div>    
+            </div>
+            <div class="contenitore-modifica-trainer" >
+                <h1>Modifica</h1>
+                <form class="form-modifica" action="" method="POST" enctype="multipart/form-data">
+                    <label for="nome">nome</label>
+                    <input type="text" id="nome" name="nome" value="" placeholder="Inserisci nome" required>
+
+                    <label for="cognome">cognome</label>
+                    <input type="text" id="cognome" name="cognome" placeholder="Inserisci cognome" required>
+
+                    <label for="foto">foto</label>
+                    <div id="drop-area">
+                        <h2>Trascina la foto qui</h2>
+                        <p>Oppure clicca per selezionare un file</p>
+                        <input type="file" id="foto" name="foto">
+                    </div>
+
+                    <button type="submit" class="pulsante-modifica" id="bottone-modifica">modifica</button>
+                </form>
+            </div> 
+        </div>    
         <?php
             }
         ?>
