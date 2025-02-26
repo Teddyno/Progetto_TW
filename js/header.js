@@ -12,3 +12,11 @@ window.addEventListener("scroll", () => {
 
     ultimaPos = posizione;
 });
+
+function openCart() { //refactoring name in toggle prima o poi
+    let cart = document.getElementById("carrello");
+    if (cart.style.display != "none")
+        cart.style.display = "none";
+    else{
+        cart.style.display = "flex";}
+}

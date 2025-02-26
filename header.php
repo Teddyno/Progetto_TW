@@ -6,6 +6,8 @@
     if(isset($_SESSION['autenticato'])){
         $accesso = $_SESSION['autenticato'];
     }
+
+    require_once 'carrello.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +18,11 @@
                 <a href="abbonamento.php" style="color:white">Abbonamento</a>
                 <a href="shop.php" style="color:white">Shop</a>
                 <a href="ChiSiamo.php" style="color:white">Chi Siamo</a>
+                <a onclick='openCart()'><img src='images/carrello.png' class="bottone-carrello" ></a>
+                <!-- <button class='btn' id='cartbtn' >". 
+                    class='fa-solid fa-cart-shopping fa-beat'-->
+                
+                <!-- </button> -->
                 <?php
                     if($accesso){
                         echo "<a href=\"profilo.php\">";

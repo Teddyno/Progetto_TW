@@ -97,5 +97,20 @@
       font-size: 16px;
       font-weight: bold;
       color: #283b96;
+      margin: 10px auto 10px;
     }
-/*</style>*/
+
+    .pulsante-aggiunta-carrello {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background: #0460D9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .pulsante-aggiunta-carrello:hover{
+      background: #022873;
+    }

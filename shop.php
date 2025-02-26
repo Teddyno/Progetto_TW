@@ -12,7 +12,6 @@ function showProdotti(str) {
   if (str == "") {
     str = "tutti";
   }
-  console.log("show prodotti"+str);
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -55,11 +54,12 @@ function showProdotti(str) {
       </ul>
     </div>
     <!-- Area dei prodotti -->
-   <script>
-    showProdotti('');
+    <script>
+      showProdotti('')
     </script>
     <div class="area-prodotti">
       <div id="griglia-prodotti">
+        
       </div>
     </div>
   </div>
@@ -97,5 +97,6 @@ function showProdotti(str) {
   <?php include 'footer.html'; ?>
 
   <script src="js/drag_and_drop_shop.js"></script>
+  <script src="js/carrello.js"></script>
 </body>
 </html>

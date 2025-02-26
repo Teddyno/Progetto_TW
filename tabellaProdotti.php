@@ -17,10 +17,12 @@ while($row = pg_fetch_array($ret)) {
     echo "<div class='scheda-prodotto'>".
         "<img src=".$row['fotopath']." alt=".$row['nome'].">".
         "<h3>".$row['nome']."</h3>".
-        "<p class='prezzo'>".$row['prezzo']."</p>".
+        "<p class='prezzo'>".$row['prezzo']."$</p>".
+        "<button type='submit' class='pulsante-aggiunta-carrello'".
+                                "id='pulsante-aggiunta-carrello'".
+                                "onclick='ajaxAggiuntaCarrello(".$row['idprodotto'].",\"".$row['nome']."\",".$row['prezzo'].",\"".$row['fotopath']."\")'>Acquista</button>".
         "</div>";
 }
-
 pg_close($db);
 ?>
 </body>

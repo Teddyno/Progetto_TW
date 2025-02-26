@@ -1,4 +1,8 @@
 
+.topnav{
+  align-items: center;
+}
+
 .topnav a{
     float: left;
     display: block;
@@ -32,4 +36,8 @@
 
 .header.nascosto {
   transform: translateY(-100%);
+}
+
+.bottone-carrello{
+  height: 20px;
 }
