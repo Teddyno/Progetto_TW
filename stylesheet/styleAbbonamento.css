@@ -239,8 +239,8 @@ body {
 }
 
 .contenitore-aggiunta-trainer{
-    width: 45%;
-    margin: auto;
+    width: 100%;
+    margin: 0px auto 10px;
     background: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -269,7 +269,7 @@ body {
 }
 
 .contenitore-modifica-trainer{
-    width: 45%;
+    width: 100%;
     margin: auto;
     background: white;
     padding: 20px;

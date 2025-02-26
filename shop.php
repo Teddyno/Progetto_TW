@@ -7,10 +7,22 @@
     }
 ?>
 
-<?php
-// Recupera la categoria tramite GET; altrimenti usa la categoria "tutti"
-$categoriaFiltro = $_GET['categoria'] ?? 'tutti';
-?>
+<script>
+function showProdotti(str) {
+  if (str == "") {
+    str = "tutti";
+  }
+  console.log("show prodotti"+str);
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("griglia-prodotti").innerHTML = this.responseText;
+     }
+  };
+  xmlhttp.open("GET","tabellaProdotti.php?categoria="+str,true);
+  xmlhttp.send();
+}
+</script>
 <!DOCTYPE html> 
 <html lang="it"> 
 <head>
@@ -35,86 +47,19 @@ $categoriaFiltro = $_GET['categoria'] ?? 'tutti';
     <div class="barra-filtri">
       <h3>Filtra per categoria</h3>
       <ul class="lista-filtri">
-        <li><a href="shop.php?categoria=tutti">Tutti</a></li>
-        <li><a href="shop.php?categoria=attrezzatura">Attrezzatura</a></li>
-        <li><a href="shop.php?categoria=integratori">Integratori</a></li>
-        <li><a href="shop.php?categoria=abbigliamento">Abbigliamento</a></li>
+        <li><a onclick="showProdotti('')">Tutti</a></li>
+        <li><a onclick="showProdotti('attrezzatura')">Attrezzatura</a></li>
+        <li><a onclick="showProdotti('abbonamenti')">abbonamenti</a></li>
+        <li><a onclick="showProdotti('abbigliamento')">Abbigliamento</a></li>
+        <li><a onclick="showProdotti('alimentari')">alimentari</a></li>
       </ul>
     </div>
     <!-- Area dei prodotti -->
+   <script>
+    showProdotti('');
+    </script>
     <div class="area-prodotti">
-      <div class="griglia-prodotti">
-        <!-- Prodotto 1: Manubri 10kg -->
-        <?php if ($categoriaFiltro == 'tutti' || $categoriaFiltro == 'attrezzatura'): ?>
-          <div class="scheda-prodotto">
-            <img src="images/shop/manubri10kg.jpg" alt="Manubri 10kg">
-            <h3>Manubri 10kg</h3>
-            <p class="prezzo">€29.99</p>
-          </div>
-        <?php endif; ?>
-
-        <!-- Prodotto 2: Tapis Roulant -->
-        <?php if ($categoriaFiltro == 'tutti' || $categoriaFiltro == 'attrezzatura'): ?>
-          <div class="scheda-prodotto">
-            <img src="images/shop/tapisroulant.jpg" alt="Tapis Roulant">
-            <h3>Tapis Roulant</h3>
-            <p class="prezzo">€299.99</p>
-          </div>
-        <?php endif; ?>
-
-        <!-- Prodotto 3: Cyclette -->
-        <?php if ($categoriaFiltro == 'tutti' || $categoriaFiltro == 'attrezzatura'): ?>
-          <div class="scheda-prodotto">
-            <img src="images/shop/cycletta.jpg" alt="Cyclette">
-            <h3>Cyclette</h3>
-            <p class="prezzo">€199.99</p>
-          </div>
-        <?php endif; ?>
-
-        <!-- Prodotto 4: Proteine Whey -->
-        <?php if ($categoriaFiltro == 'tutti' || $categoriaFiltro == 'integratori'): ?>
-          <div class="scheda-prodotto">
-            <img src="images/shop/proteine.jpg" alt="Proteine Whey">
-            <h3>Proteine Whey</h3>
-            <p class="prezzo">€49.99</p>
-          </div>
-        <?php endif; ?>
-
-        <!-- Prodotto 5: Creatina Monoidrato -->
-        <?php if ($categoriaFiltro == 'tutti' || $categoriaFiltro == 'integratori'): ?>
-          <div class="scheda-prodotto">
-            <img src="images/shop/creatina.jpg" alt="Creatina Monoidrato">
-            <h3>Creatina Monoidrato</h3>
-            <p class="prezzo">€19.99</p>
-          </div>
-        <?php endif; ?>
-
-        <!-- Prodotto 6: Barrette Proteiche -->
-        <?php if ($categoriaFiltro == 'tutti' || $categoriaFiltro == 'integratori'): ?>
-          <div class="scheda-prodotto">
-            <img src="images/shop/barrette.jpg" alt="Barrette Proteiche">
-            <h3>Barrette Proteiche</h3>
-            <p class="prezzo">€14.99</p>
-          </div>
-        <?php endif; ?>
-
-        <!-- Prodotto 7: Maglietta Sportiva -->
-        <?php if ($categoriaFiltro == 'tutti' || $categoriaFiltro == 'abbigliamento'): ?>
-          <div class="scheda-prodotto">
-            <img src="images/shop/maglietta.jpg" alt="Maglietta Sportiva">
-            <h3>Maglietta Sportiva</h3>
-            <p class="prezzo">€19.99</p>
-          </div>
-        <?php endif; ?>
-
-        <!-- Prodotto 8: Pantaloncini Fitness -->
-        <?php if ($categoriaFiltro == 'tutti' || $categoriaFiltro == 'abbigliamento'): ?>
-          <div class="scheda-prodotto">
-            <img src="images/shop/panataloncini.jpg" alt="Pantaloncini Fitness">
-            <h3>Pantaloncini Fitness</h3>
-            <p class="prezzo">€24.99</p>
-          </div>
-        <?php endif; ?>
+      <div id="griglia-prodotti">
       </div>
     </div>
   </div>

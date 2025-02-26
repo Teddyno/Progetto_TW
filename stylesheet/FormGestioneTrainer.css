@@ -2,7 +2,7 @@
 .form-aggiunta {
   width: 100%;
   max-width: 400px;
-  margin: 20px auto;
+  margin: auto;
   padding: 20px;
   background: #f9f9f9;
   border-radius: 10px;
@@ -67,9 +67,8 @@
 
 
 .form-modifica {
-  width: 100%;
-  max-width: 400px;
-  margin: 20px auto;
+  width: 90%;
+  margin:auto;
   padding: 20px;
   background: #f9f9f9;
   border-radius: 10px;

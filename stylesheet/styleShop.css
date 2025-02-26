@@ -73,7 +73,7 @@
       padding-left: 20px;
     }
     /* Layout a griglia: più prodotti per riga */
-    .griglia-prodotti {
+    #griglia-prodotti {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Ogni prodotto occuperà almeno 250px, con più colonne se lo spazio lo consente */
       gap: 20px;
