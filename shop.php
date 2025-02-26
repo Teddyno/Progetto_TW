@@ -18,7 +18,7 @@ $categoriaFiltro = $_GET['categoria'] ?? 'tutti';
   <title>UniSa Gym - Shop</title> 
   <link rel="stylesheet" href="styleSheet/style.css">
   <link rel="stylesheet" href="styleSheet/styleShop.css">
-  <link rel="stylesheet" type="text/css" href="stylesheet/formAggiuntaProdotto.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet/formAggiuntaProdotto.css?ts=<?=time()?>&quot">
 </head>
 <body>
   <?php include 'header.php'; ?>
@@ -118,22 +118,28 @@ $categoriaFiltro = $_GET['categoria'] ?? 'tutti';
       </div>
     </div>
   </div>
-
+  <br><br><br>
   <?php 
     if($admin) {
   ?>
-    <div class="container-aggiunta-prodotto">
+    <div class="container-aggiungi-prodotto">
       <h1>Aggiungi Prodotto</h1>
       <form class="form-aggiungi" action="aggiuntaProdotto.php" method="POST" enctype="multipart/form-data">
         <label for="nome">Nome Prodotto</label>
         <input type="text" id="nome" name="nome" placeholder="Inserisci nome" required>
         <label for="prezzo">Prezzo</label>
         <input type="text" id="prezzo" name="prezzo" placeholder="Inserisci prezzo" required>
-
+        <label for="categoria">Scegli una categoria</label>
+        <select id="categoria" name="categoria"> 
+            <option value="abbigliamento">Abbigliamento</option>
+            <option value="abbigliamento">Attrezzatura</option>
+            <option value="abbigliamento">Abbonamenti</option>
+            <option value="abbigliamento">Alimentari</option>
+        </select>
         <label for="foto">Foto</label>
         <div id="foto-area">
-        <h2>Trascina la foto qui</h2>
-        <p>Oppure clicca qui per selezionare un file</p>
+            <h2>Foto Prodotto</h2>
+            <p>Seleziona un file oppure trascinalo qui</p>
         <input type="file" id="foto" name="foto">
         </div>
 
@@ -144,5 +150,7 @@ $categoriaFiltro = $_GET['categoria'] ?? 'tutti';
       }
     ?>
   <?php include 'footer.html'; ?>
+
+  <script src="js/drag_and_drop_shop.js"></script>
 </body>
 </html>

@@ -1,11 +1,23 @@
+.container-aggiungi-prodotto h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #283b96;
+    margin-bottom: 5px;
+}
+
 .form-aggiungi {
     width: 100%;
-    max-width: 1075px;
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
+    cursor: pointer;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-aggiungi:hover {
+    border-color: #022873;
 }
 
 .form-aggiungi label {
@@ -21,20 +33,58 @@
     margin: auto;
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #022873;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3 ease;
+}
+
+.form-aggiungi input[type="text"]:hover, .form-aggiungi input[type="file"]:hover {
+    border-color: #022873;
 }
 
 .form-aggiungi input[type="text"]:focus {
     border-color: #022873;
 }
 
+.form-aggiungi select {
+    outline: 0;
+    width: 47%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    border: 2px solid #022873;
+    border-radius: 10px;
+    appearance: none;
+}
+
+.form-aggiungi select:hover {
+    border-color: #0406D9;
+}
+
+.form-aggiungi select:focus {
+    border-color: #283b96;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.form-aggiungi select option {
+    font-size: 16px;
+    background: #f8f9fa;
+    color: #333;
+    border-color: #283b96;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 #foto-area {
     width: 50%;
     padding-top: 15px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     background: #f8f9fa;
+    align-items: center;
     align-content: center;
     text-align: center;
     cursor: pointer;
@@ -57,6 +107,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3 ease;
 }
 
 .pulsante-aggiungi:hover {
