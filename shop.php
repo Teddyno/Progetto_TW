@@ -1,3 +1,12 @@
+<?php 
+    session_start(); 
+
+    $admin = FALSE;
+    if(isset($_SESSION['admin'])){
+        $admin = $_SESSION['admin'];
+    }
+?>
+
 <?php
 // Recupera la categoria tramite GET; altrimenti usa la categoria "tutti"
 $categoriaFiltro = $_GET['categoria'] ?? 'tutti';
@@ -9,6 +18,7 @@ $categoriaFiltro = $_GET['categoria'] ?? 'tutti';
   <title>UniSa Gym - Shop</title> 
   <link rel="stylesheet" href="styleSheet/style.css">
   <link rel="stylesheet" href="styleSheet/styleShop.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet/formAggiuntaProdotto.css">
   
 </head>
 <body>
@@ -110,6 +120,30 @@ $categoriaFiltro = $_GET['categoria'] ?? 'tutti';
     </div>
   </div>
 
+  <?php 
+    if($admin) {
+  ?>
+    <div class="container-aggiunta-prodotto">
+      <h1>Aggiungi Prodotto</h1>
+      <form class="form-aggiungi" action="aggiuntaProdotto.php" method="POST" enctype="multipart/form-data">
+        <label for="nome">Nome Prodotto</label>
+        <input type="text" id="nome" name="nome" placeholder="Inserisci nome" required>
+        <label for="prezzo">Prezzo</label>
+        <input type="text" id="prezzo" name="prezzo" placeholder="Inserisci prezzo" required>
+
+        <label for="foto">Foto</label>
+        <div id="foto-area">
+        <h2>Trascina la foto qui</h2>
+        <p>Oppure clicca qui per selezionare un file</p>
+        <input type="file" id="foto" name="foto">
+        </div>
+
+        <button type="submit" class="pulsante-aggiungi" id="bottone-aggiungi">Aggiungi</button>
+      </form>
+    </div>
+    <?php
+      }
+    ?>
   <?php include 'footer.html'; ?>
 </body>
 </html>
