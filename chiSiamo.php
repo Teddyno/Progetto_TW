@@ -1,4 +1,4 @@
-|<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -171,12 +171,9 @@
                 <div class="freccia freccia-sinistra" onclick="cambiaSlide(-1)">&#10094;</div>
 
                 <div class="slideshow">
-                    <div class="slide"><img src="images/PalestraNocSup.jpg"></div>
-                        <div class="caption-text">Nocera Superiore</div>
-                    <div class="slide"><img src="images/PalestraAngri.jpg"></div>
-                        <div class="caption-text">Angri</div>
-                    <div class="slide"><img src="images/PalestraFisciano.jpg"></div>
-                        <div class="caption-text">Fisciano</div>
+                    <div class="slide"><img src="images/foto-interno-2.jpg"></div>
+                    <div class="slide"><img src="images/foto-interno-3.jpg"></div>
+                    <div class="slide"><img src="images/foto-interno.jpg"></div>
                 </div>
 
                 <div class="freccia freccia-destra" onclick="cambiaSlide(1)">&#10095;</div>

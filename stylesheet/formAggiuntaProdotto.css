@@ -1,0 +1,64 @@
+.form-aggiungi {
+    width: 100%;
+    max-width: 1075px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-aggiungi label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-aggiungi input[type="text"], .form-aggiungi input[type="file"] {
+    font-size: 16px;
+    width: 350px;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-aggiungi input[type="text"]:focus {
+    border-color: #022873;
+}
+
+#foto-area {
+    width: 50%;
+    padding-top: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px dashed #022873;
+}
+
+#foto-area h2 {
+    font-size: 18px;
+    margin: 0;
+    color: #022873;
+}
+
+.pulsante-aggiungi {
+    background: #0406D9;
+    width:15%;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pulsante-aggiungi:hover {
+    background: #022873;
+}
