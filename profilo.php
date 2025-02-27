@@ -244,7 +244,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
             </form>
         </section>
         <?php
-            if ($nickname_exists > 0) {
+            if(isset($nickname_exists) && $nickname_exists > 0) {
                 echo "Errore: Il nickname è già in uso.";
             } 
         ?>

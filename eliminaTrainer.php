@@ -30,5 +30,5 @@
     }
 ?>
 <script>
-    //window.location.href = "abbonamento.php";
+    window.location.href = "abbonamento.php";
 </script>
