@@ -9,7 +9,12 @@
     $cognome = $_POST['cognome'];
     if($_FILES["foto"]){
         $target_dir = "images/personaltrainer/";
-        $fotopath = $target_dir . basename($_FILES["foto"]["name"]);
+        if(basename($_FILES["foto"]["name"]) == '')
+        {
+            $fotopath = $target_dir . $_POST['fotopath'];
+        } else{
+            $fotopath = $target_dir . basename($_FILES["foto"]["name"]);
+        }
     }else{
         $fotopath = "images/personaltrainer/foto_profilo_default.png";
     }

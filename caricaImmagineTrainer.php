@@ -8,17 +8,20 @@ if (!empty($_FILES)) {
         mkdir($uploads_dir, 0777, true);
     }
 
-    // Cicla su tutti i file caricati
-    foreach ($_FILES as $key => $file) {
+    // Verifica se è stato caricato un singolo file
+    if (isset($_FILES['file'])) {
+        $file = $_FILES['file'];
         $tmp_name = $file['tmp_name'];
         $name = basename($file['name']);
-        // Nuovo percorso in cui verrà salvato il filer
-        $path =  $uploads_dir . $name;
-        $car = move_uploaded_file($tmp_name,$path);
+        // Nuovo percorso in cui verrà salvato il file
+        $path = $uploads_dir . $name;
+        $car = move_uploaded_file($tmp_name, $path);
 
         if (!$car) {
             echo "Errore nel caricamento del file $name.";
         }
+    } else {
+        echo "Nessun file caricato.";
     }
 } else {
     echo "Nessun file caricato.";

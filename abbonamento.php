@@ -140,9 +140,11 @@ HTML;
                     <label for="foto">foto</label>
                     <div id="drop-area">
                         <h2>Trascina la foto qui</h2>
-                        <p>Oppure clicca per selezionare un file</p>
-                        <input type="file" id="foto" name="foto">
+                        <p id="file-list">Oppure clicca per selezionare un file</p>
+                        <input type="file" id="foto" name="foto" value="">
                     </div>
+
+                    <input type="text" id="fotopath" name="fotopath" value='' style="display:none;">
 
                     <button type="submit" class="pulsante-aggiunta" id="bottone-aggiunta">Aggiungi</button>
                 </form>
@@ -159,7 +161,7 @@ HTML;
                     <label for="foto">foto</label>
                     <div id="drop-area">
                         <h2>Trascina la foto qui</h2>
-                        <p>Oppure clicca per selezionare un file</p>
+                        <p id="file-list">Oppure clicca per selezionare un file</p>
                         <input type="file" id="foto" name="foto">
                     </div>
 
@@ -198,6 +200,6 @@ HTML;
         </div>
         <?php include 'footer.html'; ?>
 
-        <script src="js/script_drag_drop.js"></script>
+        <script src="js/drag_and_drop_abbonamento.js"></script>
     </body>
 </html>

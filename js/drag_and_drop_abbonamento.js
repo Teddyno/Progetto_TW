@@ -3,9 +3,10 @@
 const dropArea = document.getElementById('drop-area');
 const fileInput = document.getElementById('foto');
 const fileList = document.getElementById('file-list');
+const fotopath = document.getElementById('fotopath');
 const bottone = document.getElementById('bottone-aggiunta');
 
-let fileArray;
+let fileCaricato;
 
 // Impediamo l'azione di default per il drag and drop
 dropArea.addEventListener('dragover', (e) => {
@@ -23,6 +24,9 @@ dropArea.addEventListener('drop', (e) => {
   dropArea.style.backgroundColor = '#fff';
 
   const file = e.dataTransfer.files;
+  fotopath.value = file[0].name;
+  /* configura il valore dell'attributo value dell'input nascosto
+        per passare il nome del file con post ad aggiuntaTrainer.php */
   handleFiles(file);
 });
 
@@ -39,28 +43,25 @@ bottone.addEventListener('click', () => {
 
 // Funzione per mostrare i file selezionati
 function handleFiles(file) {
-  // Mostra i file nella lista
-  fileArray = Array.from(file);
+  // Mostra il file nella lista
+  fileCaricato = file[0]; // Prende solo il primo file
   fileList.innerHTML = '';
-  fileArray.forEach((file) => {
-    const p = document.createElement('p');
-    p.textContent = file.name;
-    fileList.appendChild(p);
-  });
+  const p = document.createElement('p');
+  
+  p.textContent = file[0].name;
+  fileList.appendChild(p);
 }
 
 // Funzione per caricare i file sul server usando AJAX
 function uploadFiles() {
   const formData = new FormData();
 
-  fileArray.forEach((file, index) => {
-    formData.append('file' + index, file);
-  });
+  formData.append('file', fileCaricato);
 
   // Creazione della richiesta XMLHttpRequest
   const xhr = new XMLHttpRequest();
   // Impostiamo il tipo di richiesta e l'URL del server
-  xhr.open('POST', 'caricaImmagine.php', true);
+  xhr.open('POST', 'caricaImmagineTrainer.php', true);
 
   // Impostiamo la funzione di callback che verrà chiamata quando la richiesta è completata
   xhr.onload = function() {

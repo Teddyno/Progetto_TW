@@ -1,9 +1,10 @@
 const fotoArea = document.getElementById('foto-area');
 const Input = document.getElementById('foto');
 const fileList = document.getElementById('file-list');
+const fotopath = document.getElementById('fotopath');
 const bottone = document.getElementById('bottone-aggiungi');
 
-let fileArray;
+let fileCaricato;
 
 fotoArea.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -19,6 +20,9 @@ fotoArea.addEventListener('drop', (e) => {
     fotoArea.style.background = '#fff';
 
     const file = e.dataTransfer.files;
+    fotopath.value = file[0].name; 
+    /* configura il valore dell'attributo value dell'input nascosto
+        per passare il nome del file con post ad aggiuntaProdotto.php */
     handleFiles(file);
 });
 
@@ -32,21 +36,17 @@ bottone.addEventListener('click', () => {
 });
 
 function handleFiles(file) {
-    fileArray = Array.from(file);
+    fileCaricato = file[0];
     fileList.innerHTML = '';
-    fileArray.forEach((file) => {
-        const p = document.createElement('p');
-        p.textContent = file.name;
-        fileList.appendChild(p);
-    });
+    const p = document.createElement('p');
+    p.textContent = file[0].name;
+    fileList.appendChild(p);
 }
 
 function uploadFiles() {
     const formData = new FormData();
 
-    fileArray.forEach((file, index) => {
-        formData.append('file' + index, file);
-    });
+    formData.append('file', fileCaricato);
 
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'caricaImmagineProdotto.php', true);

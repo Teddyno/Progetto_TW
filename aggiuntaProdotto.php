@@ -6,15 +6,20 @@
     $nome = $_POST['nome'];
     $prezzo = $_POST['prezzo'];
     $categoria = $_POST['categoria'];
-    $cfotopath = $_POST['fotopath'];
-    if($_FILES["foto"]) {
+
+    if($_FILES["foto"]){
         $target_dir = "images/shop/";
-        $fotopath = $target_dir .basename($_FILES["foto"]["name"]);
-    } else {
+        if(basename($_FILES["foto"]["name"]) == '')
+        {
+            $fotopath = $target_dir . $_POST['fotopath'];
+        } else{
+            $fotopath = $target_dir . basename($_FILES["foto"]["name"]);
+        }
+    }else{
         $fotopath = "images/shop/foto_profilo_default.png";
     }
 
-    insert_prodotto($nome,$prezzo,$fotopath,$db);
+    insert_prodotto($nome,$prezzo,$categoria,$fotopath,$db);
 
     ?>
     <script>
@@ -22,11 +27,11 @@
     </script>
     <?php
 
-    function insert_prodotto($nome,$prezzo,$fotopath,$db) {
+    function insert_prodotto($nome,$prezzo,$categoria,$fotopath,$db) {
 
-        $sql = "INSERT_INTO prodotto(nome, prezzo, fotopath) VALUES($1, $2, $3)";
+        $sql = "INSERT INTO prodotti(nome, prezzo, categoria, fotopath) VALUES($1, $2, $3, $4)";
         $prep = pg_prepare($db, "insertProdotto", $sql);
-        $ret = pg_execute($db, "insertProdotto", array($nome, $prezzo, $fotopath));
+        $ret = pg_execute($db, "insertProdotto", array($nome, $prezzo, $categoria, $fotopath));
         if(!$ret) {
             echo "ERRORE QUERY: " . pg_last_error($db);
             return false;

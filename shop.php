@@ -84,9 +84,11 @@ function showProdotti(str) {
         <label for="foto">Foto</label>
         <div id="foto-area">
             <h2>Foto Prodotto</h2>
-            <p>Seleziona un file oppure trascinalo qui</p>
-        <input type="file" id="foto" name="foto">
+            <p id="file-list">Seleziona un file oppure trascinalo qui</p>
+            <input type="file" id="foto" name="foto">
         </div>
+
+        <input type="text" id="fotopath" name="fotopath" value='' style="display:none;">
 
         <button type="submit" class="pulsante-aggiungi" id="bottone-aggiungi">Aggiungi</button>
       </form>
