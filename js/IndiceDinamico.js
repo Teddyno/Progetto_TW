@@ -18,7 +18,7 @@ function controllaVisibilita(sezioni, current, scroll) {
         const sezioneTop = section.offsetTop;
         const distanza = Math.abs(scroll - sezioneTop);
 
-        if (distanza < minimo && scroll >= sezioneTop - 350) {
+        if (distanza < minimo && scroll >= sezioneTop - 380) {
             minimo = distanza;
             sezioneVicina = section;
         }
