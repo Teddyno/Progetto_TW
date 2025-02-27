@@ -1,3 +1,11 @@
+<?php
+    $importo = 0;
+    if(isset($_GET['totaleCarrello'])){
+        $importo = $_GET['totaleCarrello'];
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +23,7 @@
         <label for="importo">
           Importo
         </label>
-        <input type="number" id="importo" name="importo" value="">
+        <input type="number" id="importo" name="importo" value="<?php echo $importo?>" readonly>
       </div>
       <div class="form-row">
         <label for="card-element">
@@ -93,6 +101,7 @@
                 } else if (paymentIntent && paymentIntent.status === 'succeeded') {
                     // Payment succeeded
                     alert('Pagamento completato con successo!');
+                    window.location.href = 'index.php';
                 } else {
                     // Unexpected error
                     console.error('Unexpected error during payment confirmation.');
@@ -105,7 +114,7 @@
         // Creiamo un PaymentIntent usando AJAX
         function createPaymentIntent(amount, callback) {
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'payment.php', true);
+            xhr.open('POST', 'paymentIntent.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             xhr.onreadystatechange = function () {

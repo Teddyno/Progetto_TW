@@ -135,12 +135,18 @@
      * La funzione viene chiamata sia da ajax_remove() che da ajax_add_cart().
      */
     function updateCartTotal() {
-        const righeCart = document.querySelectorAll('tr[data-prezzo]');
-        let total = 0;
-        righeCart.forEach(function(row) {
-            total += parseFloat(row.getAttribute('data-prezzo'));
+        let totale = calcolaTotale();
+        document.getElementById('prezzo-totale').textContent = 'Prezzo totale:  ' + totale + ' $';
+    }
+
+    function calcolaTotale() {
+        const righeCarrello = document.querySelectorAll('tr[data-prezzo]');
+        let totale = 0;
+        righeCarrello.forEach(function(row) {
+            totale += parseFloat(row.getAttribute('data-prezzo'));
         });
-        document.getElementById('prezzo-totale').textContent = 'Prezzo totale:  ' + total + ' $';
+        
+        return totale;
     }
         /*
      *Gestisce il processo di acquisto.
@@ -148,9 +154,9 @@
      * Se l'utente non è loggato, apre il popup di login.
      */
     function buyCart() {
-        const cart = <?php echo json_encode($carrello); ?>; // passo all'URL il carrello codificato in JSON
-        const encodedCart = encodeURIComponent(JSON.stringify(cart));
-        window.location.href = '../src/components/Stripe/Checkout.php?cart=' + encodedCart;
+        let totale = calcolaTotale();
+        console.log(totale);
+        window.location.href = 'pagamento.php?totaleCarrello=' + totale;
     };
 
 </script>
