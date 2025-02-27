@@ -20,31 +20,33 @@
                 foreach ($carrello as $key => $value) {
                     $tot += $value['prezzo'];
 
-                    echo"<tr id='prodotto-" . $value['idprodotto'] . "' data-prezzo='" . $value['prezzo'] . "' class='riga-carrello'>
-                            <td rowspan='2' >
-                                <img src=".$value['fotopath']." class='immagine-prodotto-carrello'>
-                            </td>
-                            <td colspan='2' class= 'nome-prodotto'>
-                                ".$value['nome']."
-                            </td>
-                            <td rowspan='2'>
-                                <button class='removeButton' onclick='ajax_remove_cart(" . $value['idprodotto'] . ")'><img src=images/remove.png></button>
-                            </td>
-                        </tr>
-                        <tr id='prodotto2-".$value['idprodotto']."' class='riga-carrello'>
-                            <td>
-                                ".$value['prezzo']."$
-                            </td>
-                            <td>
-                                altro
+                    echo"<tr id='prodotto-' " . $value['idprodotto'] . " 'data-prezzo='".$value['prezzo']."'>
+                            <td colspan='2'>
+                                <div class='container-prodotto-carrello'>
+                                    <div class='immagine-prodotto-carrello'>
+                                        <img src=".$value['fotopath']." class='imm-prodotto-carr'>
+                                    </div>
+                                    <div class='nome-prodotto-carrello'>
+                                        ".$value['nome']."
+                                    </div>
+                                    <div class='prezzo-prodotto-carrello'>
+                                        ".$value['prezzo']."$
+                                    </div>
+                                    <div class='altro-prodotto-carrello'>
+                                        altro
+                                    </div>
+                                    <div class='rimuovi-prodotto-carrello'>
+                                        <button class='remove-button' onclick='ajax_remove_cart(" . $value['idprodotto'] . ")'><img src=images/remove.png></button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>";
                 }
                 if ($tot == 0) {
-                    echo "<tr id='row-choose'><td colspan='4'>Carrello vuoto, vai allo shop</td></tr>";
+                    echo "<tr id='row-choose'><td>Carrello vuoto, vai allo shop</td></tr>";
                 }
             } else {
-                echo "<tr id='row-choose'><td colspan='4'>Carrello vuoto, vai allo shop</td></tr>";
+                echo "<tr id='row-choose'><td>Carrello vuoto, vai allo shop</td></tr>";
             }
             ?>
         </tbody>
@@ -55,19 +57,16 @@
             } else {
                 echo 'style="display: table-footer-group;"';
             }   ?>> <!--Chiudo tag tfoot --> 
-            <tr>
-                <td id='totale-carrello' colspan='5'>
-                    <?php
-                    if (isset($carrello)) {
-                        echo "Prezzo totale: " . $tot . '$';
-                    } ?>
-                </td>
-                <td><button type='button' onclick='buyCart()' id='acquistaButton' <?php if (!isset($_SESSION['autenticato'])) {
-                                                                                        echo "style='display:none;'"; //se l'utente non è loggato vede solo la lista degli elementi
-                                                                                    }  ?>>Buy
-                    </button>
-                </td>
-            </tr>
+            <td id='totale-carrello'>
+                <?php
+                if (isset($carrello)) {
+                    echo "Prezzo totale: " . $tot . '$';
+                } ?>
+            </td>
+            <td><button type='button' onclick='buyCart()' id='acquistaButton' <?php if (!isset($_SESSION['autenticato'])) {
+                                                                                    echo "style='display:none;'"; //se l'utente non è loggato vede solo la lista degli elementi
+                                                                                }  ?>>Buy
+                </button></td>
         </tfoot>
     </table>
 </div>
@@ -110,7 +109,7 @@
      */
     function svuotaCarrello() {
         document.getElementById('carrello-tbl').getElementsByTagName('tbody')[0].innerHTML = `
-        <tr id='row-choose'><td colspan='4'>Carrello vuoto, vai allo shop</td></tr>`;
+        <tr id='row-choose'><td>Carrello vuoto, vai allo shop</td></tr>`;
         document.getElementById('tfoot').style.display = 'none';
     }
     /**
@@ -130,10 +129,8 @@
                 if (response.cartEmpty) {
                     svuotaCarrello();
                 } else {
-                    const itemElement = document.getElementById('prodotto-' + id);
-                    itemElement.remove();
-                    const itemElement2 = document.getElementById('prodotto2-' + id);
-                    itemElement2.remove();
+                    const element = document.getElementById('prodotto-' + id);
+                    element.remove();
                     updateCartTotal();
                 }
             }
