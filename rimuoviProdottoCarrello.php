@@ -25,8 +25,6 @@ if (isset($_POST['id']) && isset($_COOKIE['cart'])) {
     $cart = array_values($cart);
     setcookie('cart', json_encode($cart), time() + 3600, "/");
 
-    echo "<script>console.log('empty($cart)')</script>";
-
     // Restituisci lo stato del carrello
     echo json_encode(['cartEmpty' => empty($cart)]);
 

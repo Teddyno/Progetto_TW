@@ -1,14 +1,14 @@
-<div id="carrello" class="popup d-flex flex-column scroll" style="display: none;">
+<div id="carrello" class="carrello-popup container-carrello" style="display: none;">
     <!-- cart 
     Questo script gestisce la funzionalità del carrello, consentendo agli utenti di visualizzare, aggiornare e acquistare gli articoli nel loro carrello.
      I dati del carrello sono memorizzati nei cookie e gestiti utilizzando PHP e JavaScript.
      -->
-    <div id="remove_popup">
+    <div id="remove-popup">
         <!-- Pulsante di chiusura per il popup del carrello. Utilizza metodo openCart presente nel file topmenu.php -->
         <button onclick="openCart()" class="bottone-chiusura-carrello" style="margin-top:150px">X</button>
     </div>
     
-    <table id="carrello_tbl" style="border-spacing: 18px;">
+    <table id="carrello-tbl" style="border-spacing: 18px;">
         <thead>
             <tr>
                 <td>
@@ -26,9 +26,9 @@
                 foreach ($carrello as $key => $value) {
                     $tot += $value['prezzo'];
 
-                    echo"<tr id='prodotto-" . $value['idprodotto'] . "' data-prezzo='" . $value['prezzo'] . "'>
+                    echo"<tr id='prodotto-" . $value['idprodotto'] . "' data-prezzo='" . $value['prezzo'] . "' class='riga-carrello'>
                             <td rowspan='2'>
-                                <img src=".$value['fotopath'].">
+                                <img src=".$value['fotopath']." class='immagine-prodotto-carrello'>
                             </td>
                             <td colspan='2'>
                                 ".$value['nome']."
@@ -37,7 +37,7 @@
                                 <button class='removeButton' onclick='ajax_remove_cart(" . $value['idprodotto'] . ")'>&#x1F5D1</button>
                             </td>
                         </tr>
-                        <tr id='prodotto2-".$value['idprodotto']."'>
+                        <tr id='prodotto2-".$value['idprodotto']."' class='riga-carrello'>
                             <td>
                                 ".$value['prezzo']."
                             </td>
@@ -98,7 +98,7 @@
      * 
      */
     function svuotaCarrelloFrontend() {
-        document.getElementById('carrello_tbl').getElementsByTagName('tbody')[0].innerHTML = `
+        document.getElementById('carrello-tbl').getElementsByTagName('tbody')[0].innerHTML = `
         <tr id='row-choose'><td colspan='4'>Carrello vuoto, vai allo shop</td></tr>`;
         document.getElementById('tfoot').style.display = 'none';
     }
@@ -120,7 +120,7 @@
                     svuotaCarrelloFrontend();
                 } else {
                     const itemElement = document.getElementById('prodotto-' + id);
-                    itemElement2.remove();
+                    itemElement.remove();
                     const itemElement2 = document.getElementById('prodotto2-' + id);
                     itemElement2.remove();
                     updateCartTotal();

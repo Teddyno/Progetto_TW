@@ -7,15 +7,15 @@
 session_start();
 
 // Connessione al database
-require_once "/db.php";
+require_once "db.php";
 $db = pg_connect($connection_string) or die('Impossibile connettersi al database! ' .pg_last_error());
 
 $id = $_POST['id'];
-$query = "SELECT * FROM prodotti WHERE idprodotto='$id'";
+$query = "SELECT * FROM prodotti WHERE idprodotto=$1";
 
-$return = pg_query($db_connection, $query) or die('Errore: ' . pg_last_error($db_connection));
+$return = pg_query_params($db, $query, array($id)) or die('Errore: ' . pg_last_error($db));
 $prodotto = pg_fetch_assoc($return);
-pg_close($db_connection);
+pg_close($db);
 
 // Se il carrello non esiste nei cookie lo crea vuoto altrimenti decoder
 if (isset($_COOKIE['cart'])) {
@@ -28,7 +28,8 @@ $info = array(
     "nome" => $prodotto['nome'],
     "prezzo" => $prodotto['prezzo'],
     "idprodotto" => $prodotto['idprodotto'],
-    "fotopath" =>$prodotto['fotopath']
+    "fotopath" => $prodotto['fotopath'],
+    "quantita" => 0
 );
 
     /* $duplicato = false;
@@ -47,6 +48,7 @@ $info = array(
 
     setcookie('cart', json_encode($cart), time() + 3600, "/");
 
+
     //header("Location: " . $_SERVER['HTTP_REFERER']);
-    exit();
+    
 ?>

@@ -30,8 +30,8 @@ function updateCartAdd(id, nome, prezzo, fotopath) {
     //Se l'utente preme per la prima volta il button per l'aggiunta deve esser mostrato il footer della table
     let tfoot = document.getElementById('tfoot');
     tfoot.style.display='table-footer-group';
-    tbody = document.getElementById('carrello_tbl').getElementsByTagName('tbody')[0];
-    thead = document.getElementById('carrello_tbl').getElementsByTagName('thead')[0];
+    tbody = document.getElementById('carrello-tbl').getElementsByTagName('tbody')[0];
+    thead = document.getElementById('carrello-tbl').getElementsByTagName('thead')[0];
     if (tbody) {
         const rowChoose = document.getElementById('row-choose');
         //var verifica = document.getElementById('prodotto-' + id);
@@ -42,7 +42,7 @@ function updateCartAdd(id, nome, prezzo, fotopath) {
             rowChoose.remove();
             tbody.appendChild(riga[0]);
             tbody.appendChild(riga[1]);
-            tbody = document.getElementById('carrello_tbl').getElementsByTagName('tfoot')['0'].style.display = '';
+            tbody = document.getElementById('carrello-tbl').getElementsByTagName('tfoot')['0'].style.display = '';
             riga[0].style.display = '';
             riga[1].style.display = '';
             //Funzione definita nel file cart.php
@@ -51,7 +51,7 @@ function updateCartAdd(id, nome, prezzo, fotopath) {
             //if (!verifica) {
                 tbody.appendChild(riga[0]);
                 tbody.appendChild(riga[1]); // Inserisci la nuova riga all'inizio del tbody
-                tbody = document.getElementById('carrello_tbl').getElementsByTagName('tfoot')['0'].style.display = '';
+                tbody = document.getElementById('carrello-tbl').getElementsByTagName('tfoot')['0'].style.display = '';
                 riga[0].style.display = '';
                 riga[1].style.display = '';
             //}
@@ -78,12 +78,13 @@ function updateCartTotal() {
 function createRow(id, nome, prezzo, fotopath) {
     const newRow = document.createElement('tr');
     newRow.id = 'prodotto-' + id;
+    newRow.className = 'riga-carrello';
     newRow.setAttribute('data-prezzo', prezzo);
     newRow.style.display = 'none';
 
         const fotoCell = document.createElement('td');
         fotoCell.setAttribute('rowspan', '2');
-        fotoCell.innerHTML = '<img src="' + fotopath + '" style="height:45px;">';
+        fotoCell.innerHTML = '<img src="' + fotopath + '" class="immagine-prodotto-carrello">';
         newRow.appendChild(fotoCell);
 
         const nameCell = document.createElement('td');
@@ -102,6 +103,8 @@ function createRow(id, nome, prezzo, fotopath) {
         
     const Row2 = document.createElement('tr');
     Row2.style.display = 'none';
+    Row2.className = 'riga-carrello';
+    Row2.id = 'prodotto2-' + id;
 
         const priceCell = document.createElement('td');
         priceCell.textContent = prezzo + ' $';
