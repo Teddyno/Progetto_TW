@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #0460D9;
+}
+
+/* Contenitore principale del pagamento */
+.contenitore-pagamento {
+    width: 370px;
+    margin: 130px auto 0px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.titolo-pagamento {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0460D9;
+    margin-bottom: 20px;
+}
+
+.form-pagamento {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nomi caselle*/
+label {
+    text-align: left;
+    font-size: 14px;
+}
+
+input {
+    width: 97%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Stile per il box della carta */
+#card-element {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    margin-bottom: 15px;
+}
+
+.pulsante-pagamento {
+    background: #0460D9;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.pulsante-pagamento:hover {
+    background: #0443c3;
+}

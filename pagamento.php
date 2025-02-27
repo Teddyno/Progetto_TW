@@ -1,36 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pagamento con Stripe</title>
+    <title>UnisaGym - Pagamento con Stripe</title>
     <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylePagamento.css">
 </head>
 <body>
-    <h1>Pagamento con Stripe</h1>
-    <form method="post" id="payment-form">
-      <div class="form-row">
-        <label for="fullname">
-          Nome Completo
-        </label>
-        <input type="text" id="fullname" name="fullname" value="">
-        <label for="importo">
-          Importo
-        </label>
-        <input type="number" id="importo" name="importo" value="">
-      </div>
-      <div class="form-row">
-        <label for="card-element">
-          Credit or debit card
-        </label>
-        <div id="card-element">
-          <!-- A Stripe Element will be inserted here. -->
-        </div>
+<div class="contenitore-pagamento">
+        <img src="images/UnisaGym_logo2.png" style="max-width: 220px;" alt="Logo UniSa Gym" />
+        <h1 class="titolo-pagamento">Inserisci i dati per il Pagamento</h1>
+        <form method="post" id="payment-form" class="form-pagamento">
+            <label for="fullname">Nome Completo</label>
+            <input type="text" id="fullname" name="fullname" required>
 
-        <!-- Used to display Element errors. -->
-        <div id="card-errors" role="alert"></div>
-      </div>
+            <label for="importo">Importo</label>
+            <input type="number" id="importo" name="importo" required>
 
-      <button id="submit-button">Submit Payment</button>
-    </form>
+            <label for="card-element">Carta di credito o debito</label>
+            <div id="card-element"></div>
+            <div id="card-errors" role="alert"></div>
+
+            <button id="submit-button" class="pulsante-pagamento">Effettua Pagamento</button>
+        </form>
+    </div>
 
     <script>
         const stripe = Stripe('pk_test_51Qx9iLADMdufFUoyCNSNoPAb8u4cSNMnAUDaclfYkPPujS9lp2TQuUaGKY1o5zPHkevSbvfGS2XJE1aqnPvzrtAR004N3ToiSJ'); // Sostituisci con la tua Public Key
