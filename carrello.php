@@ -20,7 +20,7 @@
                 foreach ($carrello as $key => $value) {
                     $tot += $value['prezzo'];
 
-                    echo"<tr id='prodotto-' " . $value['idprodotto'] . " 'data-prezzo='".$value['prezzo']."'>
+                    echo"<tr id='prodotto-" . $value['idprodotto'] . "'  'data-prezzo='".$value['prezzo']."'>
                             <td colspan='2'>
                                 <div class='container-prodotto-carrello'>
                                     <div class='immagine-prodotto-carrello'>
