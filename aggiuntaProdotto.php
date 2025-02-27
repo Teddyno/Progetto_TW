@@ -15,8 +15,10 @@
         } else{
             $fotopath = $target_dir . basename($_FILES["foto"]["name"]);
         }
-    }else{
-        $fotopath = "images/shop/foto_profilo_default.png";
+    }
+    
+    if($fotopath == "images/shop/"){
+        $fotopath = "images/shop/foto_personal_default.png";
     }
 
     insert_prodotto($nome,$prezzo,$categoria,$fotopath,$db);
