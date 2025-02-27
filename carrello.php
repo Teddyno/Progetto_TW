@@ -1,8 +1,8 @@
 <div id="carrello" class="carrello-popup container-carrello" style="display: none;">
     <!-- cart 
     Questo script gestisce la funzionalità del carrello, consentendo agli utenti di visualizzare, aggiornare e acquistare gli articoli nel loro carrello.
-     I dati del carrello sono memorizzati nei cookie e gestiti utilizzando PHP e JavaScript.
-     -->
+    I dati del carrello sono memorizzati nei cookie e gestiti utilizzando PHP e JavaScript.
+    -->
     <div id="remove-popup">
         <!-- Pulsante di chiusura per il popup del carrello. Utilizza metodo openCart presente nel file topmenu.php -->
         <button onclick="openCart()" class="bottone-chiusura-carrello" style="margin-top:150px">X</button>
