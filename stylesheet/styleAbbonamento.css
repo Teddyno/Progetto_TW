@@ -99,6 +99,7 @@ body {
     text-align: center;
     color: white;
     margin: 10px;
+    transition: all 0.3s ease;
 }
 
 .trainer:hover {

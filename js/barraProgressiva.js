@@ -38,7 +38,7 @@ switch(tipoAbbonamento) {
     
     default:
         giorniTotali = 0;
-  }
+    }
 
 // data attuale e data scadenza in secondi
 let dataAttuale =new Date().getTime();

@@ -1,9 +1,10 @@
 function attivaSezioni(linkNavigazione, current) {
     linkNavigazione.forEach(link => {
+        const container = link.querySelector(".container-indice");
         if (link.getAttribute("href").includes(`#${current}`)) {
-            link.classList.add("active");
+            container.classList.add("active");
         } else {
-            link.classList.remove("active");
+            container.classList.remove("active");
         }
     });
 }
