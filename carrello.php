@@ -50,21 +50,24 @@
         </tbody>
         <tfoot id="tfoot"
             <?php
-            if (empty($cart)) {
+            if (empty($carrello)) {
                 echo "style='display:none;'";
             } else {
                 echo 'style="display: table-footer-group;"';
             }   ?>> <!--Chiudo tag tfoot --> 
-            <td id='totale-carrello' colspan='5'>
-                <?php
-                if (isset($cart)) {
-                    echo "Prezzo totale: " . $tot . '$';
-                } ?>
-            </td>
-            <td><button type='button' onclick='buyCart()' id='acquistaButton' <?php if (!isset($_SESSION['autenticato'])) {
-                                                                                    echo "style='display:none;'"; //se l'utente non è loggato vede solo la lista degli elementi
-                                                                                }  ?>>Buy
-                </button></td>
+            <tr>
+                <td id='totale-carrello' colspan='5'>
+                    <?php
+                    if (isset($carrello)) {
+                        echo "Prezzo totale: " . $tot . '$';
+                    } ?>
+                </td>
+                <td><button type='button' onclick='buyCart()' id='acquistaButton' <?php if (!isset($_SESSION['autenticato'])) {
+                                                                                        echo "style='display:none;'"; //se l'utente non è loggato vede solo la lista degli elementi
+                                                                                    }  ?>>Buy
+                    </button>
+                </td>
+            </tr>
         </tfoot>
     </table>
 </div>
@@ -145,13 +148,9 @@
      * Se l'utente non è loggato, apre il popup di login.
      */
     function buyCart() {
-        <?php if (isset($_SESSION['username'])) { ?>
-            const cart = <?php echo json_encode($cart); ?>; // passo all'URL il carrello codificato in JSON
-            const encodedCart = encodeURIComponent(JSON.stringify(cart));
-            window.location.href = '../src/components/Stripe/Checkout.php?cart=' + encodedCart;
-        <?php } else { ?>
-            openLoginPopup();
-        <?php } ?>
+        const cart = <?php echo json_encode($carrello); ?>; // passo all'URL il carrello codificato in JSON
+        const encodedCart = encodeURIComponent(JSON.stringify(cart));
+        window.location.href = '../src/components/Stripe/Checkout.php?cart=' + encodedCart;
     };
 
 </script>
