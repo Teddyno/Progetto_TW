@@ -78,14 +78,28 @@
      * Eseguito al caricamento della finestra.
      * Questa funzione viene eseguita quando la finestra del browser è completamente caricata.
      * Verifica la presenza del parametro confirmcheckout nell'URL.
-     * Se il parametro è presente, chiama la funzione svuotaCarrelloFrontend() per svuotare il carrello nel frontend.
+     * Se il parametro è presente, chiama la funzione svuotaCarrello() per svuotare il carrello nel frontend.
      */
     window.onload = function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('confirmcheckout')) {
-            svuotaCarrelloFrontend();
-        }
+        var GET = <?php echo json_encode($_GET, JSON_HEX_TAG); ?>;
+        if(GET.pagamentoEffettuato){
+            svuotaCarrello();
+            gestioneAcquisti();
+        } 
     };
+
+    function gestioneAcquisti(){
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'gestioneAcquisti.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log("gestione acquisti effettuata con successo");
+            }
+        };
+        xhr.send('pagamentoEffettuato=' + true);
+    }
+
     /**
      * Svuota il carrello nel frontend.
      *
@@ -94,7 +108,7 @@
      * e nasconde il 'tfoot'.
      * 
      */
-    function svuotaCarrelloFrontend() {
+    function svuotaCarrello() {
         document.getElementById('carrello-tbl').getElementsByTagName('tbody')[0].innerHTML = `
         <tr id='row-choose'><td colspan='4'>Carrello vuoto, vai allo shop</td></tr>`;
         document.getElementById('tfoot').style.display = 'none';
@@ -114,7 +128,7 @@
                 // Aggiorna l'interfaccia utente dopo aver rimosso l'elemento
                 const response = JSON.parse(xhr.responseText);
                 if (response.cartEmpty) {
-                    svuotaCarrelloFrontend();
+                    svuotaCarrello();
                 } else {
                     const itemElement = document.getElementById('prodotto-' + id);
                     itemElement.remove();
@@ -148,14 +162,13 @@
         
         return totale;
     }
-        /*
+    /*
      *Gestisce il processo di acquisto.
      * Questa funzione controlla se l'utente è loggato. Se l'utente è loggato, codifica i dati del carrello in JSON e redireziona alla pagina di pagamento.
      * Se l'utente non è loggato, apre il popup di login.
      */
     function buyCart() {
         let totale = calcolaTotale();
-        console.log(totale);
         window.location.href = 'pagamento.php?totaleCarrello=' + totale;
     };
 
