@@ -16,7 +16,7 @@ function showProdotti(str) {
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("griglia-prodotti").innerHTML = this.responseText;
-     }
+      }
   };
   xmlhttp.open("GET","tabellaProdotti.php?categoria="+str,true);
   xmlhttp.send();

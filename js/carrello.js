@@ -56,7 +56,7 @@ function updateCartAdd(id, nome, prezzo, fotopath) {
                 riga[1].style.display = '';
             //}
         }
-       
+        
     } 
     updateCartTotal(); 
 }
@@ -97,7 +97,7 @@ function createRow(id, nome, prezzo, fotopath) {
         removeCell.setAttribute('rowspan', '2');
         removebtn.className = 'removeButton';
         removebtn.setAttribute('onclick', `ajax_remove_cart(${id})`);
-        removebtn.innerHTML = '&#x1F5D1'; // Icona del cestino
+        removebtn.innerHTML = '<img src=images/remove.png>';
         removeCell.appendChild(removebtn);
         newRow.appendChild(removeCell);
         

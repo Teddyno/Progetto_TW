@@ -3,21 +3,15 @@
     Questo script gestisce la funzionalità del carrello, consentendo agli utenti di visualizzare, aggiornare e acquistare gli articoli nel loro carrello.
     I dati del carrello sono memorizzati nei cookie e gestiti utilizzando PHP e JavaScript.
     -->
-    <div id="remove-popup">
-        <!-- Pulsante di chiusura per il popup del carrello. Utilizza metodo openCart presente nel file topmenu.php -->
-        <button onclick="openCart()" class="bottone-chiusura-carrello" style="margin-top:150px">X</button>
-    </div>
     
     <table id="carrello-tbl" style="border-spacing: 18px;">
-        <thead>
-            <tr>
-                <td>
-                <div class="titolo-carrello">
-                    <h1>Carrello</h1>
-                </div>
-                </td>
-            </tr>   
-        </thead>
+        <div class="titolo-carrello">
+            <h1>Carrello</h1>
+        </div>
+        <div id="remove-popup">
+            <!-- Pulsante di chiusura per il popup del carrello. Utilizza metodo openCart presente nel file topmenu.php -->
+            <button onclick="openCart()" class="bottone-chiusura-carrello">X</button>
+        </div>
         <tbody>
             <?php
             if (isset($_COOKIE['cart'])) {
@@ -27,19 +21,19 @@
                     $tot += $value['prezzo'];
 
                     echo"<tr id='prodotto-" . $value['idprodotto'] . "' data-prezzo='" . $value['prezzo'] . "' class='riga-carrello'>
-                            <td rowspan='2'>
+                            <td rowspan='2' >
                                 <img src=".$value['fotopath']." class='immagine-prodotto-carrello'>
                             </td>
-                            <td colspan='2'>
+                            <td colspan='2' class= 'nome-prodotto'>
                                 ".$value['nome']."
                             </td>
                             <td rowspan='2'>
-                                <button class='removeButton' onclick='ajax_remove_cart(" . $value['idprodotto'] . ")'>&#x1F5D1</button>
+                                <button class='removeButton' onclick='ajax_remove_cart(" . $value['idprodotto'] . ")'><img src=images/remove.png></button>
                             </td>
                         </tr>
                         <tr id='prodotto2-".$value['idprodotto']."' class='riga-carrello'>
                             <td>
-                                ".$value['prezzo']."
+                                ".$value['prezzo']."$
                             </td>
                             <td>
                                 altro
