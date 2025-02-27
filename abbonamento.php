@@ -109,7 +109,7 @@ HTML;
                             <div class="azioni-trainer">
                                 <a href="<?php echo $_SERVER['PHP_SELF'] ?>?idModifica=<?php echo $rowP['id']; ?>">
                                     <img src="images/modify.png"></a>
-                                <a href="eliminaTrainer.php?id=<?php echo $rowP['id']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo trainer?');">
+                                <a href="eliminaTrainer.php?id=<?php echo $rowP['id']; ?>&fotopath=<?php echo $rowP['fotopath']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo trainer?');">
                                     <img src="images/cestino.png"></a>
                             </div>
             <?php
