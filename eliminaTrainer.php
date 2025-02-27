@@ -19,16 +19,12 @@
         echo "Personal Trainer eliminato con successo ";
     }
 
-    if (file_exists($fotopath)) { // Controlla se il file esiste
-        if($fotopath !="images/personaltrainer/foto_personal_default.png"){
-            if (unlink($fotopath)) {  // Elimina il file
-                echo "\nImmagine eliminata con successo!";
-            } else {
-                echo "\nErrore nell'eliminazione dell'immagine.";
-            }
+    if (file_exists($fotopath) && ($fotopath !="images/personaltrainer/foto_personal_default.png" && $fotopath !="images\personaltrainer\foto_personal_default.png")) { // Controlla se il file esiste
+        if (unlink($fotopath)) {  // Elimina il file
+            echo "\nImmagine eliminata con successo!";
+        } else {
+            echo "\nErrore nell'eliminazione dell'immagine.";
         }
-    } else {
-        echo "\nIl file non esiste.";
     }
 ?>
 <script>

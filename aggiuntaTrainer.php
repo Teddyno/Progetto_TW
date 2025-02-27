@@ -15,8 +15,9 @@
         } else{
             $fotopath = $target_dir . basename($_FILES["foto"]["name"]);
         }
-    }else{
-        $fotopath = "images/personaltrainer/foto_profilo_default.png";
+    }
+    if($fotopath == "images/personaltrainer/"){
+        $fotopath = "images/personaltrainer/foto_personal_default.png";
     }
 
     insert_trainer($nome,$cognome,$fotopath,$db);

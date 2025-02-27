@@ -20,31 +20,33 @@
                 foreach ($carrello as $key => $value) {
                     $tot += $value['prezzo'];
 
-                    echo"<tr id='prodotto-" . $value['idprodotto'] . "' data-prezzo='" . $value['prezzo'] . "' class='riga-carrello'>
-                            <td rowspan='2' >
-                                <img src=".$value['fotopath']." class='immagine-prodotto-carrello'>
-                            </td>
-                            <td colspan='2' class= 'nome-prodotto'>
-                                ".$value['nome']."
-                            </td>
-                            <td rowspan='2'>
-                                <button class='removeButton' onclick='ajax_remove_cart(" . $value['idprodotto'] . ")'><img src=images/remove.png></button>
-                            </td>
-                        </tr>
-                        <tr id='prodotto2-".$value['idprodotto']."' class='riga-carrello'>
-                            <td>
-                                ".$value['prezzo']."$
-                            </td>
-                            <td>
-                                altro
+                    echo"<tr id='prodotto-' " . $value['idprodotto'] . " 'data-prezzo='".$value['prezzo']."'>
+                            <td colspan='2'>
+                                <div class='container-prodotto-carrello'>
+                                    <div class='immagine-prodotto-carrello'>
+                                        <img src=".$value['fotopath']." class='imm-prodotto-carr'>
+                                    </div>
+                                    <div class='nome-prodotto-carrello'>
+                                        ".$value['nome']."
+                                    </div>
+                                    <div class='prezzo-prodotto-carrello'>
+                                        ".$value['prezzo']."$
+                                    </div>
+                                    <div class='altro-prodotto-carrello'>
+                                        altro
+                                    </div>
+                                    <div class='rimuovi-prodotto-carrello'>
+                                        <button class='remove-button' onclick='ajax_remove_cart(" . $value['idprodotto'] . ")'><img src=images/remove.png></button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>";
                 }
                 if ($tot == 0) {
-                    echo "<tr id='row-choose'><td colspan='4'>Carrello vuoto, vai allo shop</td></tr>";
+                    echo "<tr id='row-choose'><td>Carrello vuoto, vai allo shop</td></tr>";
                 }
             } else {
-                echo "<tr id='row-choose'><td colspan='4'>Carrello vuoto, vai allo shop</td></tr>";
+                echo "<tr id='row-choose'><td>Carrello vuoto, vai allo shop</td></tr>";
             }
             ?>
         </tbody>
@@ -55,19 +57,16 @@
             } else {
                 echo 'style="display: table-footer-group;"';
             }   ?>> <!--Chiudo tag tfoot --> 
-            <tr>
-                <td id='totale-carrello' colspan='5'>
-                    <?php
-                    if (isset($carrello)) {
-                        echo "Prezzo totale: " . $tot . '$';
-                    } ?>
-                </td>
-                <td><button type='button' onclick='buyCart()' id='acquistaButton' <?php if (!isset($_SESSION['autenticato'])) {
-                                                                                        echo "style='display:none;'"; //se l'utente non è loggato vede solo la lista degli elementi
-                                                                                    }  ?>>Buy
-                    </button>
-                </td>
-            </tr>
+            <td id='totale-carrello'>
+                <?php
+                if (isset($carrello)) {
+                    echo "Prezzo totale: " . $tot . '$';
+                } ?>
+            </td>
+            <td><button type='button' onclick='buyCart()' id='acquistaButton' <?php if (!isset($_SESSION['autenticato'])) {
+                                                                                    echo "style='display:none;'"; //se l'utente non è loggato vede solo la lista degli elementi
+                                                                                }  ?>>Buy
+                </button></td>
         </tfoot>
     </table>
 </div>
@@ -78,14 +77,28 @@
      * Eseguito al caricamento della finestra.
      * Questa funzione viene eseguita quando la finestra del browser è completamente caricata.
      * Verifica la presenza del parametro confirmcheckout nell'URL.
-     * Se il parametro è presente, chiama la funzione svuotaCarrelloFrontend() per svuotare il carrello nel frontend.
+     * Se il parametro è presente, chiama la funzione svuotaCarrello() per svuotare il carrello nel frontend.
      */
     window.onload = function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('confirmcheckout')) {
-            svuotaCarrelloFrontend();
-        }
+        var GET = <?php echo json_encode($_GET, JSON_HEX_TAG); ?>;
+        if(GET.pagamentoEffettuato){
+            svuotaCarrello();
+            gestioneAcquisti();
+        } 
     };
+
+    function gestioneAcquisti(){
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'gestioneAcquisti.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log("gestione acquisti effettuata con successo");
+            }
+        };
+        xhr.send('pagamentoEffettuato=' + true);
+    }
+
     /**
      * Svuota il carrello nel frontend.
      *
@@ -94,9 +107,9 @@
      * e nasconde il 'tfoot'.
      * 
      */
-    function svuotaCarrelloFrontend() {
+    function svuotaCarrello() {
         document.getElementById('carrello-tbl').getElementsByTagName('tbody')[0].innerHTML = `
-        <tr id='row-choose'><td colspan='4'>Carrello vuoto, vai allo shop</td></tr>`;
+        <tr id='row-choose'><td>Carrello vuoto, vai allo shop</td></tr>`;
         document.getElementById('tfoot').style.display = 'none';
     }
     /**
@@ -114,12 +127,10 @@
                 // Aggiorna l'interfaccia utente dopo aver rimosso l'elemento
                 const response = JSON.parse(xhr.responseText);
                 if (response.cartEmpty) {
-                    svuotaCarrelloFrontend();
+                    svuotaCarrello();
                 } else {
-                    const itemElement = document.getElementById('prodotto-' + id);
-                    itemElement.remove();
-                    const itemElement2 = document.getElementById('prodotto2-' + id);
-                    itemElement2.remove();
+                    const element = document.getElementById('prodotto-' + id);
+                    element.remove();
                     updateCartTotal();
                 }
             }
@@ -135,22 +146,27 @@
      * La funzione viene chiamata sia da ajax_remove() che da ajax_add_cart().
      */
     function updateCartTotal() {
-        const righeCart = document.querySelectorAll('tr[data-prezzo]');
-        let total = 0;
-        righeCart.forEach(function(row) {
-            total += parseFloat(row.getAttribute('data-prezzo'));
-        });
-        document.getElementById('prezzo-totale').textContent = 'Prezzo totale:  ' + total + ' $';
+        let totale = calcolaTotale();
+        document.getElementById('prezzo-totale').textContent = 'Prezzo totale:  ' + totale + ' $';
     }
-        /*
+
+    function calcolaTotale() {
+        const righeCarrello = document.querySelectorAll('tr[data-prezzo]');
+        let totale = 0;
+        righeCarrello.forEach(function(row) {
+            totale += parseFloat(row.getAttribute('data-prezzo'));
+        });
+        
+        return totale;
+    }
+    /*
      *Gestisce il processo di acquisto.
      * Questa funzione controlla se l'utente è loggato. Se l'utente è loggato, codifica i dati del carrello in JSON e redireziona alla pagina di pagamento.
      * Se l'utente non è loggato, apre il popup di login.
      */
     function buyCart() {
-        const cart = <?php echo json_encode($carrello); ?>; // passo all'URL il carrello codificato in JSON
-        const encodedCart = encodeURIComponent(JSON.stringify(cart));
-        window.location.href = '../src/components/Stripe/Checkout.php?cart=' + encodedCart;
+        let totale = calcolaTotale();
+        window.location.href = 'pagamento.php?totaleCarrello=' + totale;
     };
 
 </script>

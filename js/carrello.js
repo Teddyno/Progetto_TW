@@ -40,20 +40,16 @@ function updateCartAdd(id, nome, prezzo, fotopath) {
             //Se l'elemento 'rowChoose' è presente significa che il carrello non ha elementi, per 
             //cui si elimina la riga che invita a scegliere nuove destinazioni aggiungendo il nuovo elemento
             rowChoose.remove();
-            tbody.appendChild(riga[0]);
-            tbody.appendChild(riga[1]);
+            tbody.appendChild(riga);
             tbody = document.getElementById('carrello-tbl').getElementsByTagName('tfoot')['0'].style.display = '';
-            riga[0].style.display = '';
-            riga[1].style.display = '';
+            riga.style.display = '';
             //Funzione definita nel file cart.php
         } else {
             //se verifica è true cioe l'elemnto gia è contenuto nel carrello allora non fa nulla;
             //if (!verifica) {
-                tbody.appendChild(riga[0]);
-                tbody.appendChild(riga[1]); // Inserisci la nuova riga all'inizio del tbody
+                tbody.appendChild(riga);
                 tbody = document.getElementById('carrello-tbl').getElementsByTagName('tfoot')['0'].style.display = '';
-                riga[0].style.display = '';
-                riga[1].style.display = '';
+                riga.style.display = '';
             //}
         }
         
@@ -78,41 +74,45 @@ function updateCartTotal() {
 function createRow(id, nome, prezzo, fotopath) {
     const newRow = document.createElement('tr');
     newRow.id = 'prodotto-' + id;
-    newRow.className = 'riga-carrello';
     newRow.setAttribute('data-prezzo', prezzo);
     newRow.style.display = 'none';
 
-        const fotoCell = document.createElement('td');
-        fotoCell.setAttribute('rowspan', '2');
-        fotoCell.innerHTML = '<img src="' + fotopath + '" class="immagine-prodotto-carrello">';
-        newRow.appendChild(fotoCell);
+        const newColumn = document.createElement('td');
+        newColumn.setAttribute('colspan', '2');
+        newRow.appendChild(newColumn);
 
-        const nameCell = document.createElement('td');
-        nameCell.setAttribute('colspan', '2');
-        nameCell.textContent = nome;
-        newRow.appendChild(nameCell);
+        const divContainerCarrello = document.createElement('div');
+        divContainerCarrello.className = 'container-prodotto-carrello';
+        newColumn.appendChild(divContainerCarrello);
 
-        const removeCell = document.createElement('td');
-        const removebtn = document.createElement('button');
-        removeCell.setAttribute('rowspan', '2');
-        removebtn.className = 'removeButton';
-        removebtn.setAttribute('onclick', `ajax_remove_cart(${id})`);
-        removebtn.innerHTML = '<img src=images/remove.png>';
-        removeCell.appendChild(removebtn);
-        newRow.appendChild(removeCell);
-        
-    const Row2 = document.createElement('tr');
-    Row2.style.display = 'none';
-    Row2.className = 'riga-carrello';
-    Row2.id = 'prodotto2-' + id;
+        const immagineProdotto = document.createElement('div');
+        immagineProdotto.className = 'immagine-prodotto-carrello';
+        immagineProdotto.innerHTML = '<img src="' + fotopath + '" class="imm-prodotto-carr">';
+        divContainerCarrello.appendChild(immagineProdotto);
 
-        const priceCell = document.createElement('td');
-        priceCell.textContent = prezzo + ' $';
-        Row2.appendChild(priceCell);
+        const nomeProdotto = document.createElement('div');
+        nomeProdotto.className = 'nome-prodotto-carrello';
+        nomeProdotto.textContent = nome;
+        divContainerCarrello.appendChild(nomeProdotto);
 
-        const altroCell = document.createElement('td');
-        altroCell.textContent = 'altro';
-        Row2.appendChild(altroCell);
+        const prezzoProdotto = document.createElement('div');
+        prezzoProdotto.className = 'prezzo-prodotto-carrello';
+        prezzoProdotto.textContent = prezzo + ' €';
+        divContainerCarrello.appendChild(prezzoProdotto);
 
-    return [newRow, Row2];
+        const altroProdotto = document.createElement('div');
+        altroProdotto.className = 'altro-prodotto-carrello';
+        altroProdotto.textContent = 'altro';
+        divContainerCarrello.appendChild(altroProdotto);
+
+        const rimuoviProdotto = document.createElement('div');
+        rimuoviProdotto.className = 'rimuovi-prodotto-carrello';
+        const rimuoviProdottoBtn = document.createElement('button');
+        rimuoviProdottoBtn.className = 'remove-button';
+        rimuoviProdottoBtn.setAttribute('onclick', `ajax_remove_cart(${id})`);
+        rimuoviProdottoBtn.innerHTML = '<img src=images/remove.png>';
+        rimuoviProdotto.appendChild(rimuoviProdottoBtn);
+        divContainerCarrello.appendChild(rimuoviProdotto);
+
+        return newRow;
 }

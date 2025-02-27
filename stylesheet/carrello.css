@@ -8,18 +8,20 @@
     align-items: center;
     font-size: 90%;
     z-index: 1000;
+    background-color: rgba(254, 254, 254, 0.98);
 }
 
 .container-carrello {
     display: flex;
     flex-direction: column;
-    background-color: white;
     width: 300px;
     height: 500px;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow:scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     padding: 10px; 
+    scroll-behavior: smooth;
 }
 
 .bottone-chiusura-carrello {
@@ -32,28 +34,20 @@
     cursor: pointer;
 }
 
-.immagine-prodotto-carrello {
-    height: 45px;
+.immagine-prodotto-carrello img{
     border-radius: 7px;
+    margin-right: -10px;
+    height: 45px;
 }
 
-
-#carrello-tbl {
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-bottom: 10px;
+.immagine-prodotto-carrello{
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
 }
 
-.riga-carrello {
-    height: auto; 
-    border-bottom: 1px solid #dadada;
-}
-
-.riga-carrello td {
-    padding: 10px; 
-}
-
-.nome-prodotto {
+.nome-prodotto-carrello{
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
     font-size: 17px; 
     font-weight: bold; 
     color: #303030; 
@@ -63,14 +57,61 @@
     text-overflow: ellipsis;
 }
 
-.removeButton {
+.prezzo-prodotto-carrello{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.altro-prodotto-carrello{
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.container-prodotto-carrello{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 6px;
+    width: 90%;
+    margin-bottom: 10px;
+    background-color: rgb(213, 213, 213);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.container-prodotto-carrello:hover{
+    background-color: rgb(200, 200, 200);
+    transform: scale(1.02);
+    box-shadow: none;
+}
+
+#carrello-tbl {
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.rimuovi-prodotto-carrello{
+    grid-column: 4 / 5;
+    grid-row: 1 / 3;
+}
+
+.remove-button {
     cursor: pointer;
     background-color: transparent;
     border: none;
+    margin-right: -20px;
+    margin-top: 10px;
+    transition: transform 0.2s ease;
 }
 
-.removeButton img {
+.remove-button img {
     height: 20px;
+}
+
+.remove-button:hover{
+    transform: scale(1.1);
 }
 
 #totale-carrello {
