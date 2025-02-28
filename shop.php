@@ -80,7 +80,7 @@ function showProdotti(str) {
         if($admin) {
       ?>
         <div class="tasti-prodotto">
-        <a href="eliminaProdotto.php?id=<?php isset($rowP['id']) ? $rowP['id'] : '' ?>"&fotopath=<?php echo $rowP['fotopath']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo prodotto?');">
+        <a href="eliminaProdotto.php?id=<?php echo isset($rowP['id']) ? $rowP['id'] : '' ; ?>&fotopath=<?php echo $rowP['fotopath']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo prodotto?');">
             <img src="images/cestino.png"></a>
         </div>
       <?php 
