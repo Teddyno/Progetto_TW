@@ -59,6 +59,7 @@
 
             // Disabilitiamo il bottone di invio per evitare sottomissioni multiple
             document.getElementById('submit-button').disabled = true;
+            document.getElementById('cancel-button').disabled = true;
 
             // Recuperiamo l'importo ed altri dati dal form
             const amount = parseInt(form.importo.value)*100; // L'importo deve essere in centesimi

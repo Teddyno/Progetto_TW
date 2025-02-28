@@ -84,8 +84,8 @@
     window.onload = function() {
         var GET = <?php echo json_encode($_GET, JSON_HEX_TAG); ?>;
         if(GET.pagamentoEffettuato){
-            svuotaCarrello();
             gestioneAcquisti();
+            svuotaCarrello();
         } 
     };
 
