@@ -473,3 +473,8 @@
     transform: scale(1.04);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
+
+.descrizione-non-registrati{
+    text-align: center;
+    margin: 0px 35px;
+}
