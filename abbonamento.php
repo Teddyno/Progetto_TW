@@ -76,7 +76,7 @@
                             <img class="foto-trainer" src="<?php echo $rowP['fotopath']?>" alt="Foto Profilo">
                             <p class="nome-trainer"><?php echo $rowP['nome']." ".$rowP['cognome']?></p>
                             <div class="orari-container">
-                                <table class="tabella-orari">
+                                <table class="tabella-orari" id="tabella-orari-<?php echo $rowP['id']?>">
                                     <tr>
                                         <th>Giorno</th>
                                         <th>Orario</th>
@@ -87,11 +87,9 @@
                                 echo pg_last_error($db); 
                             } else {
                                 if(pg_num_rows($retCorsi) == 0){
-                                    echo <<<HTML
-                                        <tr>
+                                    echo '<tr id="riga-nessun-corso-' . $rowP['id'] . '">
                                             <td colspan="2">Nessun corso disponibile</td>
-                                        </tr>
-HTML;
+                                        </tr>';
                                 } else {
                                     while($rowCorsi = pg_fetch_assoc($retCorsi)){
                                         $giorno = $rowCorsi['giornocorso'];
@@ -107,21 +105,22 @@ HTML;
                                 }
                                 
                             }
-            ?>                            
+            ?>                     
+                                <?php if($admin){ ?>
+                                    <tr id='aggiunta-orario-<?php echo $rowP['id']?>'>
+                                        <td id='aggiunta-orario-td-<?php echo $rowP['id']?>' onclick="aggiuntaOrari(<?php echo $rowP['id']?>)" colspan='2'><button>Aggiungi Orario</button></td>
+                                    </tr>
+                                <?php } ?>       
                                 </table>
                             </div>
-            <?php
-                if($admin){
-            ?>
+            <?php if($admin){ ?>
                             <div class="azioni-trainer">
                                 <a href="<?php echo $_SERVER['PHP_SELF'] ?>?idModifica=<?php echo $rowP['id']; ?>">
                                     <img src="images/modify.png"></a>
                                 <a href="eliminaTrainer.php?id=<?php echo $rowP['id']; ?>&fotopath=<?php echo $rowP['fotopath']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo trainer?');">
                                     <img src="images/cestino.png"></a>
                             </div>
-            <?php
-                }
-            ?>
+            <?php } ?>
                         </div>
             <?php
                     }
@@ -210,6 +209,7 @@ HTML;
         </div>
         <?php include 'footer.html'; ?>
 
+        <script src="js/gestioneOrari.js"></script>
         <script src="js/drag_and_drop_abbonamento.js"></script>
     </body>
 </html>
