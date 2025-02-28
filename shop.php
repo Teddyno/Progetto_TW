@@ -65,10 +65,7 @@ function showProdotti(str) {
       </div>
     </div>
   </div>
-
-
-  <br><br><br>
-
+  
   <?php 
     if($admin) {
   ?>

@@ -16,7 +16,7 @@
         echo "Prodotto eliminato con successo ";
     }
 
-    if (file_exists($fotopath) && ($fotopath !="images/shop/foto_personal_default.png" && $fotopath !="images\shop\\foto_personal_default.png")) { // Controlla se il file esiste
+    if (file_exists($fotopath) && ($fotopath !="images/shop/foto_prodotto_default.png" && $fotopath !="images\shop\\foto_prodotto_default.png")) { // Controlla se il file esiste
         if (unlink($fotopath)) {  
             echo "\nImmagine eliminata con successo!";
         } else {
