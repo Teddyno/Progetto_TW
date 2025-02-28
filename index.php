@@ -105,7 +105,8 @@
                 <p id="testo-barra" class="testo-barra-index"></p>
                 <?php
                         } else {
-                            echo "<h1>Non hai un abbonamento attivo</h1>";
+                            echo "<h1>Non hai un abbonamento attivo</h1>
+                                    <div><a href='shop.php' class='pulsante-acquisto'>Iscriviti Ora!</a></div>";
                         }
                     } else {
                 ?>

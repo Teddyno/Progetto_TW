@@ -156,7 +156,7 @@
     margin: auto;
 }
 
-#bottone-salva{
+.bottone-salva{
     color: #090909;
     display: block;
     justify-content: center;
@@ -356,4 +356,10 @@
 .bottone-annulla-elimina:hover{
     transform: scale(1.03);
     background-color: #a8a8a8;
+}
+
+.no-abbonamento{
+    display:flex;
+    flex-direction: column;
+    margin:auto;
 }

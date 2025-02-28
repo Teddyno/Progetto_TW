@@ -33,8 +33,9 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         $nome = pg_fetch_result($ret, 0, 'nome');
         $cognome = pg_fetch_result($ret, 0, 'cognome');
         $datanascitaAnni = pg_fetch_result($ret, 0, 'datanascita');
-        $date = str_replace('-', '/', $datanascitaAnni);
-        $datanascitaGiorni = date('d-m-Y', strtotime($date));
+        if(isset($datanascitaAnni)){
+            $datanascitaGiorni = date('d-m-Y', strtotime($datanascitaAnni));
+        }
         $sesso = pg_fetch_result($ret, 0, 'sesso');
         $telefono = pg_fetch_result($ret, 0, 'telefono');
         $nickname = pg_fetch_result($ret, 0, 'nickname');
@@ -151,14 +152,15 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                     <div class="col1">
                         <p><strong>Nome: </strong><?php echo"$nome" ?></p>
                         <p><strong>Cognome: </strong><?php echo"$cognome" ?></p>
-                        <p><strong>Data di Nascita: </strong><?php echo"$datanascitaGiorni" ?></p>
+                        <p><strong>Data di Nascita: </strong><?php if(isset($datanascitaGiorni)) echo"$datanascitaGiorni" ?></p>
                     </div>
                     <div class="col2">
                         <p><strong>Sesso: </strong><?php echo"$sesso" ?></p>
                         <p><strong>Numero di Telefono: </strong><?php echo"$telefono" ?></p>
                     </div>
                 </div>
-                <button id="btn-modifica" class="bottone-modifica">Modifica</button>
+                
+                <button id="btn-modifica" class="bottone-modifica" <?php if($id == 0) echo "style='display:none;'" ?>>Modifica</button>
 
                 <form id="form-modifica" style="display: none;" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                     <div class="col1">
@@ -169,14 +171,13 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                     <div class="col2">
                         <p><strong>Sesso: </strong>
                             <select name="sesso" class="input-modifica" required>
-                                <span class="bordo-input">
-                                <option value="M" <?php if ($sesso == 'M') echo 'selected'; ?>>Maschio</option>
-                                <option value="F" <?php if ($sesso == 'F') echo 'selected'; ?>>Femmina</option>
+                                    <option value="M" <?php if ($sesso == 'M') echo 'selected'; ?>>Maschio</option>
+                                    <option value="F" <?php if ($sesso == 'F') echo 'selected'; ?>>Femmina</option>
                             </select>
                         </p>
                         <p><strong>Numero di Telefono: </strong><input class="input-modifica" type="text" name="telefono" value="<?php echo $telefono; ?>" required /><span class="bordo-input"></p>
                     </div>
-                    <button type="submit" id="bottone-salva">Salva</button>
+                    <button type="submit" class="bottone-salva">Salva</button>
                     <button type="button" id="btn-annulla" class="bottone-annulla">Annulla</button>
                 </form>
             </div>
@@ -198,7 +199,8 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                         <div class="container-barra-profilo">
                             <div class="barra-progressiva" id="barra-progressiva"></div>
                             <script>
-                                let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;
+                                let tipoAbbonamento = <?php if(isset($tipoAbbonamento)) echo json_encode($tipoAbbonamento);
+                                                            else echo '' ?>;
                                 let dataScadenza = <?php echo json_encode($dataScadenza); ?>;    
                             </script>
                         </div>
@@ -206,7 +208,10 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                     </div>
                 <?php /*  sezione utente non abbonato */
                     } else {
-                        echo "<p>Non hai ancora un abbonamento, inserisci il tuo abbonamento</p>";
+                        echo "<div class='no-abbonamento'>
+                                <p>Non hai ancora un abbonamento</p>
+                                <a href='shop.php' class='pulsante-acquisto'>Iscriviti Ora!</a>
+                            </div>";
                     }
                 ?>
             </div>
@@ -227,7 +232,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                 </div>
             </div>
 
-            <button id="btn-modifica-sicurezza" class="bottone-modifica">Modifica</button>
+            <button id="btn-modifica-sicurezza" class="bottone-modifica" <?php if($id == 0) echo "style='display:none;'" ?>>Modifica</button>
 
             <!-- FORM MODIIFICA SICUREZZA -->
             <form id="form-modifica-sicurezza" style="display: none;" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
@@ -238,7 +243,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                     <p><strong>Nickname: </strong><input class="input-modifica" type="text" name="nickname" value="<?php echo htmlspecialchars("$nickname"); ?>"/><span class="bordo-input"></p>
                     <p><strong>Password: </strong><input class="input-modifica" type="password" name="password"/><span class="bordo-input"></p>
                 </div>
-                <button type="submit" id="bottone-salva">Salva</button>
+                <button type="submit" class="bottone-salva">Salva</button>
                 <button type="button" id="btn-annulla-sicurezza" class="bottone-annulla">Annulla</button>
             </form>
         </section>
@@ -252,7 +257,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
             <button class="bottone-logOut" onclick="logout()"> <img src="images/logout">
                 <span class="testo-logout">Logout</span>
             </button>
-            <button id="bottone-elimina" class="bottone-elimina"><img src="images/remove">
+            <button id="bottone-elimina" class="bottone-elimina" <?php if($id == 0) echo "style='display:none;'" ?>><img src="images/remove">
                 <span class="testo-elimina">Elimina</span>
             </button>
         </div>
@@ -274,8 +279,8 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
             window.location.href = "logout.php";
         }
     </script>
-    <script src="js/indiceDinamico.js"></script>
     <script src="js/barraProgressiva.js"></script>
+    <script src="js/indiceDinamico.js"></script>
     <script src="js/modificaDatiProfilo.js"></script>
     
     <?php include 'footer.html'; ?>
