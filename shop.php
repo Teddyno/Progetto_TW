@@ -54,16 +54,49 @@ function showProdotti(str) {
       </ul>
     </div>
     <!-- Area dei prodotti -->
-    <script>
-      showProdotti('')
-    </script>
+
     <div class="area-prodotti">
       <div id="griglia-prodotti">
-        
+        <?php 
+          require_once "db.php";
+
+          $db = pg_connect($connection_string) or die ('Impossibile connettersi al database: ' . pg_last_error());
+
+          $sqlProdotti = "SELECT * FROM prodotti";
+          $retProdotti = pg_query($db, $sqlProdotti);
+
+          if(!$retProdotti) {
+            echo preg_last_error($db);
+          } else {
+              while($rowp = pg_fetch_assoc(($retProdotti))) {
+          ?>
+                  <script>
+                      showProdotti('')
+                  </script>
+              
+          
       </div>
+      <?php
+        if($admin) {
+      ?>
+        <div class="tasti-prodotto">
+        <a href="eliminaProdotto.php?id=<?php echo $rowP['id']; ?>&fotopath=<?php echo $rowP['fotopath']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo prodotto?');">
+            <img src="images/cestino.png"></a>
+        </div>
+      <?php 
+        }
+      ?>
     </div>
+      </div>
+    <?php
+            }
+        }
+        pg_close($db);
+    ?>
   </div>
+
   <br><br><br>
+
   <?php 
     if($admin) {
   ?>
