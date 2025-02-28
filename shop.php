@@ -60,12 +60,9 @@ function showProdotti(str) {
     <div class="area-prodotti">
       <div id="griglia-prodotti">
 
-
-                
+      </div>
     </div>
-
   </div>
-</div>
 
 
   <br><br><br>
