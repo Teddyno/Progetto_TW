@@ -5,6 +5,7 @@
     if(isset($_SESSION['autenticato'])){
         $accesso = $_SESSION['autenticato'];
         $nome = $_SESSION['nome'];
+        $sesso = $_SESSION['sesso'];
     }
 ?>
 
@@ -48,7 +49,9 @@
             <div class="container-cta">
                 <?php
                     if($accesso){
-                        echo"<h1>$nome benvenuto in UniSA Gym</h1>";
+                        if($sesso == 'M') echo"<h1>$nome benvenuto in UniSA Gym</h1>";
+                        else if($sesso == 'F') echo"<h1>$nome benvenuta in UniSA Gym</h1>";
+                        else echo"<h1>$nome benvenuto/a in UniSA Gym</h1>";
                     ?>
                         <p class="domandona" id="domanda">Ti sei allenato oggi?</p>
                         <div class="bottoni">

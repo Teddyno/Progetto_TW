@@ -10,7 +10,6 @@
 <script>
 function showProdotti(str) {
   var admin = <?php echo json_encode($admin, JSON_HEX_TAG); ?>;
-  console.log(admin);
   if (str == "") {
     str = "tutti";
   }
@@ -82,9 +81,9 @@ function showProdotti(str) {
         <label for="categoria">Scegli una categoria</label>
         <select id="categoria" name="categoria"> 
             <option value="abbigliamento">Abbigliamento</option>
-            <option value="abbigliamento">Attrezzatura</option>
-            <option value="abbigliamento">Abbonamenti</option>
-            <option value="abbigliamento">Alimentari</option>
+            <option value="attrezzatura">Attrezzatura</option>
+            <option value="abbonamenti">Abbonamenti</option>
+            <option value="alimentari">Alimentari</option>
         </select>
         <label for="foto">Foto</label>
         <div id="foto-area">

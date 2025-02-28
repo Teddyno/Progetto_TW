@@ -40,9 +40,8 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         $nickname = pg_fetch_result($ret, 0, 'nickname');
     }
 
-    //CONNESSIONE AL DB
-    $db = pg_connect($connection_string) or die('Impossibile connettersi al database: ' . pg_last_error());
-    
+    $_SESSION['sesso']=$sesso;
+
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])){
         $email = $_SESSION['email'];
         $nome = $_POST['nome'];
@@ -196,7 +195,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                         <p><strong>Scadenza Abbonamento: </strong><?php echo $dataScadenza; ?></p>
                     </div>
                     <div class="container-barra-e-scritta">
-                        <div class="container-barra">
+                        <div class="container-barra-profilo">
                             <div class="barra-progressiva" id="barra-progressiva"></div>
                             <script>
                                 let tipoAbbonamento = <?php echo json_encode($tipoAbbonamento); ?>;

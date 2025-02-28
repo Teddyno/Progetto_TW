@@ -49,16 +49,39 @@ input {
     margin-bottom: 15px;
 }
 
+#bottoni-pagamento{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 10px;
+}
+
 .pulsante-pagamento {
     background: #0460D9;
     color: white;
     padding: 10px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     cursor: pointer;
+    width:45%;
 }
 
 .pulsante-pagamento:hover {
     background: #0443c3;
+}
+
+.pulsante-annullamento {
+    background: #666769;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    width:45%;
+}
+
+.pulsante-annullamento:hover {
+    background: #434445;
 }
