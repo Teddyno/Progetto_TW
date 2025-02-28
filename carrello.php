@@ -30,7 +30,7 @@
                                         ".$value['nome']."
                                     </div>
                                     <div class='prezzo-prodotto-carrello'>
-                                        ".$value['prezzo']."$
+                                        ".$value['prezzo']."€
                                     </div>
                                     <div id='prodotto-quantita-" . $value['idprodotto'] . "' class='quantità-prodotto-carrello'>
                                         x".$value['quantita']."
@@ -61,7 +61,7 @@
                 <td id='totale-carrello'>
                     <?php
                     if (isset($carrello)) {
-                        echo "Prezzo totale: " . $tot . '$';
+                        echo "Prezzo totale: " . $tot . '€';
                     } ?>
                 </td>
                 <td><button type='button' onclick='buyCart()' id='acquistaButton' class='acquista-button'<?php if (!isset($_SESSION['autenticato'])) {

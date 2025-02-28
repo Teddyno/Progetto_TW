@@ -131,10 +131,12 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 70px;
+    margin-right: 65px;
     margin-top: 5px;
+    transition: all 0.2s ease;
 }
 
 .acquista-button:hover{
     background: #022873;
+    transform: scale(1.03);
 }
