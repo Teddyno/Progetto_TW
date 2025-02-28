@@ -6,7 +6,7 @@
     $id = $_GET["id"];
     $fotopath = $_GET["fotopath"];
 
-    $sql = "DELETE FROM personaltrainer where id = $1";
+    $sql = "DELETE FROM prodotti where id = $1";
     $prep = pg_prepare($db, "sqlDeletePR", $sql);
     $ret = pg_execute($db, "sqlDeletePR", array($id));
 
@@ -14,6 +14,14 @@
         echo "Errore nella query: " . pg_last_error($db);
     } else {
         echo "Prodotto eliminato con successo ";
+    }
+
+    if (file_exists($fotopath) && ($fotopath !="images/shop/foto_personal_default.png" && $fotopath !="images\shop\foto_personal_default.png")) { // Controlla se il file esiste
+        if (unlink($fotopath)) {  
+            echo "\nImmagine eliminata con successo!";
+        } else {
+            echo "\nErrore nell'eliminazione dell'immagine.";
+        }
     }
 ?>
 

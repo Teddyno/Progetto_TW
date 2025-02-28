@@ -18,7 +18,7 @@ while($row = pg_fetch_array($ret)) {
     if($admin == 'true'){
         echo    "<div class='scheda-prodotto'>
                 <div class='tasti-prodotto'>
-                    <a href='eliminaProdotto.php?id=".$row['idprodotto']."&fotopath=".$row['fotopath']."' onclick='return confirm('Sei sicuro di voler eliminare questo prodotto?');'>
+                    <a href='eliminaProdotto.php?id=".$row['idprodotto']."&fotopath=".$row['fotopath']."' onclick='return confirm(\"Sei sicuro di voler eliminare questo prodotto?\");'>
                         <img src='images/cestino.png'></a>
                 </div>
                 <img src=".$row['fotopath']." alt=".$row['nome'].">
