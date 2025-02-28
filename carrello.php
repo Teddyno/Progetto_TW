@@ -85,7 +85,6 @@
         var GET = <?php echo json_encode($_GET, JSON_HEX_TAG); ?>;
         if(GET.pagamentoEffettuato){
             gestioneAcquisti();
-            svuotaCarrello();
         } 
     };
 
@@ -95,7 +94,7 @@
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                console.log("gestione acquisti effettuata con successo");
+                console.log("gestione acquisti effettuata con successo"+xhr.responseText);
             }
         };
         xhr.send('pagamentoEffettuato=' + true);
