@@ -50,16 +50,16 @@
             <div class="container-cta">
                 <?php
                     if($accesso){
-                        if($sesso == 'M') echo"<h1>$nome benvenuto in UniSA Gym</h1>";
-                        else if($sesso == 'F') echo"<h1>$nome benvenuta in UniSA Gym</h1>";
-                        else echo"<h1>$nome benvenuto/a in UniSA Gym</h1>";
+                        if($sesso == 'M') echo"<h1>$nome Benvenuto in UniSA Gym</h1>";
+                        else if($sesso == 'F') echo"<h1>$nome Benvenuta in UniSA Gym</h1>";
+                        else echo"<h1>$nome Benvenuto/a in UniSA Gym</h1>";
                     ?>
                     <?php
                         if($email == 'admin@admin'){
                     ?>
                             <p class="descrizione-admin">
-                                Gestisci facilmente tutti i servizi di UnisaGym: iscrizioni, personal trainer, e 
-                                lo shop. Tutto ciò di cui hai bisogno per mantenere la palestra efficiente e 
+                                Gestisci facilmente tutti i servizi di UnisaGym: iscrizioni, Personal Trainer, e 
+                                lo Shop. Tutto ciò di cui hai bisogno per mantenere la palestra efficiente e 
                                 dinamica.
                             </p>
                     <?php
