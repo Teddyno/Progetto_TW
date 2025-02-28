@@ -69,19 +69,16 @@
 
     /* Area dei prodotti */
     .area-prodotti {
-      flex: 1;
       padding-left: 20px;
     }
 
     /* Layout a griglia: più prodotti per riga */
     #griglia-prodotti {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Ogni prodotto occuperà almeno 250px, con più colonne se lo spazio lo consente */
+      display: flex;
+      flex-direction: row;
       gap: 20px;
     }
     .scheda-prodotto {
-      width: 100%;
-      height: 100%;
       background: white;
       padding: 10px;
       border-radius: 5px;

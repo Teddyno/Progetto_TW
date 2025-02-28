@@ -26,16 +26,22 @@ function barraProgressiva(giorniRestanti, giorniTotali){
 let giorniTotali = 0;
 
 switch(tipoAbbonamento) {
-    case 'mensile':
-        giorniTotali = 30;
-        break;
-    case 'trimestrale':
-        giorniTotali = 120;
-        break;
     case 'annuale':
+    case 'Annuale':
         giorniTotali = 365;
         break;
-    
+    case 'semestrale':
+    case 'Semestrale':
+        giorniTotali = 180;
+        break;
+    case 'trimestrale':
+    case 'Trimestrale':
+        giorniTotali = 90;
+        break;
+    case 'mensile':
+    case 'Mensile':
+        giorniTotali = 30;
+        break;
     default:
         giorniTotali = 0;
     }
