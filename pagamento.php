@@ -12,6 +12,7 @@
     <title>UnisaGym - Pagamento con Stripe</title>
     <script src="https://js.stripe.com/v3/"></script>
     <link rel="stylesheet" type="text/css" href="styleSheet/stylePagamento.css">
+    <link rel="ICON" href="images/icon.ico" type="image/X-ixon">
 </head>
 <body>
 <div class="contenitore-pagamento">

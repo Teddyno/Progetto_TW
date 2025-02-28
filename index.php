@@ -16,6 +16,7 @@
     <meta charset="UTF-8">
     <title>UniSA Gym</title>
     <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
+    <link rel="ICON" href="images/icon.ico" type="image/X-ixon">
 </head>
 <body style="background-color:rgb(238, 238, 238);">
     <?php include 'header.php'; ?>
