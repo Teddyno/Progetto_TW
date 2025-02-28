@@ -1,7 +1,7 @@
 <?php 
     session_start(); 
 
-    $admin = FALSE;
+    $admin = false;
     if(isset($_SESSION['admin'])){
         $admin = $_SESSION['admin'];
     }
@@ -9,6 +9,8 @@
 
 <script>
 function showProdotti(str) {
+  var admin = <?php echo json_encode($admin, JSON_HEX_TAG); ?>;
+  console.log(admin);
   if (str == "") {
     str = "tutti";
   }
@@ -18,7 +20,7 @@ function showProdotti(str) {
       document.getElementById("griglia-prodotti").innerHTML = this.responseText;
       }
   };
-  xmlhttp.open("GET","tabellaProdotti.php?categoria="+str,true);
+  xmlhttp.open("GET","tabellaProdotti.php?categoria="+str+"&admin="+admin,true);
   xmlhttp.send();
 }
 </script>
