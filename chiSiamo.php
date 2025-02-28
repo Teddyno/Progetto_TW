@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="stylesheet/style.css?ts=<?=time()?>&quot">
     <link rel="stylesheet" type="text/css" href="stylesheet/chiSiamo.css?ts=<?=time()?>&quot">
+    <link rel="ICON" href="images/icon.ico" type="image/X-ixon">
     <title>UnisaGym</title>
 </head>
 <body>

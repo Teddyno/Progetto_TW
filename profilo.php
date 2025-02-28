@@ -11,6 +11,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
+    <link rel="ICON" href="images/icon.ico" type="image/X-ixon">
     <title>UniSa Gym - Profilo</title>
 </head>
 <body>
