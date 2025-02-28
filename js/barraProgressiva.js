@@ -25,10 +25,6 @@ function barraProgressiva(giorniRestanti, giorniTotali){
 
 let giorniTotali = 0;
 
-if (tipoAbbonamento !== 'undefined') {
-    tipoAbbonamento = '';
-  }
-
 switch(tipoAbbonamento) {
     case 'annuale':
     case 'Annuale':
