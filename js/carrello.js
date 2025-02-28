@@ -54,7 +54,7 @@ function updateCartAdd(id, nome, prezzo, fotopath,quantita) {
                 quantitaElementTr = document.getElementById('prodotto-' + id);
                 quantitaElementTr.setAttribute('quantita',quantita);
                 quantitaElementDiv = document.getElementById('prodotto-quantita-' + id);
-                quantitaElementDiv.textContent = quantita;
+                quantitaElementDiv.textContent = 'x'+quantita;
             }
         }
         
@@ -120,7 +120,7 @@ function createRow(id, nome, prezzo, fotopath,quantita) {
         const altroProdotto = document.createElement('div');
         altroProdotto.id = 'prodotto-quantita-' + id;
         altroProdotto.className = 'altro-prodotto-carrello';
-        altroProdotto.textContent = quantita;
+        altroProdotto.textContent = 'x'+quantita;
         divContainerCarrello.appendChild(altroProdotto);
 
         const rimuoviProdotto = document.createElement('div');

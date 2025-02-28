@@ -18,7 +18,7 @@
     }
     
     if($fotopath == "images/shop/"){
-        $fotopath = "images/shop/foto_prodotto_default.png";
+        $fotopath = "images/shop/foto_prodotto_default.jpeg";
     }
 
     insert_prodotto($nome,$prezzo,$categoria,$fotopath,$db);
