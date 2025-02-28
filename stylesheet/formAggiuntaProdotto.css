@@ -81,8 +81,7 @@
 #foto-area {
     width: 50%;
     padding-top: 15px;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin: 15px auto 15px;
     background: #f8f9fa;
     align-items: center;
     align-content: center;

@@ -10,7 +10,6 @@
 <script>
 function showProdotti(str) {
   var admin = <?php echo json_encode($admin, JSON_HEX_TAG); ?>;
-  console.log(admin);
   if (str == "") {
     str = "tutti";
   }

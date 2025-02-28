@@ -27,8 +27,10 @@
             <label for="card-element">Carta di credito o debito</label>
             <div id="card-element"></div>
             <div id="card-errors" role="alert"></div>
-
-            <button id="submit-button" class="pulsante-pagamento">Effettua Pagamento</button>
+            <div id="bottoni-pagamento">
+                <button id="cancel-button" class="pulsante-annullamento" onclick='window.location.href = "shop.php";'>Annulla Pagamento</button>
+                <button id="submit-button" class="pulsante-pagamento" >Effettua Pagamento</button>
+            <div>    
         </form>
     </div>
 
@@ -114,7 +116,6 @@
                     if (xhr.status === 200) {
                         try {
                             const response = xhr.response;
-                            console.log(response);
                             callback(response);
                         } catch (e) {
                             console.error('Error parsing JSON response:', e);

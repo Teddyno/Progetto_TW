@@ -171,13 +171,13 @@
     margin: auto;
 }
 
-.container-barra{
-    width: 300px;
+.container-barra-profilo{
+    width: 400px;
     background-color: rgb(182, 182, 182);
-    height: 25px;
-    border-radius: 10px;
+    height: 45px;
+    border-radius: 15px;
     overflow: hidden;
-    margin: 40px 0px 0px;
+    margin: 35px 0px 8px 0px;
 }
 
 .barra-progressiva{
