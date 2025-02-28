@@ -13,7 +13,8 @@ function ajaxAggiuntaCarrello(id, nome, prezzo, fotopath) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             // Aggiorna il conteggio totale del carrello o mostra una notifica
-            updateCartAdd(id, nome, prezzo, fotopath);
+            let quantita = this.responseText;
+            updateCartAdd(id, nome, prezzo, fotopath,quantita);
         }
     };
     xhr.send('id=' + id);
@@ -26,7 +27,7 @@ function ajaxAggiuntaCarrello(id, nome, prezzo, fotopath) {
  * Aggiorna anche il totale del carrello.
  *
  */
-function updateCartAdd(id, nome, prezzo, fotopath) {
+function updateCartAdd(id, nome, prezzo, fotopath,quantita) {
     //Se l'utente preme per la prima volta il button per l'aggiunta deve esser mostrato il footer della table
     let tfoot = document.getElementById('tfoot');
     tfoot.style.display='table-footer-group';
@@ -34,8 +35,7 @@ function updateCartAdd(id, nome, prezzo, fotopath) {
     thead = document.getElementById('carrello-tbl').getElementsByTagName('thead')[0];
     if (tbody) {
         const rowChoose = document.getElementById('row-choose');
-        //var verifica = document.getElementById('prodotto-' + id);
-        const riga = createRow(id, nome, prezzo, fotopath);
+        const riga = createRow(id, nome, prezzo, fotopath,quantita);
         if (rowChoose) {
             //Se l'elemento 'rowChoose' è presente significa che il carrello non ha elementi, per 
             //cui si elimina la riga che invita a scegliere nuove destinazioni aggiungendo il nuovo elemento
@@ -45,25 +45,41 @@ function updateCartAdd(id, nome, prezzo, fotopath) {
             riga.style.display = '';
             //Funzione definita nel file cart.php
         } else {
-            //se verifica è true cioe l'elemnto gia è contenuto nel carrello allora non fa nulla;
-            //if (!verifica) {
+            //se verifica è true cioe l'elemento gia è contenuto nel carrello allora non fa nulla;
+            if (!controllaId(id)) {
                 tbody.appendChild(riga);
                 tbody = document.getElementById('carrello-tbl').getElementsByTagName('tfoot')['0'].style.display = '';
                 riga.style.display = '';
-            //}
+            }else{
+                quantitaElementTr = document.getElementById('prodotto-' + id);
+                quantitaElementTr.setAttribute('quantita',quantita);
+                quantitaElementDiv = document.getElementById('prodotto-quantita-' + id);
+                quantitaElementDiv.textContent = quantita;
+            }
         }
         
     } 
     updateCartTotal(); 
 }
 
+function controllaId(id){
+    var controllo = document.getElementById('prodotto-' + id);
+    if(controllo){
+        return true;
+    } else { 
+        return false; 
+    }
+}
+
 function updateCartTotal() {
-    const righeCart = document.querySelectorAll('tr[data-prezzo]');
-    let total = 0;
-    righeCart.forEach(function(row) {
-        total += parseFloat(row.getAttribute('data-prezzo'));
+    const righeCarrello = document.querySelectorAll('tr[data-prezzo]');
+    let totale = 0;
+    righeCarrello.forEach(function(row) {
+        let prezzo = parseInt(row.getAttribute('data-prezzo'));
+        let quantita = parseInt(row.getAttribute('quantita'));
+        totale += (prezzo * quantita);
     });
-    document.getElementById('totale-carrello').textContent = 'Prezzo totale:  ' + total + ' $';
+    document.getElementById('totale-carrello').textContent = 'Prezzo totale:  ' + totale + ' $';
 }
 
 /**
@@ -71,10 +87,11 @@ function updateCartTotal() {
 * presenti nel carrello
 */
 
-function createRow(id, nome, prezzo, fotopath) {
+function createRow(id, nome, prezzo, fotopath,quantita) {
     const newRow = document.createElement('tr');
     newRow.id = 'prodotto-' + id;
     newRow.setAttribute('data-prezzo', prezzo);
+    newRow.setAttribute('quantita', quantita);
     newRow.style.display = 'none';
 
         const newColumn = document.createElement('td');
@@ -101,8 +118,9 @@ function createRow(id, nome, prezzo, fotopath) {
         divContainerCarrello.appendChild(prezzoProdotto);
 
         const altroProdotto = document.createElement('div');
+        altroProdotto.id = 'prodotto-quantita-' + id;
         altroProdotto.className = 'altro-prodotto-carrello';
-        altroProdotto.textContent = 'altro';
+        altroProdotto.textContent = quantita;
         divContainerCarrello.appendChild(altroProdotto);
 
         const rimuoviProdotto = document.createElement('div');

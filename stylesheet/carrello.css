@@ -114,10 +114,13 @@
     transform: scale(1.1);
 }
 
+#riga-finale{
+    border-top: 2px solid #dadada;
+}
+
 #totale-carrello {
     font-size: 16px;
     font-weight: bold;
     text-align: right;
     padding: 10px;
-    border-top: 2px solid #dadada;
 }

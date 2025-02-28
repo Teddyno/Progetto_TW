@@ -18,9 +18,9 @@
                 $carrello = json_decode($_COOKIE['cart'], true);
                 $tot = 0;
                 foreach ($carrello as $key => $value) {
-                    $tot += $value['prezzo'];
+                    $tot += $value['prezzo'] * $value['quantita'];
 
-                    echo"<tr id='prodotto-" . $value['idprodotto'] . "'  'data-prezzo='".$value['prezzo']."'>
+                    echo"<tr id='prodotto-" . $value['idprodotto'] . "'  data-prezzo='".$value['prezzo']."'  quantita='".$value['quantita']."'>
                             <td colspan='2'>
                                 <div class='container-prodotto-carrello'>
                                     <div class='immagine-prodotto-carrello'>
@@ -32,8 +32,8 @@
                                     <div class='prezzo-prodotto-carrello'>
                                         ".$value['prezzo']."$
                                     </div>
-                                    <div class='altro-prodotto-carrello'>
-                                        altro
+                                    <div id='prodotto-quantita-" . $value['idprodotto'] . "' class='altro-prodotto-carrello'>
+                                        ".$value['quantita']."
                                     </div>
                                     <div class='rimuovi-prodotto-carrello'>
                                         <button class='remove-button' onclick='ajax_remove_cart(" . $value['idprodotto'] . ")'><img src=images/remove.png></button>
@@ -57,16 +57,18 @@
             } else {
                 echo 'style="display: table-footer-group;"';
             }   ?>> <!--Chiudo tag tfoot --> 
-            <td id='totale-carrello'>
-                <?php
-                if (isset($carrello)) {
-                    echo "Prezzo totale: " . $tot . '$';
-                } ?>
-            </td>
-            <td><button type='button' onclick='buyCart()' id='acquistaButton' <?php if (!isset($_SESSION['autenticato'])) {
-                                                                                    echo "style='display:none;'"; //se l'utente non è loggato vede solo la lista degli elementi
-                                                                                }  ?>>Buy
+            <tr id='riga-finale'>
+                <td id='totale-carrello'>
+                    <?php
+                    if (isset($carrello)) {
+                        echo "Prezzo totale: " . $tot . '$';
+                    } ?>
+                </td>
+                <td><button type='button' onclick='buyCart()' id='acquistaButton' <?php if (!isset($_SESSION['autenticato'])) {
+                                                                                        echo "style='display:none;'"; //se l'utente non è loggato vede solo la lista degli elementi
+                                                                                    }  ?>>Buy
                 </button></td>
+            <tr>
         </tfoot>
     </table>
 </div>
@@ -154,9 +156,10 @@
         const righeCarrello = document.querySelectorAll('tr[data-prezzo]');
         let totale = 0;
         righeCarrello.forEach(function(row) {
-            totale += parseFloat(row.getAttribute('data-prezzo'));
+            let prezzo = parseInt(row.getAttribute('data-prezzo'));
+            let quantita = parseInt(row.getAttribute('quantita'));
+            totale += (prezzo * quantita);
         });
-        
         return totale;
     }
     /*

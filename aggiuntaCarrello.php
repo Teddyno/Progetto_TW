@@ -29,26 +29,26 @@ $info = array(
     "prezzo" => $prodotto['prezzo'],
     "idprodotto" => $prodotto['idprodotto'],
     "fotopath" => $prodotto['fotopath'],
-    "quantita" => 0
+    "quantita" => 1
 );
-
-    /* $duplicato = false;
-    foreach ($cart as $sottoarray) {
-        if ($sottoarray['id'] == $prodotto['idevento']) {
-            $duplicato = true;
+    $quantita=1;
+    $multipli = false;
+    foreach ($cart as &$sottoarray) {
+        if ($sottoarray['idprodotto'] == $prodotto['idprodotto']) {
+            $multipli = true;
+            $sottoarray['quantita']++;
+            $quantita=$sottoarray['quantita'];
             break;
         }
+    }
 
-    } */
-
-// se il prodotto non è un duplicato, aggiungilo al carrello
-    //if (!$duplicato) {
+    if (!$multipli) {
         $cart[] = $info;
-    //}
+    }
 
     setcookie('cart', json_encode($cart), time() + 3600, "/");
 
-
+    echo $quantita;
     //header("Location: " . $_SERVER['HTTP_REFERER']);
     
 ?>
