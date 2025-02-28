@@ -96,7 +96,7 @@
                 } else if (paymentIntent && paymentIntent.status === 'succeeded') {
                     // Payment succeeded
                     alert('Pagamento completato con successo!');
-                    window.location.href = 'index.php?pagamentoEffettuato=true';
+                    window.location.href = 'gestioneAcquisti.php?pagamentoEffettuato=true';
                 } else {
                     // Unexpected error
                     console.error('Unexpected error during payment confirmation.');
