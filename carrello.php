@@ -84,21 +84,9 @@
     window.onload = function() {
         var GET = <?php echo json_encode($_GET, JSON_HEX_TAG); ?>;
         if(GET.pagamentoEffettuato){
-            gestioneAcquisti();
+            svuotaCarrello();
         } 
     };
-
-    function gestioneAcquisti(){
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'gestioneAcquisti.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                console.log("gestione acquisti effettuata con successo"+xhr.responseText);
-            }
-        };
-        xhr.send('pagamentoEffettuato=' + true);
-    }
 
     /**
      * Svuota il carrello nel frontend.

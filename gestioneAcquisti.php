@@ -3,7 +3,7 @@
 
     $id = $_SESSION['idIscritto'];
 
-    $pagamentoEffettuato = $_POST['pagamentoEffettuato'];
+    $pagamentoEffettuato = $_GET['pagamentoEffettuato'];
 
     if($pagamentoEffettuato){
         $carrello = json_decode($_COOKIE['cart'], true);
@@ -44,6 +44,12 @@
     }
 
     setcookie('cart', "", time() + 3600, "/");
+    ?>
+    <script>
+        window.location.href = 'index.php?pagamentoEffettuato=true';
+    </script>
+    <?php
+
 
     function inserimentoAbbonamento($id,$data_attuale,$tipo_abbonamento,$data_scadenza) {
 
