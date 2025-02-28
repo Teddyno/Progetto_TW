@@ -21,9 +21,6 @@
 <body style="background-color:rgb(238, 238, 238);">
     <?php include 'header.php'; ?>
     <main>
-        <br>
-
-        <br><br><br>
         <div class="container-pieno">
     <div class="container-slideshow">
         <div class="freccia freccia-sinistra" onclick="cambiaSlide(-1)">&#10094;</div>
@@ -43,8 +40,6 @@
         </div>
     </div>
 </div>
-
-        <br><br>
 
         <div class="container-a-meta">
 
@@ -121,8 +116,6 @@
             </div>
         </div>
 
-        <br><br>
-
         <div class="container-offerte">
             <h1>Le Nostre Offerte</h1>
             <div class="container-offerte-card">
@@ -145,8 +138,6 @@
                 </a>
             </div>
         </div>
-
-        <br><br>
 
         <div class="container-a-meta">
 

@@ -1,42 +1,40 @@
-/* Stile generale del corpo della pagina */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f4f4f4;
-}
-
-/* Contenitore principale della sezione abbonamenti */
 .contenitore-abbonamenti {
-    width: 60%;
-    margin: 100px auto 50px;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    background-color: white;
+    max-width: 1300px;
+    width: 100%;
+    height: auto; 
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 100px auto 50px; 
+    padding: 15px; 
+    box-sizing: border-box;
 }
 
-/* Titolo della sezione */
 .titolo-abbonamenti {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 40px;
+    text-align: center;
     font-weight: bold;
     color: #022873;
+    margin-bottom: 15px;
 }
 
-/* Contenitore degli abbonamenti */
 .opzioni-abbonamento {
-    display: inline-block;
-    width: 100%;
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px; 
+    width: 100%; 
 }
 
-/* Stile singola opzione di abbonamento */
 .abbonamento {
-    width: 220px;
+    width: 400px;
     display: inline-block;
     margin: 15px;
-    background: #0460D9;
+    background-color: #0460D9;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 8px;
     text-align: center;
@@ -48,29 +46,37 @@ body {
     display: block;
     font-size: 40px;
     font-weight: bold;
+    color: white;
 }
 
 /* Testo "Mesi" */
 .testo-mesi {
     font-size: 18px;
     margin: 5px 0;
+    color: white;
 }
 
 /* Prezzo degli abbonamenti */
 .prezzo {
     font-size: 20px;
     font-weight: bold;
-    color: #FFD700;
+    color: #ffd700;
 }
 
 /* Contenitore principale della sezione trainer */
 .contenitore-trainer {
-    width: 60%;
-    margin: 50px auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    background-color: white;
+    max-width: 1300px;
+    width: 100%;
+    height: auto; 
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 100px auto 50px; 
+    padding: 15px; 
+    box-sizing: border-box;
 }
 
 /* Titolo della sezione */
@@ -133,7 +139,6 @@ body {
     margin: 0 5px;
 }
 
-/* Contenitore tabella orari */
 .orari-container {
     margin-top: 10px;
     background: #ffd700;
@@ -141,7 +146,6 @@ body {
     border-radius: 5px;
 }
 
-/* Tabella orari */
 .tabella-orari {
     width: 100%;
     border-collapse: collapse;
@@ -163,60 +167,82 @@ body {
     color: black;
 }
 
-/* Contenitore della sezione */
 .contenitore-servizi {
-    width: 60%;
-    margin: 50px auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    max-width: 1300px;
+    width: 100%;
+    height: auto; 
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 80px auto 50px; 
+    padding: 30px; 
+    box-sizing: border-box;
 }
 
-/* Titolo della sezione */
 .titolo-servizi {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     color: #022873;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
 }
 
-/* Griglia servizi */
 .griglia-servizi {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
+    padding: 10px;
 }
 
-/* Singolo box servizio */
 .servizio {
-    width: 250px;
-    background: #0460D9;
-    padding: 20px;
-    border-radius: 8px;
+    width: 260px;
+    background: linear-gradient(135deg, #0460D9, #003F9A);
+    padding: 25px;
+    border-radius: 12px;
     text-align: center;
     color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Icona servizio */
+.servizio:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 20px rgba(4, 96, 217, 0.4);
+}
+
 .icona-servizio {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 45px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
 }
 
-/* Nome del servizio */
+.servizio:hover .icona-servizio {
+    transform: scale(1.1);
+}
+
 .nome-servizio {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
 }
 
-/* Descrizione del servizio */
 .descrizione-servizio {
-    font-size: 14px;
+    font-size: 15px;
     color: #FFD700;
+    line-height: 1.4;
+}
+
+.servizio:hover::before {
+    top: -30%;
+    left: -30%;
 }
 
 .contenitore-gestione-trainer{

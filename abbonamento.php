@@ -18,7 +18,7 @@
         <link rel="ICON" href="images/icon.ico" type="image/X-ixon">
         <title>UniSa Gym - Abbonamento</title>
     </head>
-    <body>
+    <body background-color:rgb(238, 238, 238);>
         <?php include 'header.php'; ?>
 
         <!-- Sezione abbonamenti -->
@@ -28,19 +28,25 @@
                 <div class="abbonamento">
                     <span class="durata">12</span>
                     <p class="testo-mesi">Mesi</p>
-                    <p class="prezzo">€99,99</p>
+                    <p class="prezzo">€99</p>
                 </div>
 
                 <div class="abbonamento">
                     <span class="durata">6</span>
                     <p class="testo-mesi">Mesi</p>
-                    <p class="prezzo">€59,99</p>
+                    <p class="prezzo">€59</p>
                 </div>
 
                 <div class="abbonamento">
-                    <span class="durata">2</span>
+                    <span class="durata">3</span>
                     <p class="testo-mesi">Mesi</p>
-                    <p class="prezzo">€19,99</p>
+                    <p class="prezzo">€29</p>
+                </div>
+
+                <div class="abbonamento">
+                    <span class="durata">1</span>
+                    <p class="testo-mesi">Mese</p>
+                    <p class="prezzo">€15</p>
                 </div>
             </div>
         </div>
@@ -175,27 +181,30 @@ HTML;
         ?>
 
         <div class="contenitore-servizi">
-            <h2 class="titolo-servizi">Servizi Offerti</h2>
+            <h2 class="titolo-servizi">I Nostri Servizi</h2>
             <div class="griglia-servizi">
                 <!-- Servizio 1 -->
                 <div class="servizio">
                     <div class="icona-servizio">💪</div>
-                    <p class="nome-servizio">Allenamenti Personalizzati</p>
-                    <p class="descrizione-servizio">Programmi su misura per ogni esigenza, dal dimagrimento alla massa muscolare.</p>
+                    <p class="nome-servizio">Personal Trainer Specializzati</p>
+                    <p class="descrizione-servizio">Personal Trainer esperti per aiutarti a raggiungere i tuoi obiettivi fitness. Allenamenti personalizzati e 
+                        supporto nutrizionale per massimizzare i risultati.</p>
                 </div>
 
                 <!-- Servizio 2 -->
                 <div class="servizio">
                     <div class="icona-servizio">🥗</div>
-                    <p class="nome-servizio">Consigli Nutrizionali</p>
-                    <p class="descrizione-servizio">Piani alimentari bilanciati per ottimizzare i tuoi risultati.</p>
+                    <p class="nome-servizio">Alimenti e Integratori di prima scelta</p>
+                    <p class="descrizione-servizio">Offriamo una selezione completa di integratori per sostenere la tua performance, favorire il recupero muscolare e 
+                        mantenere un equilibrio nutrizionale ottimale.</p>
                 </div>
 
                 <!-- Servizio 3 -->
                 <div class="servizio">
-                    <div class="icona-servizio">🧘</div>
-                        <p class="nome-servizio">Recupero e Mobilità</p>
-                        <p class="descrizione-servizio">Tecniche di stretching e mobilità per migliorare il benessere fisico.</p>
+                    <div class="icona-servizio">🏋</div>
+                        <p class="nome-servizio">Attrezzatura Professionale</p>
+                        <p class="descrizione-servizio">Offriamo tutto ciò di cui hai bisogno per il tuo allenamento: pesi, attrezzi cardio, accessori fitness e molto altro. 
+                            Progettati per durare e aiutarti a raggiungere i tuoi obiettivi.</p>
                 </div>
             </div>
         </div>
