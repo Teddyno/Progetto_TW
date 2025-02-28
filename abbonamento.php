@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="styleSheet/style.css">
         <link rel="stylesheet" type="text/css" href="styleSheet/styleAbbonamento.css">
         <link rel="stylesheet" type="text/css" href="stylesheet/FormGestioneTrainer.css">
+        <link rel="ICON" href="images/icon.ico" type="image/X-ixon">
         <title>UniSa Gym - Abbonamento</title>
     </head>
     <body>

@@ -31,6 +31,7 @@ function showProdotti(str) {
   <link rel="stylesheet" href="styleSheet/style.css">
   <link rel="stylesheet" href="styleSheet/styleShop.css">
   <link rel="stylesheet" type="text/css" href="stylesheet/formAggiuntaProdotto.css?ts=<?=time()?>&quot">
+  <link rel="ICON" href="images/icon.ico" type="image/X-ixon">
 </head>
 <body>
   <?php include 'header.php'; ?>

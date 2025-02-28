@@ -1,3 +1,8 @@
+const sezioni = document.querySelectorAll(".section-profilo");
+const linkNavigazione = document.querySelectorAll(".indice a");
+let current = null;
+
+
 function attivaSezioni(linkNavigazione, current) {
     linkNavigazione.forEach(link => {
         const container = link.querySelector(".container-indice");
@@ -18,13 +23,13 @@ function controllaVisibilita(sezioni, current, scroll) {
         const sezioneTop = section.offsetTop;
         const distanza = Math.abs(scroll - sezioneTop);
 
-        if (distanza < minimo && scroll >= sezioneTop - 380) {
+        if (distanza < minimo && scroll >= sezioneTop - (window.innerHeight*0.8) && scroll <= sezioneTop + section.offsetHeight) {
             minimo = distanza;
             sezioneVicina = section;
         }
     });
 
-    if (sezioneVicina) {
+    if (sezioneVicina && sezioneVicina !== current) {
         newCurrent = sezioneVicina.getAttribute("id");
     }
 
@@ -49,19 +54,16 @@ function scrollToSection(event) {
     }
 }
 
-const sezioni = document.querySelectorAll(".section-profilo");
-const linkNavigazione = document.querySelectorAll(".indice a");
-
-let current = "section1";
-
 attivaSezioni(linkNavigazione, current);
 
 linkNavigazione.forEach(link => {
     link.addEventListener("click", scrollToSection);
+    
 });
 
 window.addEventListener("scroll", () => {
-    let scroll = window.scrollY;
+    const scroll = window.scrollY;
+    current = controllaVisibilita(sezioni, current, scroll);
 
     if (scroll == 0) {
         current = "section1";
