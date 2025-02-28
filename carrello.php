@@ -32,8 +32,8 @@
                                     <div class='prezzo-prodotto-carrello'>
                                         ".$value['prezzo']."$
                                     </div>
-                                    <div id='prodotto-quantita-" . $value['idprodotto'] . "' class='altro-prodotto-carrello'>
-                                        ".$value['quantita']."
+                                    <div id='prodotto-quantita-" . $value['idprodotto'] . "' class='quantità-prodotto-carrello'>
+                                        x".$value['quantita']."
                                     </div>
                                     <div class='rimuovi-prodotto-carrello'>
                                         <button class='remove-button' onclick='ajax_remove_cart(" . $value['idprodotto'] . ")'><img src=images/remove.png></button>
@@ -64,7 +64,7 @@
                         echo "Prezzo totale: " . $tot . '$';
                     } ?>
                 </td>
-                <td><button type='button' onclick='buyCart()' id='acquistaButton' <?php if (!isset($_SESSION['autenticato'])) {
+                <td><button type='button' onclick='buyCart()' id='acquistaButton' class='acquista-button'<?php if (!isset($_SESSION['autenticato'])) {
                                                                                         echo "style='display:none;'"; //se l'utente non è loggato vede solo la lista degli elementi
                                                                                     }  ?>>Buy
                 </button></td>

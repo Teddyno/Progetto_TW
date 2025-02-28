@@ -18,5 +18,6 @@ function openCart() { //refactoring name in toggle prima o poi
     if (cart.style.display != "none")
         cart.style.display = "none";
     else{
-        cart.style.display = "flex";}
+        cart.style.display = "block";
+    }
 }
