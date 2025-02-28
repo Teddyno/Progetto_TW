@@ -83,26 +83,27 @@
       overflow: hidden;
     }
     .scheda-prodotto {
+      background: white;
       width: 25%;
       height: 25%;
       max-width: 25%;
       max-height: 25%;
-      background: white;
       padding: 10px;
+      margin-top: 10px;
       margin-bottom: 10px;
-      border-radius: 5px;
+      border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
-      transition: all 0.3 ease;
+      transition: all 0.5 ease;
     }
 
     .scheda-prodotto:hover {
-      transform: scale(1.03);
+      transform: scale(1.05);
     }
 
     .scheda-prodotto img {
-      width: 100%;
-      border-radius: 5px;
+      width: 80%;
+      border-radius: 10px;
     }
     .scheda-prodotto h3 {
       font-size: 20px;
@@ -143,7 +144,7 @@
       opacity: 0;
     }
 
-    .tasti-prodotto:hover {
+    .tasti-prodotto:hover .scheda-prodotto:hover{
       opacity: 1;
     }
 
