@@ -28,7 +28,7 @@
 
         <div class="slideshow">
             <div class="slide"><img src="images/slideshow1.jpg"></div>
-            <div class="slide"><img src="images/slideshow2.jpg"></div>
+            <div class="slide"><img src="images/slideshow2.jpg"></div></a>
             <div class="slide"><img src="images/slideshow3.jpg"></div>
         </div>
 

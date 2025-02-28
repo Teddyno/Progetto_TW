@@ -36,7 +36,7 @@ function showProdotti(str) {
   <?php include 'header.php'; ?>
 
   <!-- Header della pagina Shop -->
-  <header>
+  <header class="header-titolo-shop">
     <h1>Shop</h1>
     <p>Benvenuto nel nostro negozio: trova l'attrezzatura, gli integratori e l'abbigliamento perfetto per il tuo allenamento!</p>
   </header>

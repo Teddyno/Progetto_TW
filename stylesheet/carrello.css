@@ -1,10 +1,7 @@
 .carrello-popup {
     position: fixed;
     right: 20px;
-    margin-top: 60px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
+    top: 100px;
     align-items: center;
     font-size: 90%;
     z-index: 1000;
@@ -62,7 +59,7 @@
     grid-row: 2 / 3;
 }
 
-.altro-prodotto-carrello{
+.quantita-prodotto-carrello{
     grid-column: 3 / 4;
     grid-row: 2 / 3;
 }
@@ -101,8 +98,8 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
-    margin-right: -20px;
     margin-top: 10px;
+    margin-left: 20px;
     transition: transform 0.2s ease;
 }
 
@@ -122,5 +119,24 @@
     font-size: 16px;
     font-weight: bold;
     text-align: right;
-    padding: 10px;
+    padding: 20px;
+}
+
+.acquista-button{
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #0460D9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 65px;
+    margin-top: 5px;
+    transition: all 0.2s ease;
+}
+
+.acquista-button:hover{
+    background: #022873;
+    transform: scale(1.03);
 }

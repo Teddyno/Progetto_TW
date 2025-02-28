@@ -262,9 +262,9 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                 <h4>Conferma Eliminazione Account</h4>
                 <p>Inserisci la tua password per procedere:</p>
                 <form id="conferma-password-form" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                    <input type="password" id="conferma_password" name="conferma_password" placeholder="Password" required />
-                    <button type="submit" name="delete_account" class="bottone-conferma">Conferma</button>
-                    <button type="button" id="annulla-conferma" class="bottone-annulla">Annulla</button>
+                    <input type="password" id="conferma_password" class="field-conferma-elimina" name="conferma_password" placeholder="Password" required />
+                    <button type="submit" name="delete_account" class="bottone-conferma-elimina">Conferma</button>
+                    <button type="button" id="annulla-conferma" class="bottone-annulla-elimina">Annulla</button>
                 </form>
             </div>
         </div>
