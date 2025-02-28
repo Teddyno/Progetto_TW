@@ -474,7 +474,7 @@
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.descrizione-non-registrati{
+.descrizione-non-registrati, .descrizione-admin{
     text-align: center;
     margin: 0px 35px;
 }
