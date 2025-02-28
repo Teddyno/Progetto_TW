@@ -15,6 +15,15 @@ if($categoria == "tutti"){
 
 while($row = pg_fetch_array($ret)) {
     echo "<div class='scheda-prodotto'>".
+    "<?php".
+        "if($admin) {?>".
+    "<div class='tasti-prodotto'>".
+    "<a href='eliminaProdotto.php?id=.$row['idProdotto'].&fotopath=.$row['fotopath']."' onclick='return confirm('Sei sicuro di voler eliminare questo prodotto?');'>".
+        "<img src="images/cestino.png"></a>".
+    "</div>".
+    "<?php".
+        "}".
+    "?>".
         "<img src=".$row['fotopath']." alt=".$row['nome'].">".
         "<h3>".$row['nome']."</h3>".
         "<p class='prezzo'>".$row['prezzo']."$</p>".
