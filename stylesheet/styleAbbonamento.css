@@ -19,6 +19,7 @@
     font-weight: bold;
     color: #022873;
     margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
 }
 
 .opzioni-abbonamento {
@@ -81,10 +82,11 @@
 
 /* Titolo della sezione */
 .titolo-trainer {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     color: #022873;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
 }
 
 /* Griglia dei personal trainer */
@@ -183,11 +185,10 @@
 }
 
 .titolo-servizi {
-    font-size: 28px;
+    font-size: 40px;
     font-weight: bold;
     color: #022873;
     margin-bottom: 25px;
-    text-transform: uppercase;
     letter-spacing: 1px;
     text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
 }
