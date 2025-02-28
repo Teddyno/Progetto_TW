@@ -6,6 +6,7 @@
         $accesso = $_SESSION['autenticato'];
         $nome = $_SESSION['nome'];
         $sesso = $_SESSION['sesso'];
+        $email = $_SESSION['email'];
     }
 ?>
 
@@ -53,6 +54,17 @@
                         else if($sesso == 'F') echo"<h1>$nome benvenuta in UniSA Gym</h1>";
                         else echo"<h1>$nome benvenuto/a in UniSA Gym</h1>";
                     ?>
+                    <?php
+                        if($email == 'admin@admin'){
+                    ?>
+                            <p class="descrizione-admin">
+                                Gestisci facilmente tutti i servizi di UnisaGym: iscrizioni, personal trainer, e 
+                                lo shop. Tutto ciò di cui hai bisogno per mantenere la palestra efficiente e 
+                                dinamica.
+                            </p>
+                    <?php
+                        }else{
+                    ?>
                         <p class="domandona" id="domanda">Ti sei allenato oggi?</p>
                         <div class="bottoni">
                             <button class="bottone-si" onclick="rispondiAllenamento(true)">Sì 💪</button>
@@ -60,15 +72,16 @@
                         </div>
                         <p id="messaggio-risposta" class="messaggio"></p>
                     <?php
+                        }
                     } else {
                     ?>
                         <h1>Benvenuto in UniSA Gym</h1>
-                        <p class="domandona" id="domanda">Ti sei allenato oggi?</p>
-                        <div class="bottoni">
-                            <button class="bottone-si" onclick="rispondiAllenamento(true)">Sì 💪</button>
-                            <button class="bottone-no" onclick="rispondiAllenamento(false)">No 😅</button>
-                        </div>
-                        <p id="messaggio-risposta" class="messaggio"></p>
+                        <p class="descrizione-non-registrati">
+                            UnisaGym è la palestra ideale per chi vuole migliorare la propria 
+                            forma fisica. Personal trainer esperti e uno shop contente i migliori prodotti sul 
+                            mercato ti aspettano qui, dove salute e benessere sono al centro 
+                            dell'attenzione. Sei pronto per raggiungere i tuoi obiettivi? 🚀
+                        </p>
                     <?php
                     }
                 ?>
