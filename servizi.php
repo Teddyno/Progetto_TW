@@ -75,7 +75,7 @@
                         $idPersonal = $rowP['id'];
             ?>
                     <!-- Trainer -->
-                        <div class="trainer">
+                        <div class="trainer" id="sezione-trainer">
                             <img class="foto-trainer" src="<?php echo $rowP['fotopath']?>" alt="Foto Profilo">
                             <p class="nome-trainer"><?php echo $rowP['nome']." ".$rowP['cognome']?></p>
                             <div class="orari-container">
