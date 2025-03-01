@@ -36,6 +36,7 @@
     </div>
 
     <script>
+        // Chiavi API Stripe pubblica
         const stripe = Stripe('pk_test_51Qx9iLADMdufFUoyCNSNoPAb8u4cSNMnAUDaclfYkPPujS9lp2TQuUaGKY1o5zPHkevSbvfGS2XJE1aqnPvzrtAR004N3ToiSJ'); // Sostituisci con la tua Public Key
 
         const elements = stripe.elements();
