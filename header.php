@@ -24,8 +24,7 @@
                 <a href="ChiSiamo.php" style="color:white">Chi Siamo</a>
                 <a onclick='openCart()'><img src='images/carrello.png' class="bottone-carrello" ></a>
                 <?php if($admin){ ?>
-                    <button class="bottone-logOut" onclick="logout()"> <img src="images/logout">
-                        <span class="testo-logout">Logout</span>
+                    <button class="bottone-log-out" onclick="logout()"> <img src="images/logout">
                     </button>
                 <?php
                     }else{
