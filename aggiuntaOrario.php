@@ -23,9 +23,12 @@
         $prepCont = pg_prepare($db, "idCorso", $sqlCont);
         $retCont = pg_execute($db, "idCorso", array($id));
 
+        $idcorso=0;
         //col while riscriviamo idcorso fino all'ultima riga, ovvero l'ultimo id inserito
         while($row = pg_fetch_assoc($retCont)){
-            $idcorso=$row['id'];
+            if($row['id']>$idcorso){
+                $idcorso=$row['id'];
+            }
         }
 
         if ($retCont) {
