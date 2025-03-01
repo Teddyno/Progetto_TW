@@ -52,6 +52,29 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         $sesso = $_POST['sesso'];
         $telefono = $_POST['telefono'];
 
+        $data_controllo = new DateTime($datanascita);
+        $data_oggi = new DateTime();
+        if($data_controllo > $data_oggi){
+            echo "<script>alert('Data di nascita non valida')</script>";
+            ?>
+            <script>
+                window.location.href='profilo.php';
+            </script>
+            <?php
+            exit();
+        }
+
+        $pattern = "/^\d{9,}$/";
+        if (!preg_match($pattern, $telefono)) {
+            echo "<script>alert('Il numero di telefono deve contenere almeno 9 cifre e solo numeri.')</script>";
+            ?>
+            <script>
+                window.location.href='profilo.php';
+            </script>
+            <?php
+            exit();
+        }
+
         $sql_update_dati = <<<_QUERY
             UPDATE iscritti 
             SET nome = $1, 
@@ -63,23 +86,37 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
         _QUERY;
 
         $prep_dati = pg_prepare($db, "updateProfiloDati", $sql_update_dati);
-
         $ret_dati = pg_execute($db, "updateProfiloDati", array($nome, $cognome, $datanascita, $sesso, $telefono, $email));
+
+        if ($ret_dati) {
+            ?>
+            <script>
+                window.location.href='profilo.php';
+            </script>
+            <?php
+            exit();
+        }
     }
 
     //MODIFICA PASSWORD E NICKNAME
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nickname'])){
         $email = $_SESSION['email'];
-        $nickname = $_POST['nickname'];
+        $nickname_inserito = $_POST['nickname'];
         $password = $_POST['password'];
+
+        $sql_get_current_nickname = "SELECT nickname FROM iscritti WHERE email = $1;";
+        $prep_get_current_nickname = pg_prepare($db, "getCurrentNickname", $sql_get_current_nickname);
+        $ret_get_current_nickname = pg_execute($db, "getCurrentNickname", array($email));
+        $current_nickname = pg_fetch_result($ret_get_current_nickname, 0, 'nickname');
 
         $check_nickname_sql = "SELECT COUNT(*) FROM iscritti WHERE nickname = $1 AND email != $2";
         $check_nickname_prep = pg_prepare($db, "checkNickname", $check_nickname_sql);
-        $check_nickname_ret = pg_execute($db, "checkNickname", array($nickname, $email));
+        $check_nickname_ret = pg_execute($db, "checkNickname", array($nickname_inserito, $email));
         $nickname_exists = pg_fetch_result($check_nickname_ret, 0, 0);
 
         if ($nickname_exists > 0) {
             echo "Errore: Il nickname è già in uso.";
+            $nickname = $current_nickname;
         } else {
             if(!empty($password)){
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -95,7 +132,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                 _QUERY;
                 
                 $prep_sicurezza = pg_prepare($db, "updateProfiloSicurezza", $sql_update_sicurezza);
-                $ret_sicurezza = pg_execute($db, "updateProfiloSicurezza", array($nickname, $hashed_password, $email));
+                $ret_sicurezza = pg_execute($db, "updateProfiloSicurezza", array($nickname_inserito, $hashed_password, $email));
             } else {
                 $sql_update_sicurezza = <<<_QUERY
                     UPDATE iscritti 
@@ -104,7 +141,16 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                 _QUERY;
 
                 $prep_sicurezza = pg_prepare($db, "updateProfiloSicurezza", $sql_update_sicurezza);
-                $ret_sicurezza = pg_execute($db, "updateProfiloSicurezza", array($nickname, $email));
+                $ret_sicurezza = pg_execute($db, "updateProfiloSicurezza", array($nickname_inserito, $email));
+                
+                if($ret_sicurezza){
+                    ?>
+                    <script>
+                        window.location.href='profilo.php';
+                    </script>
+                    <?php
+                    exit();
+                }
             }
         }
     }
@@ -157,7 +203,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                     <div class="col1">
                         <p><strong>Nome: </strong><?php echo"$nome" ?></p>
                         <p><strong>Cognome: </strong><?php echo"$cognome" ?></p>
-                        <p><strong>Data di Nascita: </strong><?php if(isset($datanascitaGiorni)) echo"$datanascitaGiorni" ?></p>
+                        <p><strong>Data di Nascita: </strong><?php echo"$datanascitaGiorni" ?></p>
                     </div>
                     <div class="col2">
                         <p><strong>Sesso: </strong><?php echo"$sesso" ?></p>
