@@ -105,35 +105,16 @@ function removeOrario(idpersonal,idcorso){
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                console.log(xhr.responseText);
                 const rigaEliminata = document.getElementById("riga-corso-"+idcorso);
-                rigaEliminata.remove();
-                
-                if(!contaCorsi(idpersonal)){
-                    const tabella = document.getElementById("tabella-orari-"+idpersonal);
-                    const rigaNessun = tabella.insertRow(1);
-                    rigaNessun.id = 'riga-nessun-corso-'+idpersonal;
-                    rigaNessun.innerHTML = "<td colspan='2'>Nessun corso disponibile</td>";
-                }
-            }
-        };
-        xhr.send('idcorso='+ idcorso);
-}
-
-function contaCorsi(idPersonal){
-    const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'contaOrari.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                
                 if(parseInt(xhr.responseText) == 0)
                 {
-                    return false;
-                }else{
-                    return true;
+                    rigaEliminata.id = 'riga-nessun-corso-'+idpersonal;
+                    rigaEliminata.innerHTML = "<td colspan='2'>Nessun corso disponibile</td>";
+                }
+                else{
+                    rigaEliminata.remove();
                 }
             }
         };
-        xhr.send('idpersonal='+ idPersonal);
+        xhr.send('idcorso='+ idcorso+'&idpersonal='+ idpersonal);
 }
