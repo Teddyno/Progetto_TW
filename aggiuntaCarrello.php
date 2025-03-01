@@ -1,9 +1,5 @@
 <?php
-/*
- * il carrello è un array di informazioni,
- * informaazioni che sono a loro volta array
- * in fine il carrello è salvato in stringa con encoder json nei cookie
- */
+
 session_start();
 
 // Connessione al database
@@ -49,6 +45,4 @@ $info = array(
     setcookie('cart', json_encode($cart), time() + 3600, "/");
 
     echo $quantita;
-    //header("Location: " . $_SERVER['HTTP_REFERER']);
-    
 ?>

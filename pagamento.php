@@ -129,8 +129,6 @@
                     }
                 }
             };
-            //const formData = new FormData(amount);
-            // Send the amount as JSON
             xhr.send('importo='+amount);
         }
 

@@ -1,15 +1,9 @@
 <div id="carrello" class="carrello-popup container-carrello" style="display: none;">
-    <!-- cart 
-    Questo script gestisce la funzionalità del carrello, consentendo agli utenti di visualizzare, aggiornare e acquistare gli articoli nel loro carrello.
-    I dati del carrello sono memorizzati nei cookie e gestiti utilizzando PHP e JavaScript.
-    -->
-    
     <table id="carrello-tbl" style="border-spacing: 18px;">
         <div class="titolo-carrello">
             <h1>Carrello</h1>
         </div>
         <div id="remove-popup">
-            <!-- Pulsante di chiusura per il popup del carrello. Utilizza metodo openCart presente nel file topmenu.php -->
             <button onclick="openCart()" class="bottone-chiusura-carrello">X</button>
         </div>
         <tbody>
@@ -56,7 +50,7 @@
                 echo "style='display:none;'";
             } else {
                 echo 'style="display: table-footer-group;"';
-            }   ?>> <!--Chiudo tag tfoot --> 
+            }   ?>>
             <tr id='riga-finale'>
                 <td id='totale-carrello'>
                     <?php
@@ -75,12 +69,6 @@
 <script>
 
 
-    /**
-     * Eseguito al caricamento della finestra.
-     * Questa funzione viene eseguita quando la finestra del browser è completamente caricata.
-     * Verifica la presenza del parametro confirmcheckout nell'URL.
-     * Se il parametro è presente, chiama la funzione svuotaCarrello() per svuotare il carrello nel frontend.
-     */
     window.onload = function() {
         var GET = <?php echo json_encode($_GET, JSON_HEX_TAG); ?>;
         if(GET.pagamentoEffettuato){
@@ -88,25 +76,12 @@
         } 
     };
 
-    /**
-     * Svuota il carrello nel frontend.
-     *
-     * Questa funzione aggiorna l'interfaccia utente per mostrare un carrello vuoto. 
-     * Imposta il contenuto del 'tbod' della tabella del carrello per visualizzare un messaggio che invita a scegliere una nuova destinazione
-     * e nasconde il 'tfoot'.
-     * 
-     */
     function svuotaCarrello() {
         document.getElementById('carrello-tbl').getElementsByTagName('tbody')[0].innerHTML = `
         <tr id='row-choose'><td>Carrello vuoto, vai allo shop</td></tr>`;
         document.getElementById('tfoot').style.display = 'none';
     }
-    /**
-     * Rimuove un elemento dal carrello utilizzando una chiamata AJAX.
-     * Questa funzione invia una richiesta HTTP POST al server per rimuovere un elemento specificato dal carrello.
-     * Se l'elemento viene rimosso con successo, l'interfaccia utente viene aggiornata per riflettere la modifica.
-     *
-     */
+
     function ajax_remove_cart(id) {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'rimuoviProdottoCarrello.php', true);
@@ -126,14 +101,7 @@
         };
         xhr.send('id=' + id);
     }
-    /**
-     * Aggiorna il prezzo totale nel carrello.
-     *
-     * Questa funzione calcola il prezzo totale degli articoli presenti nel carrello, sommando i valori degli attributi 
-     * 'data-prezzo' di ogni riga della tabella. Il prezzo totale viene poi visualizzato nell'elemento con ID total-cart.
-     * 
-     * La funzione viene chiamata sia da ajax_remove() che da ajax_add_cart().
-     */
+
     function updateCartTotal() {
         let totale = calcolaTotale();
         document.getElementById('prezzo-totale').textContent = 'Prezzo totale:  ' + totale + ' $';
@@ -149,11 +117,7 @@
         });
         return totale;
     }
-    /*
-     *Gestisce il processo di acquisto.
-     * Questa funzione controlla se l'utente è loggato. Se l'utente è loggato, codifica i dati del carrello in JSON e redireziona alla pagina di pagamento.
-     * Se l'utente non è loggato, apre il popup di login.
-     */
+
     function buyCart() {
         let totale = calcolaTotale();
         window.location.href = 'pagamento.php?totaleCarrello=' + totale;

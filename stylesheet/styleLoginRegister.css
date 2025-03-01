@@ -5,7 +5,6 @@ body {
     color: #0460D9;
 }
 
-/* Contenitore principale del login */
 .contenitore-login {
     width: 370px;
     margin: 130px auto 0px;
@@ -14,7 +13,6 @@ body {
     border-radius: 8px;
 }
 
-/* Titolo */
 .titolo-login {
     font-size: 24px;
     font-weight: bold;
@@ -22,20 +20,17 @@ body {
     margin-bottom: 20px;
 }
 
-/* Stile form */
 .form-login {
     display: flex;
     flex-direction: column;
 }
 
-/* Etichette */
 label {
     text-align: left;
     font-size: 14px;
     margin-bottom: 5px;
 }
 
-/* Input */
 input {
     width: 97%;
     padding: 10px;
@@ -44,7 +39,6 @@ input {
     border-radius: 5px;
 }
 
-/* Pulsante login */
 .pulsante-login {
     background: #0460D9;
     color: white;
@@ -54,12 +48,10 @@ input {
     border-color: #0443c3;
 }
 
-/* Effetto hover sul pulsante */
 .pulsante-login:hover {
     background: #0443c3;
 }
 
-/* Link extra (recupero password e registrazione) */
 .link-extra {
     margin-top: 15px;
     font-size: 14px;

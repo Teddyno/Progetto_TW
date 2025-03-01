@@ -104,7 +104,7 @@
             <button type="submit" class="pulsante-login">Accedi</button>
 
             <p class="link-extra">
-                <!--<a href="#">Password dimenticata?</a> | -->  Non sei ancora registrato? <a href="registrati.php">Registrati</a>
+                Non sei ancora registrato? <a href="registrati.php">Registrati</a>
             </p>
         </form>
     </div>
@@ -117,7 +117,7 @@
 
 
         if(!empty($nickname_email) && !empty($pass)){
-        //if(!empty($pass)|| !empty($nickname_email)){
+ 
             //chiama la funzione get_pwd che controlla
             //se username esiste nel DB. Se esiste, restituisce la password (hash), altrimenti restituisce false.
             $hash = get_pwd($nickname_email,$db);
@@ -126,7 +126,6 @@
             }
             else{
                 if(password_verify($pass, $hash)){
-                    //echo "<p>Login Eseguito con successo</p>";
                     //Se il login è corretto, inizializziamo la sessione
                     session_start();
                     $_SESSION['autenticato']=true;

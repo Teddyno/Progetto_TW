@@ -1,154 +1,149 @@
-/*<style>*/
-    /* Stile di base per il body */
-    body {
-      font-family: Arial, sans-serif;        
-      background-color: #f4f4f4;           /* Sfondo grigio chiaro */
-      text-align: center;                    /* Centra il testo globalmente */
-    }
 
-    /* Header della pagina */
-    .header-titolo-shop {
-      margin-top: 60px;
-      padding: 20px 0;
-    }
-    .header-titolo-shop h1 {
-      font-size: 32px;
-      font-weight: bold;
-      color: #283b96;
-      margin-bottom: 5px;
-    }
-    .header-titolo-shop p {
-      font-size: 18px;
-      opacity: 0.7;
-      margin-top: 10px;
-      text-align: center;
-    }
+body {
+  font-family: Arial, sans-serif;        
+  background-color: #f4f4f4;           
+  text-align: center;                    
+}
 
-    /* Layout principale dello shop: due colonne (barra dei filtri e area dei prodotti) */
-    .contenitore-shop {
-      width: 80%;
-      margin: 20px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      display: flex; /* Allinea e distribuisce elementi di un contenitore */
-      gap: 20px;
-      text-align: left;
-    }
 
-    /* Barra laterale dei filtri */
-    .barra-filtri {
-      width: 250px;
-      padding: 10px;
-      border-right: 1px solid #ddd;
-    }
-    .barra-filtri h3 {
-      margin-bottom: 15px;
-    }
-    .lista-filtri {
-      list-style: none;
-      padding: 0;
-    }
-    .lista-filtri li {
-      padding: 8px;
-      margin-bottom: 5px;
-      border: 1px solid #283b96;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .lista-filtri li a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    .lista-filtri li:hover {
-      background-color: #5063BF;
-      color: white;
-    }
+.header-titolo-shop {
+  margin-top: 60px;
+  padding: 20px 0;
+}
+.header-titolo-shop h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #283b96;
+  margin-bottom: 5px;
+}
+.header-titolo-shop p {
+  font-size: 18px;
+  opacity: 0.7;
+  margin-top: 10px;
+  text-align: center;
+}
 
-    /* Area dei prodotti */
-    .area-prodotti {
-      padding-left: 20px;
-    }
+.contenitore-shop {
+  width: 80%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  gap: 20px;
+  text-align: left;
+}
 
-    /* Layout a griglia: più prodotti per riga */
-    #griglia-prodotti {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      overflow: hidden;
-    }
-    .scheda-prodotto {
-      background: white;
-      width: 25%;
-      height: 25%;
-      max-width: 25%;
-      max-height: 25%;
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: all 0.3s ease;
-    }
+.barra-filtri {
+  width: 250px;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+.barra-filtri h3 {
+  margin-bottom: 15px;
+}
+.lista-filtri {
+  list-style: none;
+  padding: 0;
+}
+.lista-filtri li {
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #283b96;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.lista-filtri li a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.lista-filtri li:hover {
+  background-color: #5063BF;
+  color: white;
+}
 
-    .scheda-prodotto:hover {
-      transform: scale(1.03);
-    }
+.area-prodotti {
+  padding-left: 20px;
+}
 
-    .scheda-prodotto img {
-      width: 80%;
-      margin-top: 20px;
-      border-radius: 10px;
-    }
+#griglia-prodotti {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow: hidden;
+}
+.scheda-prodotto {
+  background: white;
+  width: 25%;
+  height: 25%;
+  max-width: 25%;
+  max-height: 25%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
 
-    .scheda-prodotto h3 {
-      font-size: 20px;
-      margin: 10px;
-      overflow: hidden; 
-      white-space: nowrap; 
-      text-overflow: ellipsis;
-    }
-    .prezzo {
-      font-size: 16px;
-      font-weight: bold;
-      color: #283b96;
-      margin: 10px auto 10px;
-    }
+.scheda-prodotto:hover {
+  transform: scale(1.03);
+}
 
-    .pulsante-aggiunta-carrello {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      background: #0460D9;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .pulsante-aggiunta-carrello:hover{
-      background: #022873;
-    }
+.scheda-prodotto img {
+  width: 80%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
 
-    .tasti-prodotto {
-      display: flex;
-      position: absolute;
-      gap: 10px;
-      top: -15px;
-      right: 5px;
-      opacity: 0;
-      transition: all 0.3 ease;
-      z-index: 5;
-      transition: all 0.3s ease;
-    }
+.scheda-prodotto h3 {
+  font-size: 20px;
+  margin: 10px;
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+}
+.prezzo {
+  font-size: 16px;
+  font-weight: bold;
+  color: #283b96;
+  margin: 10px auto 10px;
+}
 
-    .scheda-prodotto:hover .tasti-prodotto {
-          opacity: 1;
-    }
+.pulsante-aggiunta-carrello {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: #0460D9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pulsante-aggiunta-carrello:hover{
+  background: #022873;
+}
+
+.tasti-prodotto {
+  display: flex;
+  position: absolute;
+  gap: 10px;
+  top: -15px;
+  right: 5px;
+  opacity: 0;
+  transition: all 0.3 ease;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.scheda-prodotto:hover .tasti-prodotto {
+      opacity: 1;
+}
 

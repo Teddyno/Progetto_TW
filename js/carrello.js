@@ -1,11 +1,4 @@
 
-/**
- * Aggiunge un elemento al carrello utilizzando una chiamata AJAX.
- *
- * Questa funzione invia una richiesta HTTP POST al server per aggiungere un elemento specificato al carrello.
- * Se l'elemento viene aggiunto con successo, l'interfaccia utente viene aggiornata per riflettere la modifica.
- *
- */
 function ajaxAggiuntaCarrello(id, nome, prezzo, fotopath) {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'aggiuntaCarrello.php', true);
@@ -19,14 +12,7 @@ function ajaxAggiuntaCarrello(id, nome, prezzo, fotopath) {
     };
     xhr.send('id=' + id);
 }
-/**
- * Aggiunge una nuova riga al carrello e aggiorna l'interfaccia utente.
- *
- * Questa funzione aggiunge un nuovo elemento al carrello nel frontend. 
- * Se la riga di scelta è presente, viene rimossa e viene aggiunta una nuova riga per il nuovo elemento.
- * Aggiorna anche il totale del carrello.
- *
- */
+
 function updateCartAdd(id, nome, prezzo, fotopath,quantita) {
     //Se l'utente preme per la prima volta il button per l'aggiunta deve esser mostrato il footer della table
     let tfoot = document.getElementById('tfoot');
@@ -43,9 +29,7 @@ function updateCartAdd(id, nome, prezzo, fotopath,quantita) {
             tbody.appendChild(riga);
             tbody = document.getElementById('carrello-tbl').getElementsByTagName('tfoot')['0'].style.display = '';
             riga.style.display = '';
-            //Funzione definita nel file cart.php
         } else {
-            //se verifica è true cioe l'elemento gia è contenuto nel carrello allora non fa nulla;
             if (!controllaId(id)) {
                 tbody.appendChild(riga);
                 tbody = document.getElementById('carrello-tbl').getElementsByTagName('tfoot')['0'].style.display = '';
@@ -82,10 +66,6 @@ function updateCartTotal() {
     document.getElementById('totale-carrello').textContent = 'Prezzo totale:  ' + totale + ' $';
 }
 
-/**
-* Crea una nuova riga per il carrello con le stesse caratteristiche di quelle 
-* presenti nel carrello
-*/
 
 function createRow(id, nome, prezzo, fotopath,quantita) {
     const newRow = document.createElement('tr');

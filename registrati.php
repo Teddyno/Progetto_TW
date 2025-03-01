@@ -80,9 +80,6 @@
                 $repassword = "";
             }
             else{
-                // Se la password è stata inserita e la password di conferma coincide, proseguiamo
-                //ANDREBBERO INSERITI ANCHE I CONTROLLI DEGLI ALTRI VALORI OBBLIGATORI
-                //....
 
                 require_once "db.php";
 
