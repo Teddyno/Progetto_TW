@@ -12,7 +12,7 @@
         $ret = pg_execute($db, "removeOrario", array($idcorso));
 
         if ($ret) {
-            echo "Orario Rimosso con Successo";
+            echo 'cancellazione avvenuta con successo';
         } else {
             echo "Error: " . pg_last_error($db);
         }

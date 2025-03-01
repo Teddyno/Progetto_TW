@@ -100,7 +100,6 @@ function creaRigaScelta(idpersonal){
 }
 
 function removeOrario(idpersonal,idcorso){
-    
     const xhr = new XMLHttpRequest();
         xhr.open('POST', 'eliminaOrario.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -110,11 +109,31 @@ function removeOrario(idpersonal,idcorso){
                 const rigaEliminata = document.getElementById("riga-corso-"+idcorso);
                 rigaEliminata.remove();
                 
-                
-                /* const nuovaRiga = tabella.insertRow(1);
-                nuovaRiga.innerHTML = '<td>'+giorno+'</td><td>'+orarioInizio+' - '+orarioFine+'</td>';
-                setBottoneBase(id);  */
+                if(!contaCorsi(idpersonal)){
+                    const tabella = document.getElementById("tabella-orari-"+idpersonal);
+                    const rigaNessun = tabella.insertRow(1);
+                    rigaNessun.id = 'riga-nessun-corso-'+idpersonal;
+                    rigaNessun.innerHTML = "<td colspan='2'>Nessun corso disponibile</td>";
+                }
             }
         };
         xhr.send('idcorso='+ idcorso);
+}
+
+function contaCorsi(idPersonal){
+    const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'contaOrari.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                
+                if(parseInt(xhr.responseText) == 0)
+                {
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        };
+        xhr.send('idpersonal='+ idPersonal);
 }
