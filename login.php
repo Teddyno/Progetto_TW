@@ -130,6 +130,13 @@
                     session_start();
                     $_SESSION['autenticato']=true;
                     get_dati($nickname_email,$db);
+                    if($nickname_email == 'admin'){
+                        ?>
+                        <script>
+                            window.location.href = "index.php";
+                        </script>
+                        <?php
+                    }
     ?>
                 <script>
                     window.location.href = "profilo.php";
