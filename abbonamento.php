@@ -117,7 +117,7 @@
             ?>                     
                                 <?php if($admin){ ?>
                                     <tr id='aggiunta-orario-<?php echo $idPersonal?>'>
-                                        <td id='aggiunta-orario-td-<?php echo $idPersonal?>' onclick="aggiuntaOrari(<?php echo $idPersonal?>)" colspan='2'><button>Aggiungi Orario</button></td>
+                                        <td id='aggiunta-orario-td-<?php echo $idPersonal?>' onclick="aggiuntaOrari(<?php echo $idPersonal?>)" colspan='2'><button  class="bottone-aggiungi-orario">Aggiungi Orario</button></td>
                                     </tr>
                                 <?php } ?>       
                                 </table>

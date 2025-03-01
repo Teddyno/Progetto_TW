@@ -171,12 +171,12 @@
 
             <div class="container-provvisorio">
                 <div class="promozione-tapis-roulant">
-                    <img src="images/shop/tapisroulant.jpg" alt="Tapis Roulant">
+                    <img src="images/shop/biscotti_proteici.jpg" alt="Tapis Roulant">
                     <div class="contenuto-destra">
                         <h2>🚀 Offerta Imperdibile! 🚀</h2>
-                        <p>Allenati come un professionista con il nostro <br>tapis roulant di ultima generazione!</p>
+                        <p>Biscotti proteici croccanti, arricchiti con proteine <br>di alta qualità per un snack delizioso e nutriente!</p>
                         <p class="prezzo">
-                            Solo <span class="vecchio-prezzo">€499</span> <span class="nuovo-prezzo">€299!</span>
+                            Solo <span class="vecchio-prezzo">€12</span> <span class="nuovo-prezzo">€4!</span>
                         </p>
                         <a href="shop.php" class="pulsante-acquisto">Acquista Ora!</a>
                     </div>

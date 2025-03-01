@@ -1,6 +1,6 @@
 const sezioni = document.querySelectorAll(".section-profilo");
 const linkNavigazione = document.querySelectorAll(".indice a");
-let current = null;
+let current = "section1";
 
 
 function attivaSezioni(linkNavigazione, current) {
@@ -20,10 +20,10 @@ function controllaVisibilita(sezioni, current, scroll) {
     let minimo = Infinity;
 
     sezioni.forEach((section) => {
-        const sezioneTop = section.offsetTop;
+        const sezioneTop = section.offsetTop-510;
         const distanza = Math.abs(scroll - sezioneTop);
 
-        if (distanza < minimo && scroll >= sezioneTop - (window.innerHeight*0.8) && scroll <= sezioneTop + section.offsetHeight) {
+        if (distanza < minimo && scroll >= sezioneTop) {
             minimo = distanza;
             sezioneVicina = section;
         }
@@ -63,8 +63,6 @@ linkNavigazione.forEach(link => {
 
 window.addEventListener("scroll", () => {
     const scroll = window.scrollY;
-    current = controllaVisibilita(sezioni, current, scroll);
-
     if (scroll == 0) {
         current = "section1";
     } else {
