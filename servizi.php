@@ -163,25 +163,6 @@
 
                     <button type="submit" class="pulsante-aggiunta" id="bottone-aggiunta">Aggiungi</button>
                 </form>
-            </div>
-            <div class="contenitore-modifica-trainer" >
-                <h1>Modifica</h1>
-                <form class="form-modifica" action="" method="POST" enctype="multipart/form-data">
-                    <label for="nome">nome</label>
-                    <input type="text" id="nome" name="nome" value="" placeholder="Inserisci nome" required>
-
-                    <label for="cognome">cognome</label>
-                    <input type="text" id="cognome" name="cognome" placeholder="Inserisci cognome" required>
-
-                    <label for="foto">foto</label>
-                    <div id="drop-area">
-                        <h2>Trascina la foto qui</h2>
-                        <p id="file-list">Oppure clicca per selezionare un file</p>
-                        <input type="file" id="foto" name="foto">
-                    </div>
-
-                    <button type="submit" class="pulsante-modifica" id="bottone-modifica">modifica</button>
-                </form>
             </div> 
         </div>    
         <?php
