@@ -66,6 +66,8 @@ body {
 
 .area-prodotti {
   padding-left: 20px;
+  max-width: 800px;
+  margin-right: 20px;
 }
 
 #griglia-prodotti {
