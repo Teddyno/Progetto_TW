@@ -24,7 +24,7 @@
     
     ?>
     <script>
-        window.location.href = "abbonamento.php";
+        window.location.href = "servizi.php";
     </script>
     <?php
 

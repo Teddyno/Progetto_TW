@@ -16,7 +16,7 @@
         <link rel="stylesheet" type="text/css" href="styleSheet/styleAbbonamento.css">
         <link rel="stylesheet" type="text/css" href="stylesheet/FormGestioneTrainer.css">
         <link rel="ICON" href="images/icon.ico" type="image/X-ixon">
-        <title>UniSa Gym - Abbonamento</title>
+        <title>UniSa Gym - Servizi</title>
     </head>
     <body background-color:rgb(238, 238, 238);>
         <?php include 'header.php'; ?>
