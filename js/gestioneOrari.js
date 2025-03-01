@@ -31,6 +31,7 @@ function addOrario(form,id){
         };
         xhr.send('id='+ id+'&giorno='+giorno+'&orarioInizio='+orarioInizio+'&orarioFine='+orarioFine);
 }
+
 function setBottoneBase(id){
     const td = document.getElementById("aggiunta-orario-td-"+id);
     td.innerHTML='<button>Aggiungi Orario</button>';
@@ -95,4 +96,23 @@ function creaRigaScelta(id){
             form.appendChild(btnInvio);
 
     return nuovaRiga;
+}
+
+function removeOrario(idcorso,idpersonal){
+    
+    const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'eliminaOrario.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+                const rigaEliminata = document.getElementById("riga-corso-"+idcorso);
+                rigaEliminata.remove();
+
+                /* const nuovaRiga = tabella.insertRow(1);
+                nuovaRiga.innerHTML = '<td>'+giorno+'</td><td>'+orarioInizio+' - '+orarioFine+'</td>';
+                setBottoneBase(id);  */
+            }
+        };
+        xhr.send('idcorso='+ idcorso);
 }
