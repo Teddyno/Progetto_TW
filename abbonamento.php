@@ -28,25 +28,25 @@
                 <div class="abbonamento">
                     <span class="durata">12</span>
                     <p class="testo-mesi">Mesi</p>
-                    <p class="prezzo">€99</p>
+                    <p class="prezzo">€125</p>
                 </div>
 
                 <div class="abbonamento">
                     <span class="durata">6</span>
                     <p class="testo-mesi">Mesi</p>
-                    <p class="prezzo">€59</p>
+                    <p class="prezzo">€100</p>
                 </div>
 
                 <div class="abbonamento">
                     <span class="durata">3</span>
                     <p class="testo-mesi">Mesi</p>
-                    <p class="prezzo">€29</p>
+                    <p class="prezzo">€65</p>
                 </div>
 
                 <div class="abbonamento">
                     <span class="durata">1</span>
                     <p class="testo-mesi">Mese</p>
-                    <p class="prezzo">€15</p>
+                    <p class="prezzo">€25</p>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
                                         if($admin){
                                             echo "<tr id='riga-corso-$idCorso'>
                                                 <td>$giorno</td>
-                                                <td>$orainizio - $orafine<button class='bottone-elimina-orario' onclick='removeOrario($idCorso,$idPersonal)'>-</button></td>
+                                                <td>$orainizio - $orafine<button class='bottone-elimina-orario' onclick='removeOrario($idPersonal,$idCorso)'>-</button></td>
                                             </tr>";
                                         }else{
                                             echo "<tr id='riga-corso-$idCorso'>
@@ -117,7 +117,7 @@
             ?>                     
                                 <?php if($admin){ ?>
                                     <tr id='aggiunta-orario-<?php echo $idPersonal?>'>
-                                        <td id='aggiunta-orario-td-<?php echo $idPersonal?>' onclick="aggiuntaOrari(<?php echo $idPersonal?>)" colspan='2'><button>Aggiungi Orario</button></td>
+                                        <td id='aggiunta-orario-td-<?php echo $idPersonal?>' onclick="aggiuntaOrari(<?php echo $idPersonal?>,<?php echo $idCorso?>)" colspan='2'><button>Aggiungi Orario</button></td>
                                     </tr>
                                 <?php } ?>       
                                 </table>

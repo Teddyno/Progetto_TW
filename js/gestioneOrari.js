@@ -1,13 +1,13 @@
-function aggiuntaOrari(id){
-    const tr = document.getElementById("aggiunta-orario-"+id);
-    const td = document.getElementById("aggiunta-orario-td-"+id);
+function aggiuntaOrari(idpersonal,idCorso){
+    const tr = document.getElementById("aggiunta-orario-"+idpersonal);
+    const td = document.getElementById("aggiunta-orario-td-"+idpersonal);
     td.remove();
 
-    const nuovaRiga = creaRigaScelta(id);
+    const nuovaRiga = creaRigaScelta(idpersonal);
     tr.appendChild(nuovaRiga);
 }
 
-function addOrario(form,id){
+function addOrario(form,idPersonal){
 
     const giorno = form.giorno.value;
     const orarioInizio = form.orarioInizio.value;
@@ -18,35 +18,36 @@ function addOrario(form,id){
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                console.log(xhr.responseText);
-                const tabella = document.getElementById("tabella-orari-"+id);
-                const rigaNessun = document.getElementById("riga-nessun-corso-"+id);
+                idcorso = parseInt(xhr.responseText);
+                const tabella = document.getElementById("tabella-orari-"+idPersonal);
+                const rigaNessun = document.getElementById("riga-nessun-corso-"+idPersonal);
                 if(rigaNessun){
                     rigaNessun.remove();
                 }
                 const nuovaRiga = tabella.insertRow(1);
-                nuovaRiga.innerHTML = '<td>'+giorno+'</td><td>'+orarioInizio+' - '+orarioFine+'</td>';
-                setBottoneBase(id);
+                nuovaRiga.id = 'riga-corso-'+idcorso+'';
+                nuovaRiga.innerHTML = '<td>'+giorno+'</td><td>'+orarioInizio+' - '+orarioFine+'<button class=\'bottone-elimina-orario\' onclick=\'removeOrario('+idPersonal+','+idcorso+')\'>-</button></td>';
+                setBottoneBase(idPersonal);
             }
         };
-        xhr.send('id='+ id+'&giorno='+giorno+'&orarioInizio='+orarioInizio+'&orarioFine='+orarioFine);
+        xhr.send('id='+ idPersonal+'&giorno='+giorno+'&orarioInizio='+orarioInizio+'&orarioFine='+orarioFine);
 }
 
-function setBottoneBase(id){
-    const td = document.getElementById("aggiunta-orario-td-"+id);
-    td.innerHTML='<button>Aggiungi Orario</button>';
-    td.setAttribute('onclick','aggiuntaOrari('+id+')');
+function setBottoneBase(idPersonal){
+    const td = document.getElementById("aggiunta-orario-td-"+idPersonal);
+    td.innerHTML="<button class='bottone-aggiungi-orario'>Aggiungi Orario</button>";
+    td.setAttribute('onclick','aggiuntaOrari('+idPersonal+')');
 }
 
 
-function creaRigaScelta(id){
+function creaRigaScelta(idpersonal){
     const nuovaRiga = document.createElement("td");
-    nuovaRiga.id = 'aggiunta-orario-td-'+id;
+    nuovaRiga.id = 'aggiunta-orario-td-'+idpersonal;
     nuovaRiga.setAttribute('colspan', '2');
 
         const form = document.createElement("form");
         form.setAttribute('action', 'javascript:;');
-        form.setAttribute('onsubmit', 'addOrario(this,'+id+')');
+        form.setAttribute('onsubmit', 'addOrario(this,'+idpersonal+')');
         nuovaRiga.appendChild(form);
 
             const inputGiorni = document.createElement("select");
@@ -98,7 +99,7 @@ function creaRigaScelta(id){
     return nuovaRiga;
 }
 
-function removeOrario(idcorso,idpersonal){
+function removeOrario(idpersonal,idcorso){
     
     const xhr = new XMLHttpRequest();
         xhr.open('POST', 'eliminaOrario.php', true);
@@ -108,7 +109,8 @@ function removeOrario(idcorso,idpersonal){
                 console.log(xhr.responseText);
                 const rigaEliminata = document.getElementById("riga-corso-"+idcorso);
                 rigaEliminata.remove();
-
+                
+                
                 /* const nuovaRiga = tabella.insertRow(1);
                 nuovaRiga.innerHTML = '<td>'+giorno+'</td><td>'+orarioInizio+' - '+orarioFine+'</td>';
                 setBottoneBase(id);  */
