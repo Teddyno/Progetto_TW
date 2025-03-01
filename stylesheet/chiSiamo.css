@@ -18,7 +18,9 @@ body {
 .title h4 {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
     background: none;
-    color: #0460D9;
+    color: #022873;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
     font-size: 50px;
     font-weight: bold;
     text-transform: uppercase;
@@ -48,7 +50,9 @@ body {
     font-size: 25px; 
     margin: 20px auto;
     margin-bottom: 0;
-    color: rgba(0, 0, 0, 0.7);
+    color: #022873;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
     text-align: center;
     font-weight: bold;
     max-width: 1100px;
@@ -256,12 +260,18 @@ body {
     font-size: 50px;
     font-weight: bold;
     transition: transform 0.2s ease-in-out; 
+    color: #022873;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
 }
 
 .stat p {
     font-size: 20px;
     text-transform: uppercase;
     font-weight: lighter;
+    color: #022873;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
 }
 
 .sedi-text {
@@ -278,6 +288,9 @@ body {
     font-size: 45px;
     font-weight: bold;
     margin-bottom: 0;
+    color: #022873;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
 }
 
 .sedi-text p {
@@ -288,6 +301,8 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     color: rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
     text-align: center;
     font-weight: bold;
     max-width: 1100px;
@@ -410,6 +425,19 @@ body {
     padding: 15px;
     border-radius: 8px;
     width: 300px;
+}
+
+.branch h5 {
+    font-size: 30px;
+    color: #022873;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
+}
+
+.branch p strong {
+    color: #022873;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 40, 115, 0.2);
 }
 
 @media (max-width: 768px) {
