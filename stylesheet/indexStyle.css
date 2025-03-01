@@ -96,13 +96,13 @@
 }
 
 .container-a-meta {
-    margin-top: 30px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
     max-width: 1800px;
-    margin: auto;
+    margin: 40px auto 40px;
     padding: 20px;
 }
 

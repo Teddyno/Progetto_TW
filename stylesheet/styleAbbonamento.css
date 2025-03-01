@@ -34,7 +34,7 @@
     width: 400px;
     display: inline-block;
     margin: 15px;
-    background-color: #0460D9;
+    background: linear-gradient(135deg, #0460D9, #003F9A);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 8px;
@@ -100,17 +100,17 @@
 /* Singolo box del trainer */
 .trainer {
     width: 250px;
-    background: #0460D9;
+    background: linear-gradient(135deg, #0460D9, #003F9A);
     padding: 20px;
     border-radius: 15px;
     text-align: center;
     color: white;
     margin: 10px;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .trainer:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 /* Immagine del trainer */
@@ -129,18 +129,6 @@
     margin-top: 10px;
 }
 
-/* Sezione icone social */
-.social-trainer {
-    margin: 5px 0;
-}
-
-.social-trainer a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    margin: 0 5px;
-}
-
 .orari-container {
     margin-top: 10px;
     background: #ffd700;
@@ -154,9 +142,11 @@
 }
 
 .tabella-orari th, .tabella-orari td {
-    border: 0px solid #FFF;
+    font-family: "Monaco", monospace;
+    border: 2px solid #FFD700;
+    border-radius: 6px;
     padding: 5px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .tabella-orari th {
@@ -165,7 +155,7 @@
 }
 
 .tabella-orari td {
-    background: white;
+    background: rgb(255, 255, 255);
     color: black;
 }
 
@@ -313,4 +303,22 @@
 
 .bottone-elimina-orario{
     float:right;
+    border: none;
+    background-color: #0460D9;
+    border-radius: 4px;
+    color: white;
+}
+
+.bottone-aggiungi-orario{
+    width: 100%;
+    background: linear-gradient(135deg, #0460D9, #003F9A);
+    color: white;
+    height: 30px;
+    border: none;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+}
+
+.bottone-aggiungi-orario:hover{
+    transform: scale(1.03);
 }
