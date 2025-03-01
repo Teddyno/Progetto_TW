@@ -189,19 +189,19 @@
      
         <section class="branches">
                 <div class="branch">
-                    <h3>Nocera Superiore</h3>
+                    <h5>Nocera Superiore</h5>
                     <p><strong>Numero Telefonico</strong><br>3398777704</p>
                     <p><strong>Indirizzo</strong><br>Via Pareti 167</p>
                     <p><strong>Email</strong><br>info@unisagym.it</p>
                 </div>
                 <div class="branch">
-                    <h3>Angri</h3>
+                    <h5>Angri</h5>
                     <p><strong>Numero Telefonico</strong><br>33333333333</p>
                     <p><strong>Indirizzo</strong><br>Via Nazionale 174</p>
                     <p><strong>Email</strong><br>info@unisagym.it</p>
                 </div>
                 <div class="branch">
-                    <h3>Fisciano</h3>
+                    <h5>Fisciano</h5>
                     <p><strong>Numero Telefonico</strong><br>3334343434</p>
                     <p><strong>Indirizzo</strong><br>Via Lorem Ipsum 174</p>
                     <p><strong>Email</strong><br>info@unisagym.it</p>
