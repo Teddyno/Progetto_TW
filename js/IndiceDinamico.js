@@ -20,7 +20,7 @@ function controllaVisibilita(sezioni, current, scroll) {
     let minimo = Infinity;
 
     sezioni.forEach((section) => {
-        const sezioneTop = section.offsetTop-510;
+        const sezioneTop = section.offsetTop-350;
         const distanza = Math.abs(scroll - sezioneTop);
 
         if (distanza < minimo && scroll >= sezioneTop) {
@@ -43,7 +43,7 @@ function scrollToSection(event) {
     const targetSezione = document.getElementById(targetId);
 
     if (targetSezione) {
-        const distanzaTop = targetSezione.offsetTop - 90; //serve per non farsi coprire dall'header
+        const distanzaTop = targetSezione.offsetTop - 80; //serve per non farsi coprire dall'header
         window.scrollTo({
             top: distanzaTop,
             behavior: "smooth"

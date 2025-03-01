@@ -126,8 +126,12 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                 $ret_delete_user = pg_execute($db, "deleteUser", array($id));
 
                 if ($ret_delete_user) {
-                    session_destroy(); 
-                    header("Location: index.php"); 
+                    session_destroy();
+                    ?>
+                    <script>
+                        window.location.href='index.php';
+                    </script>
+                    <?php 
                     exit();
                 }
             } else {
