@@ -124,8 +124,6 @@
                             </div>
             <?php if($admin){ ?>
                             <div class="azioni-trainer">
-                                <a href="<?php echo $_SERVER['PHP_SELF'] ?>?idModifica=<?php echo $idPersonal; ?>">
-                                    <img src="images/modify.png"></a>
                                 <a href="eliminaTrainer.php?id=<?php echo $idPersonal; ?>&fotopath=<?php echo $rowP['fotopath']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo trainer?');">
                                     <img src="images/cestino.png"></a>
                             </div>
