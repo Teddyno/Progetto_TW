@@ -119,16 +119,16 @@
         <div class="container-offerte">
             <h1>Le Nostre Offerte</h1>
             <div class="container-offerte-card">
-                <a class="offerta-card" id="codice-sconto">
-                    <p>🐚 NUOVO CODICE SCONTO!</p>
-                    <p class="descrizione-offerta">Usa il codice "PAGURO2024" per ottenere il 10% di sconto sul tuo prossimo abbonamento</p>
-                    <p class="descrizione-offerta">Clicca per COPIARE il codice</p>
+                <a class="offerta-card" href="servizi.php#sezione-trainer">
+                    <p>💪 PERSONAL TRAINER GRATUITO!</p>
+                    <p class="descrizione-offerta">La prima lezione con un tuo personal trainer a scelta è gratuito!<br></p>
+                    <p class="descrizione-offerta">Scopri gli orari e approfittane!</p>
                     <div class="angolo">
                         <div class="freccia-offerta">→</div>
                     </div>
                 </a>
 
-                <a class="offerta-card" href="abbonamento.php#sezione-abbonamento">
+                <a class="offerta-card" href="shop.php">
                     <p>💰 SCONTO DEL 20%!</p>
                     <p class="descrizione-offerta">Ottieni il 20% di sconto sull'abbonamento da 12 mesi</p>
                     <p class="descrizione-offerta">Affrettati, scade tra 2 giorni!</p>
