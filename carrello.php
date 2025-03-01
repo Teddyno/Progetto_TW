@@ -56,6 +56,9 @@
                     <?php
                     if (isset($carrello)) {
                         echo "Prezzo totale: " . $tot . '€';
+                        if(!$accesso){
+                            echo "<div id='container-accesso-carrello'><a href='login.php' id='testo-accesso-carrello'>accedi per completare l'acquisto</a></div>";
+                        }
                     } ?>
                 </td>
                 <td><button type='button' onclick='buyCart()' id='acquistaButton' class='acquista-button'<?php if (!isset($_SESSION['autenticato'])) {
