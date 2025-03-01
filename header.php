@@ -3,8 +3,12 @@
     session_start();
 
     $accesso = FALSE;
+    $admin = FALSE;
     if(isset($_SESSION['autenticato'])){
         $accesso = $_SESSION['autenticato'];
+        if(isset($_SESSION['admin'])){
+            $admin = $_SESSION['admin'];  
+        }
     }
 
     require_once 'carrello.php';
@@ -19,22 +23,28 @@
                 <a href="shop.php" style="color:white">Shop</a>
                 <a href="ChiSiamo.php" style="color:white">Chi Siamo</a>
                 <a onclick='openCart()'><img src='images/carrello.png' class="bottone-carrello" ></a>
-                <!-- <button class='btn' id='cartbtn' >". 
-                    class='fa-solid fa-cart-shopping fa-beat'-->
-                
-                <!-- </button> -->
+                <?php if($admin){ ?>
+                    <button class="bottone-logOut" onclick="logout()"> <img src="images/logout">
+                        <span class="testo-logout">Logout</span>
+                    </button>
                 <?php
-                    if($accesso){
-                        echo "<a href=\"profilo.php\">";
-                    } else {
-                        echo "<a href=\"login.php\">";
-                    }
+                    }else{
+                        if($accesso){
+                            echo "<a href=\"profilo.php\">";
+                        } else {
+                            echo "<a href=\"login.php\">";
+                        }
                 ?>
-                <img src="images/icona_profilo.png" height="20px"></a>
-                
+                        <img src="images/icona_profilo.png" height="20px"></a>
+                <?php } ?>
             </div>
         </div>
-
+        
+        <script>
+            function logout(){
+                window.location.href = "logout.php";
+            }
+        </script>
         <script src="js/header.js"></script>
 
     </header>
