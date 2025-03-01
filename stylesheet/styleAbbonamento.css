@@ -301,7 +301,7 @@
     margin-bottom: 20px;
 }
 
-.bottone-elimina-orario{
+.bottone-elimina-orario, #btnInvio{
     float:right;
     border: none;
     background-color: #0460D9;
