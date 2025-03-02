@@ -1,11 +1,8 @@
 <?php
-$host = "gruppo29-gruppo29.l.aivencloud.com";
-$port = '10558';
-$database = 'defaultdb';
-$username = 'avnadmin';
-$password = 'AVNS_ywVAc7iPi-LmV5zmVBT';
-
-$connection_string = "host=$host port=$port dbname=$database user=$username password=$password";
+    $host = "localhost";
+    $port = '5432';
+    $db_name = "gruppo29";
+    $user = "www";
+    $password = "tw2024";
+    $connection_string = "host=$host dbname=$db_name user=$user password=$password";
 ?>
-
-

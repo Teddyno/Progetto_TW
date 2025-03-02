@@ -203,7 +203,7 @@ $db = pg_connect($connection_string) or die('Impossibile connettersi al database
                     <div class="col1">
                         <p><strong>Nome: </strong><?php echo"$nome" ?></p>
                         <p><strong>Cognome: </strong><?php echo"$cognome" ?></p>
-                        <p><strong>Data di Nascita: </strong><?php echo"$datanascitaGiorni" ?></p>
+                        <p><strong>Data di Nascita: </strong><?php if(isset($datanascitaGiorni)) echo $datanascitaGiorni ?></p>
                     </div>
                     <div class="col2">
                         <p><strong>Sesso: </strong><?php echo"$sesso" ?></p>
