@@ -121,7 +121,7 @@
             <div class="container-offerte-card">
                 <a class="offerta-card" href="servizi.php#sezione-trainer">
                     <p>💪 PERSONAL TRAINER GRATUITO!</p>
-                    <p class="descrizione-offerta">La prima lezione con un tuo personal trainer a scelta è gratuito!<br></p>
+                    <p class="descrizione-offerta">La prima lezione con un tuo personal trainer a scelta è gratuita!<br></p>
                     <p class="descrizione-offerta">Scopri gli orari e approfittane!</p>
                     <div class="angolo">
                         <div class="freccia-offerta">→</div>
